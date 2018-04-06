@@ -1,0 +1,31 @@
+---
+layout: post
+title: 'Google App Engine: Lanzar un MapReduce desde un Cron (Segunda Parte)'
+date: 2012-05-19 05:29:18.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- gae
+- google app engine
+- herramientas
+- python
+tags: []
+meta:
+  _edit_last: '3'
+author: julio
+---
+<p>Hace más de un año, <a href="http://developing.frogtek.org/author/alberto/" target="_blank">Alberto</a> nos explicaba cómo lanzar un <a href="http://developing.frogtek.org/2011/01/18/gae-mapreduce-cron/" target="_blank">MapReduce desde un Cron en Google App Engine</a>. Desde entonces ha llovido mucho. <a href="http://code.google.com/p/googleappengine/wiki/SdkReleaseNotes" target="_blank">Google App Engine</a> ha evolucionado y madurado, trayéndonos mejor documentación y una comunidad más activa.</p>
+<p>Gracias a ello he podido encontrar <a href="http://stackoverflow.com/questions/6228802/how-to-start-mapreduce-job-from-cron-on-gae-python" target="_blank">una solución</a> más sencilla que la que os ofrecímos en nuestro último <strong>post</strong> al respecto. Digamos que queda mucho más sencillo :P</p>
+<pre lang="python">from mapreduce import control
+ 
+mapreduce_id = control.start_map(
+"My Mapper",
+"main.my_mapper",
+"mapreduce.input_readers.DatastoreInputReader",
+{"entity_kind": "models.MyEntity"},
+shard_count=10)</pre>
+<p>Cuidado con el <strong><em>shard_count</em></strong>. Aseguraos que corresponde con el que tenéis configurado en vuestra aplicación.</p>
+<p>&nbsp;</p>

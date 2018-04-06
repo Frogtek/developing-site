@@ -1,0 +1,89 @@
+---
+layout: post
+title: 'Google App Engine: Lanzar un MapReduce desde un cron'
+date: 2011-01-18 14:40:36.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- eficiencia
+- gae
+- google app engine
+- herramientas
+- python
+tags: []
+meta:
+  _edit_last: '7'
+  short_url: http://bit.ly/elOLTt
+author: guillermo
+---
+<p>Con las antiguas <strong>limitaciones</strong> del GAE, la ejecución de un <strong>proceso batch</strong> (generación de informes, actualización de una columna en todas las entidades de un tipo...) requería montar complejos sistemas diviendo nuestro proceso en pequeñas partes que serían procesadas por tareas enlazadas.</p>
+<p>Desde hace poco (<a href="http://googleappengine.blogspot.com/2010/12/happy-holidays-from-app-engine-team-140.html">SDK 1.4.0.</a>) el límite de tiempo para las peticiones en segundo plano (tareas y cron) aumentó:  ¡<strong>de 30 segundos a</strong> <strong>10 minutos</strong>! , por lo que,  la mayoría de los procesos antes mencionados podrían ejecutarse sin mayor problema.</p>
+<p>Sin embargo, cuando lo que necesitamos es recorrer todas las entidades de un modelo y  actualizarlas/operar con ellas, mapreduce nos aporta algunas ventajas:</p>
+<ul>
+<li><strong>Comodidad</strong> a la hora de definir un nuevo script (mapreduce handler).</li>
+<li><strong>Eficiencia</strong>: mapreduce se ejecuta atutomáticamente con un número configurable de <strong>shards</strong>.</li>
+<li><strong>Escalabilidad</strong> infinita (aquí no tenemos la limitación de 10 minutos en caso de tener millones de entidades).</li>
+</ul>
+<p>El problema es que los mapreduce están  pensados para lanzarse manualmente desde la consola de  administración de mapreduce (url_de_mi_aplicacion/mapreduce) pero en  ocasiones nos gustaría poder lanzarlos <strong>programáticamente</strong>. Estudiando un poco el funcionamiento de esta consola y el código de mapreduce es sencillo <strong>modificarlo</strong> para conseguir nuestro propósito. Por ejemplo, <strong>lanzar un mapreduce desde un cron</strong> que se ejecute todos los lunes a la misma hora.</p>
+<p>Lo primero es definir la entrada en nuestro <strong>cron.yaml</strong>, por ejemplo:</p>
+<pre>cron:
+- description: purge tokens
+ url: /admin/cron/execute_mapreduce
+ schedule: every monday 00:00
+ timezone: Europe/Madrid</pre>
+<p>Nosotros usamos <strong>Django</strong>, así que definiríamos una entrada en <strong>urls.py</strong> para mapear la url definida en el cron con nuestro método <strong>python</strong> encargado de llamar al mapreduce:</p>
+<pre>(r'^admin/cron/execute_mapreduce$', 'ruta_del_modulo.run_map_reduce'),</pre>
+<p>Y ahora viene la duda. ¿Cómo llamamos al mapreduce desde dicho método si sólo se puede a través de la consola? Esstudiando el comportamiento de la consola con una herramienta tipo <strong>firebug</strong>, vemos que cuando se pulsa en el botón "run" se ejecuta una llamada AJAX con una serie de parámetros. Si replicamos dicha llamada en nuestro código ya tenemos el mismo comportamiento.</p>
+<p>Si  la definición de nuestro mapreduce (en el <strong>mapreduce.yaml</strong>) es ésta:</p>
+<pre>- name: execute_something_from_cron
+ mapper:
+ input_reader: mapreduce.input_readers.DatastoreInputReader
+ handler: map_reduce_handlers.executed_from_cron.execute_something_from_cron
+ params:
+ - name: entity_kind
+ default: points_of_sale.models.pos_model.PointOfSale</pre>
+<p>Entonces la llamada por código (en <strong>localhost</strong>) sería esta:</p>
+<pre> form_fields = {
+ "mapper_handler": "map_reduce_handlers.executed_from_cron.execute_something_from_cron",
+ "mapper_input_reader": "mapreduce.input_readers.DatastoreInputReader",
+ "mapper_params.entity_kind": "points_of_sale.models.pos_model.PointOfSale",
+ "name": "calculate_aggregates_of_aggregates"
+ }
+
+ form_data = urllib.urlencode(form_fields)
+ result = urlfetch.fetch(url="http://localhost:8080/mapreduce/command/start_job",
+ payload=form_data,
+ method=urlfetch.POST,
+ headers={'Content-Type': 'application/x-www-form-urlencoded'},
+ deadline=10)
+</pre>
+<p>Por último, para probar que todo funciona ya sólo queda ejecutar el cron. En <strong>local</strong> se puede hacer a través de la url:</p>
+<p><em>http://localhost:8080/_ah/admin/cron</em></p>
+<p>Pero cuidado, para poder <strong>ejecutarlo en local</strong> necesitamos un pequeño cambio. Lo normal es que mapreduce requiera permisos de administrador, lo cual, se indica en app.yaml:</p>
+<pre>- url: /mapreduce(/.*)?
+ script: mapreduce/main.py
+ login: admin  <strong>
+
+</strong></pre>
+<p>Si ejecutamos el cron en la nube no hay problema porque tiene permisos de admin, sin embargo, el test local se ejecuta con permisos de usuario y, por ello, es necesario comentar la línea <em>"login: admin" </em>para las pruebas locales.<em><br />
+</em></p>
+<p>Ya parece que tenemos todos lo necesario, así que, lanzamos el test del cron desde el nagegador...obteniendo el siguiente resultado:</p>
+<pre>ApplicationError: 2 timed out</pre>
+<p>¿Por qué ocurre esto? La explicación se encuentra en el fichero <strong>base_handler.py </strong>de la libería mapreduce. Concretamente en el método <strong>_handle_wrapper:</strong></p>
+<pre>def _handle_wrapper(self):
+ if self.request.headers.get("X-Requested-With") != "XMLHttpRequest":
+ logging.error(self.request.headers)
+ logging.error("Got JSON request with no X-Requested-With header")
+ self.response.set_status(
+ 403, message="Got JSON request with no X-Requested-With header")
+ return
+</pre>
+<p>Como vemos, se están vetando explícitamente aquellas peticiones que no sean AJAX.</p>
+<p>Afortunadamente, existe una solución muy fácil que evita cambiar el código de la librería mapreduce (sería peligroso porque en cualquier momento puede cambiar de versión o incorporarse por defecto sin necesidad de incluirla en el despliegue): se trata de añadir la cabecera <strong>XMLHttpRequest </strong>a nuestra petición:</p>
+<pre>headers={'Content-Type': 'application/x-www-form-urlencoded',
+ 'X-Requested-With': "XMLHttpRequest"},
+</pre>
+<p>Y ahora ya podemos ejecutar el mapreduce desde el cron y consultar la consola/logs cuando queramos ver su resultado. También se podrían lanzar peticiones (al igual que lo hace la consola) para comprobar que todo ha ido bien por código, pero eso ya es otra historia...</p>

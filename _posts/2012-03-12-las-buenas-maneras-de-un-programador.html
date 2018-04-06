@@ -1,0 +1,36 @@
+---
+layout: post
+title: Las buenas maneras de un programador
+date: 2012-03-12 05:14:00.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- miscelánea
+tags: []
+meta:
+  _edit_last: '3'
+author: julio
+---
+<p>Ayer me encontré con el siguiente artículo, <a href="http://java.dzone.com/articles/10-commandments-good-source?mz=38541-devops" target="_blank">"The 10 commandments of good source control management"</a> .  Había sido twiteado por <a href="https://twitter.com/#!/psluaces" target="_blank">@psluaces</a>. Comencé a leerlo y no pude evitar que una sonrisa invadiera mi cara conforme iba leyendo. Aunque algunos de los mandamientos no son muy útiles o relevantes para mí (no he usado <a href="https://en.wikipedia.org/wiki/Microsoft_Visual_SourceSafe" target="_blank">VSS</a> nunca, por ejemplo). Otros los he cometido y sufrido con demasiada frecuencia como para dejar pasar la oportunidad de comentar al menos un par de ellos.</p>
+<blockquote>
+<h4 style="text-align: center;">"Always inspect your changes before committing"</h4>
+<p style="text-align: center;">"Repasa tus cambios siempre antes de subirlos al repositorio"</p>
+</blockquote>
+<p>Hazlo, no lo pienses. No te fíes ni de tu sombra. Al principio puede parecer una perdida de tiempo, pero es una de las costumbres que más agradezco. Porque soy despistado y humano. Por lo tanto me olvido que he cambiado algo que no quería subir o me equivoco en el código. Ese segundo vistazo me ayuda a eliminar muchos errores y problemas para mis compañeros desarrolladores.</p>
+<blockquote>
+<h4>"Remember the axe-murderer when writing commit messages"</h4>
+<p>"Recuerda al <em>asesino del hacha</em> cuando escribes tus mensajes de commit"</p></blockquote>
+<p>Y os preguntaréis quién coño es el "<em>asesino del hacha</em>". Pues según el autor del artículo, existe un dicho que viene a decir lo siguiente: "Escribe tu siguiente comentario de <strong>commit</strong> como si el siguiente desarrollador que va a leerlo fuera un maníaco depresivo con un hacha que sabe donde vives".</p>
+<p>No lo cabrees, ¡por tu vida! Cosas como las que siguen probablemente lo pongan de muy mala leche:</p>
+<blockquote><p>#10 Mierda</p>
+<p>#89 Fix tests</p></blockquote>
+<p>Opino que son dos ejemplos claros de pésimos comentarios para commits. Y eso que he escrito unos cuantos de esos, lo reconozco. El problema viene cuando tienes que volver sobre ellos porque estas revisando la historia de tu repositorio: te acuerdas del maldito día que naciste, os lo prometo.</p>
+<p>Mucho mejor algo así:</p>
+<blockquote><p>#89 Fixing the first UI test to work better, introducing new concept ClassSetup and ClassTearDown</p></blockquote>
+<p>Y no vale currarse uno largo y reutilizarlo durante los cinco siguiente commits, cada <strong>commit</strong> tiene que ser diferente; se debe poder saber qué se ha hecho en ese <strong>commit</strong> con solo leer el mensaje. La diferencia cuando leas tu <em>log</em> será brutal.</p>
+<p>Os recomiendo que os leáis el <a href="http://java.dzone.com/articles/10-commandments-good-source?mz=38541-devops" target="_blank">artículo</a> de arriba a abajo, es muy bueno.</p>
+<p>PS: He encontrado varios de los mandamientos en otra fuente, el libro <a href="http://books.google.es/books?id=6ADDuzere-YC&amp;printsec=frontcover&amp;dq=Continuous+delivery&amp;hl=es&amp;sa=X&amp;ei=Z_JZT6nJDIOh0QWfgeHEDQ&amp;ved=0CDMQ6AEwAA#v=onepage&amp;q=Continuous%20delivery&amp;f=false" target="_blank">Continuous Delivery</a>. No pueden estar equivocados los dos, ¿no?</p>
+<p>&nbsp;</p>

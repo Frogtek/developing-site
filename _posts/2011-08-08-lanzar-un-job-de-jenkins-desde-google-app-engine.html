@@ -1,0 +1,51 @@
+---
+layout: post
+title: Lanzar un Job de Jenkins desde Google App Engine
+date: 2011-08-08 13:45:33.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- gae
+- integración continua
+- programación
+- python
+tags: []
+meta:
+  _edit_last: '5'
+  _aioseop_title: Lanzar un Job de Jenkins desde Google App Engine
+  _aioseop_description: 'Ejemplo de cómo lanzar un Job de Jenkins o Hudson desde código
+    Python de Google App Engine. '
+  short_url: http://bit.ly/orQf9B
+author: guillermo
+---
+<p>La semana pasada estuve dándole vueltas a este problema, después de varios intentos fallidos llegué, con la ayuda de Julio, a la solución que planteo en el título del post.</p>
+<p>Para empezar tenemos que ir al job en Jenkins que queramos lanzar desde fuera y activar la opción de "Lanzar ejecuciones remotas"</p>
+<p><a href="http://developing.frogtek.org/wp-content/uploads/2011/08/JobRemotoJenkins.png"><img class="aligncenter size-large wp-image-1385" title="JobRemotoJenkins" src="{{ site.baseurl }}/assets/JobRemotoJenkins-1024x143.png" alt="" width="640" height="89" /></a></p>
+<p>Por motivos de seguridad, Jenkins nos obliga a usar un Token que será usado al llamar al Job desde fuera.</p>
+<p>El código que usaremos en GAE (en Python) será el siguiente:</p>
+<pre lang="python">import urllib2, base64, httplib
+from urllib2 import URLError, HTTPError
+from django.http import HttpResponse
+
+def call_mlp_generator(request):
+
+    theurl = 'JENKINS_JOB_URL?token=TOKEN'
+    username = 'USERNAME'
+    password = 'PASSWORD'
+
+    request = urllib2.Request(theurl, None)
+    base64string = base64.encodestring('%s:%s' % (username, password)).replace('n', '')
+    request.add_header("Authorization", "Basic %s" % base64string)
+    try:
+        urllib2.urlopen(request)
+        response = str(httplib.OK)
+    except HTTPError, e:
+        response = str(e.code)
+    except URLError, e:
+        response = str(e.code)
+
+    return HttpResponse(response)</pre>
+<p>Bastante simple, sólo había que saber tocar las teclas adecuadas.</p>

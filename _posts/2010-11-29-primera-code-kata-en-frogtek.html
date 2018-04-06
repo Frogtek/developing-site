@@ -1,0 +1,56 @@
+---
+layout: post
+title: Primera code kata en frogtek
+date: 2010-11-29 20:26:48.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- herramientas
+- metodología
+- programación
+tags:
+- code kata
+- java
+- pomodoro
+meta:
+  _edit_last: '4'
+  short_url: http://bit.ly/hhqqGG
+  pingfm_error: Your API key has been suspended.  Please contact us regarding this
+    matter.
+  _wp_old_slug: ''
+author: guillermo
+---
+<p>Hoy hemos tenido la primera <a href="http://en.wikipedia.org/wiki/Kata_(programming)">code kata</a>. Jose ha preparado una magnifica sesión en la que hemos puesto el pomodoro a 25 minutos para elaborar una solución al problema del <a href="http://codingdojo.org/cgi-bin/wiki.pl?KataFizzBuzz">Fizz Buzz</a>.</p>
+<p>Hemos tenido soluciones muy elegantes, os paso esta por ejemplo de Alberto:</p>
+<pre lang="java">
+public class FizzBuzz {
+
+	final static String FIZZ = "Fizz";
+	final static String BUZZ = "Buzz";
+	final static String FIZZBUZZ = "FizzBuzz";
+	public static void main(String[] args) {
+		for (int i=1; i<=100; i++) {
+			System.out.println(getFizzBuzz(i));
+			
+		}
+	}
+	
+	public static String getFizzBuzz (int number) {
+		if (number % 15 ==0){
+			return FIZZBUZZ;
+		} else if (number % 3 ==0){
+			return FIZZ;
+		} else if (number % 5 ==0){
+			return BUZZ;
+		} else {
+			return Integer.toString(number);
+		}
+	}
+
+}
+</pre>
+<p>¿Algún comentario? ¿Mejora?</p>
+<p>Hemos decidido hacerla en Java, la próxima irá en python y alguien por ahí ha dicho que en <a href="http://es.wikipedia.org/wiki/Lisp">LISP</a>.</p>

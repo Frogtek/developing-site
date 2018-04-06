@@ -1,0 +1,44 @@
+---
+layout: post
+title: Búsquedas en Google App Engine
+date: 2010-10-22 09:28:18.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- gae
+tags: []
+meta:
+  _edit_last: '5'
+  short_url: http://bit.ly/c00Aam
+  pingfm_error: Your API key has been suspended.  Please contact us regarding this
+    matter.
+  _wp_old_slug: ''
+author: guillermo
+---
+<p>Ahí van algunos consejos para los que trabajen con <strong>Google App Engine</strong> y estén interesados en hacer búsquedas en el datastore que incluyan <strong>búsquedas totales o parciales</strong> de texto en campos.</p>
+<p>Para aquellos que hemos trabajado con bases de datos relacionales, puede costar un poco cambiar el chip cuando se trabajan con sentencias usando <a href="http://code.google.com/intl/es-ES/appengine/docs/python/datastore/gqlreference.html">GQL</a>. ¿Que podemos hacer si queremos el clásico elemento de SQL "LIKE" para hacer una búsqueda parcial de un texto?, nos encontraremos que GQL no permite ese tipo de sentencias, por la eficiencia y la escalabilidad del sistema (que es lo más prioritario en GAE).</p>
+<p>Aunque hay <a href="http://code.google.com/p/gaelucene/">librerías</a> para realizar búsquedas (no las he probado, así que poco puedo decir), vayamos por algo simple, sin librerías ni pifostios.</p>
+<p>Hacer búsquedas de registros cuyo campo A <strong>empiece por</strong> "XXX".</p>
+<p>Entidad: Clientes</p>
+<p>Campo: Nombre</p>
+<p>Empieza por: "Jua"</p>
+<pre lang="python">query = db.Query(Clientes)
+query.filter('nombre >=', 'Jua').filter('nombre <', 'Jua' + u'ufffd')</pre>
+<p>El valor u'ufffd' es como decir "el elemento unicode más grande que existe", en definitiva hacemos algo así como: "Búscame todos los registros de clientes cuyo nombre esté entre 'Jua' y 'JuaINFINITO' (o casi) "</p>
+<p>En el caso que queramos hacer búsquedas de la forma "registros cuyo campo termine en"... la cosa está más complicada. Para ello habría que crearse un campo especial en el datastore que almacene el string a buscar <strong>volteado</strong>...  y realizar la misma sentencia más arriba descrita.</p>
+<p>Para realizar búsquedas de textos que coincidan exactamente la cosa es más simple, con usar "=" en nuestras queries.</p>
+<pre lang="python">query = db.Query(Clientes)
+query.filter('nombre =', 'Juan').</pre>
+<blockquote><p>Hint! OJO! Que si ponemos 'nombre=' posiblemente no nos aparezca ningún resultado. Dejad un espacio entre el campo a buscar y el operador.</p></blockquote>
+<p>Otra cosa a tener en cuenta a la hora de almacenar la información en el datastore, es la siguiente:</p>
+<p>¿Queremos realizar búsquedas que no sean <em>case-sensitive</em>? En ese caso es recomendable que los campos guardados sean todos <strong>lowercase</strong> o <strong>uppercase</strong>. De esta forma, nos aseguramos que si buscamos registros que empiecen por las letras "jua" o "Jua" nos devolverán los mismos resultados. La variable de búsqueda puede ser tratada en python (o java) para convertirla a mayúsculas o minúsculas completamente antes de compararla con la información del datastore.</p>
+<p>En el caso que ya tengamos la información almacenada tal y como llegan de los formularios/sincronizaciones/dondesea podemos hacer dos cosas:</p>
+<ul>
+<li>Convertir todos esos textos a mayúsculas/minúsculas dentro del datastore y luego <strong>tener en cuenta a nivel de programación que dichos campos están en mayúscula/minúscula</strong> y su presentación requiera otro formato.</li>
+<li>Crear nuevos <strong>campos alternativos</strong> donde se guarden copias de los campos a buscar en el formato que queramos:  <em>name = "Juan"   name_search ="juan"</em> y haremos las búsquedas tomando como referencia "name_search", aunque mostremos en la UI el campo "name".</li>
+</ul>
+<p>Para hacer estas dos últimas tareas tenemos la herramienta <a href="http://code.google.com/p/appengine-mapreduce/">mapreduce</a> que nos puede ayudar enormemente a la hora de modificar el datastore y su información "dinámicamente", pero de esto, se hablará en otro post.</p>
+<p>Todo esto está basado en la experiencia que poco a poco vamos adquiriendo en GAE, es posible que haya formas más eficientes y mejor de hacer las cosas. Siempre es bueno escuchar otras opiniones.</p>

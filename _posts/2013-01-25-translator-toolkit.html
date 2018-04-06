@@ -1,0 +1,21 @@
+---
+layout: post
+title: Google Translator Toolkit para aplicaciones Android
+date: 2013-01-25 06:04:28.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+tags: []
+meta:
+  _edit_last: '2'
+author: guillermo
+---
+<p>Supongamos que tienes una aplicación <strong>Android</strong> con cientos de líneas en el <strong>strings.xml </strong>(o en cualquier otro recurso) y quieres traducirla a un idioma del cual no tienes ni idea. Buscas a un nativo que te haga la <strong>traducción</strong> y le pasas tu archivo que tiene líneas con esta pinta:</p>
+<p style="padding-left: 30px;"><em>&lt;string name="customer_has_debt"&gt;¿Estás seguro de eliminar al cliente %1$s ? Este cliente tiene una deuda de %2$s y también se eliminará&lt;/string&gt;</em></p>
+<p>Tu traductor no sabe de Android, le parecen raros los "<em>%1$s" </em>y decide pulírselos. También se confunde y borra un "<em>&lt;". </em></p>
+<p><em></em>¿Quién se encarga de revisar que no se ha roto nada? ¿Y si pudiéramos ahorrarle trabajo al traductor y permitirle trabajar con un archivo "pre-traducido" (por google translate)? ¿Y añadir un glosario para traducir automáticamente términos técnicos del negocio?</p>
+<p>Todo eso y algo más nos lo da Google dentro de su <a href="http://googledevelopers.blogspot.com.es/2012/03/localize-your-apps-and-content-more.html">Translate Toolkit</a>. Es algo que existe desde hace mucho tiempo pero a nosotros nos costó encontrarlo así que lo queríamos compartir.</p>

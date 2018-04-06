@@ -1,0 +1,51 @@
+---
+layout: post
+title: Búsquedas en tu aplicación Android con SearchManager
+date: 2010-08-04 17:34:47.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+- programación
+tags:
+- búsqueda
+- searchable
+- searchmanager
+- sugerencias
+meta:
+  _edit_last: '3'
+author: guillermo
+---
+<p>A la hora de realizar aplicaciones con multitud de datos, es conveniente saber que Android nos aporta recursos bastante potentes para <strong>integrar búsquedas dentro de nuestra aplicación</strong>. Como no podía ser de otra manera para Google, la consulta de datos esta muy presente en este tipo de terminales: simplemente haciendo clic en la barra de búsqueda del escritorio o pulsando la tecla de la lupa en el dispositivo, nos aparece una interfaz con teclado mediante la que podemos escribir cualquier palabra y nos <strong>devuelve una lista de sugerencias en función de las letras introducidas</strong>. Esta funcionalidad es, precisamente, la que podemos añadir a nuestra aplicación Android de forma bastante sencilla (bueno, una vez sabes cómo, ya que en la red no hay mucha información al respecto).</p>
+<p>Primero, deberemos crear un archivo searchable.xml en la carpeta res/xml:</p>
+<pre lang="xml">
+<searchable xmlns:android="http://schemas.android.com/apk/res/android" android:label="@string/searchable_label_product" android:hint="@string/searchable_label_product" android:icon="@drawable/icon" android:searchsuggestauthority="org.frogtek.prueba.SuggestionAuthority" android:searchsuggestintentaction="android.intent.action.VIEW">
+</searchable></pre>
+<p>Después deberemos modificar nuestro AndroidManifest.xml con dos pequeños arreglos:</p>
+<p>1. Para cada actividad que queremos que habilite la búsqueda, deberemos añadir lo siguiente:</p>
+<pre lang="xml">
+<activity android:name=".ui.MainScreen" android:theme="@style/CustomTheme">
+   <intent-filter>
+      <action android:name="android.intent.action.SEARCH" />
+      <category android:name="android.intent.category.DEFAULT" />
+   </intent-filter>
+   <meta-data android:name="android.app.searchable" android:resource="@xml/searchable_products" />
+</activity></pre>
+<p>Básicamente lo que hemos hecho es <strong>añadir un intent-filter porque ahora esta actividad debe aceptar actions de tipo SEARCH</strong>. También le adjuntamos en la etiqueta meta-data el archivo searchable.xml que hemos creado antes para que sepa que tiene que utilizar ese recurso a la hora de gestionar búsquedas.</p>
+<p>2. Debemos declarar un ContentProvider (que crearemos en el siguiente paso) de la siguiente forma:</p>
+<pre lang="xml">
+<provider android:name="org.frogtek.prueba.SearchSuggestionProvider" android:authorities="org.frogtek.prueba.SuggestionProvider" android:readpermission="android.permission.READ_MY_DATA" android:writepermission="android.permission.WRITE_MY_DATA" /></pre>
+<p>Nótese que el parámetro android:authorities no se corresponde con ningún archivo real, es simplemente un nombre que virtual que asignamos para el authority.</p>
+<p>El siguiente paso es crear un <strong>ContentProvider</strong>, para que pueda alimentar los resultados de la búsqueda. En ese ContentProvider deberemos obtener los datos que queremos que sean "buscables" <strong>suporponiendo su método query</strong>.</p>
+<p>Finalmente, tenemos que ir a las clases que reciben el resultado de la búsqueda y <strong>tratar la información recibida</strong> en this.getIntent()</p>
+<p>Con todo esto montado, al pulsar la tecla de "search" del terminal, se habilitará la interfaz de búsqueda. Pero ¿qué pasa si queremos lanzar la búsqueda nativa desde un botón de nuestra aplicación? Pues nada, añadimos un código como el siguiente:</p>
+<pre lang="JAVA">
+OnClickListener mSearchButtonListener = new OnClickListener() {
+   public void onClick(View view) {
+      onSearchRequested();
+   }
+};</pre>
+<p>Para más información, recomiendo visitar la <a href="http://developer.android.com/guide/topics/search/search-dialog.html">biblia del SearchManager</a>. En la segunda parte veremos cómo añadir datos propios a las búsquedas realizadas desde el exterior de nuestra aplicación.</p>

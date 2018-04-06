@@ -1,0 +1,42 @@
+---
+layout: post
+title: Prototipado con Google Spreadsheets y Fusion Tables
+date: 2011-02-23 08:00:58.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data mining
+- herramientas
+- informes
+- metodología
+tags: []
+meta:
+  _edit_last: '7'
+  short_url: http://bit.ly/gh7Oyj
+author: guillermo
+---
+<p>Confome avanzan nuestros proyectos, va aumentando el volumen y calidad de la información subida por los usuarios desde sus dispositivos <strong>Android</strong>. Toda esta información se va agregando en la nube y poquito a poco vamos entrando en una nueva etapa en la que el <a href="http://es.wikipedia.org/wiki/Miner%C3%ADa_de_datos"><strong>data mining</strong></a> va cobrando más importancia. De momento, tenemos claros ciertos tipos de <strong>informes </strong>y<strong> gráficas</strong> imprescindibles para nuestro negocio, pero las posibilidades de jugar con los datos son enormes y, por eso, necesitábamos un modelo que nos permitiera diseñar de forma ágil <strong>prototipos</strong> funcionales para ser mostrados y estudiados por nuestro equipo, clientes y colaboradores.</p>
+<p>Es necesario explicar que, aunque ya tenemos varios agregados e informes mostrados en la propia nube, también  descargamos y desnormalizamos los datos sobre una <strong>MySQL</strong>instalada en un servidor local, ya que, las posibilidades de "retorcer" los datos en una base de datos relacional son mucho mayores que en un sistema como <a href="http://en.wikipedia.org/wiki/BigTable">Big Table </a>. Por tanto, llegados a este punto, contamos con un servidor local, una base de datos MySQL y un equipo de ingenieros preparados para torturar a los datos con las más despiadadas queries.</p>
+<p>Una vez obtenida la información que pensamos que interesa a nuestros usuarios, las posibilidades de representarla son muchas, existiendo innumerables librerías Javascript para mostrar tablas y gráficos, (o incluso empresas ofreciendo herramientas <a href="http://es.wikipedia.org/wiki/Software_como_servicio">SaaS</a> muy potentes).  El problema es que todas ellas requieren preparar los datos con un formato concreto y cierto trabajo de <strong>programación</strong> y <strong>maquetación</strong> para integrarlas en una <strong>web</strong>.  En nuestro caso, pensamos que es pronto para emplear tiempo en ese tipo de tareas, puesto que no estamos seguros de qué tipo de representaciones van a ser valiosas y cuáles no. Aquí es donde entra en juego una gran idea de nuestro CEO: tanto <a href="http://www.google.com/google-d-s/spreadsheets/">Google Spreadsheets </a>como <a href="http://www.googlelabs.com/show_details?app_key=agtnbGFiczIwLXd3d3ITCxIMTGFic0FwcE1vZGVsGK0pDA">Fusion Tables</a> permiten importar datos desde <strong>CSV</strong> y la generación de listados, figuras y gráficas es potente y muy sencilla.</p>
+<p>Las ventajas son muchas:</p>
+<ul>
+<li>Ambas herramientas permiten importar los datos desde CSV. Y cualquier cliente SQL permite exportar los resultados de una query en dicho formato, por lo que la tarea de formato de datos estaría resuelta.</li>
+<li>Ambas permiten generar automáticamente un script para incrustar los datos en cualquier web.</li>
+<li>Los datos generados en el prototipo, aunque estáticos, son reales. Y su actualización (manualmente o usando las APIs proporcionadas) sería muy sencilla. Tan fácil como ejecutar de nuevo la consulta y exportar el CSV.</li>
+</ul>
+<p>¿Qué usamos entonces para tener listo un conjunto de listados y gráficos <strong>demo</strong> con información real?</p>
+<ul>
+<li><a href="http://code.google.com/intl/es-ES/appengine/">Google App Engine</a> con <a href="http://es.wikipedia.org/wiki/Django">Django</a>: La facilidad de despliegue de una nueva aplicación en el GAE unida a la rapidez de desarrollo en Django nos permitieron montar la <strong>estructura de navegación</strong> del nuevo portal en una sola mañana (reutilizando plantillas y  diseños que ya teníamos).</li>
+<li>Listados y gráficas:  Una vez obtenida la consulta sql con los datos que nos interesaban, la exportamos a CSV y la importamos en una de las dos herramientas comentadas:</li>
+</ul>
+<blockquote>
+<ul>
+<li><em>Google Spreadsheets: una vez importado el CSV y obtenida la URL, podemos hacer uso de los múltiples <strong>google gadgets</strong> disponibles para  incrustar en nuestras webs. Por ejemplo, <a href="http://www.google.com/ig/directory?synd=open&amp;url=http://www.google.com/ig/modules/table.xml">tablas</a>, <a href="http://www.google.com/ig/directory?synd=open&amp;url=http://www.google.com/ig/modules/line-chart.xml">gráficos de líneas</a> o de <a href="http://www.google.com/ig/directory?synd=open&amp;hl=es&amp;gl=es&amp;url=http://www.google.com/ig/modules/pie-chart.xml">tarta</a>.</em></li>
+<li><em>Fusion Tables: </em><em>una vez importado el CSV y obtenida la URL, podemos probar los distintos tipos de visualizaiones a partir del menú </em>Visualize<em>. Las opciones son variadas y potentes. Alguna de ellas bastante espectacular (</em>Motion, Timeline, Story Line...<em>).<br />
+</em></li>
+</ul>
+</blockquote>
+<p>Normalmente utilizamos <a href="http://balsamiq.com/products/mockups">Balsamiq</a> para proptotipar y hacer pruebas de usabilidad en la fase de diseño, pero en este caso necesitábamos algo más real. Con todo lo anterior, en muy poco tiempo, logramos desplegar un <strong>prototipo operativo</strong> que permite mostrar el potencial de los datos recogidos y experimentar con distintas formas de mostrar la información. ¿Qué ventajas e inconvenientes le veis? ¿Qué alternativas usáis vosotros para esta tarea?</p>

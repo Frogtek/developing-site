@@ -1,0 +1,49 @@
+---
+layout: post
+title: El findViewById(), y lo cargante que puede llegar a ser
+date: 2010-09-20 21:08:24.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+- eficiencia
+- programación
+tags:
+- activity
+- android
+- button
+- edittext
+- eficiencia
+- findViewById
+- findViewTraversal
+- hierarchy
+- imageview
+- jerarquia
+- layout
+- listener
+- propiedad
+- textview
+- traceview
+- ui
+- velocidad
+- widget
+- xml
+meta:
+  _edit_last: '8'
+  _wp_old_slug: ''
+author: guillermo
+---
+<p>Si no vienes del <a href="http://developing.frogtek.org/2010/09/16/optimizar-una-aplicacion-android-introduccion/" target="_blank">post introductorio</a>, quizás te gustaría leerlo.</p>
+<p>Segundo asalto. La aplicación sigue estando lenta, y no sabemos muy bien por qué. Ya no hay tantos <a href="http://developer.android.com/reference/android/view/View.html#onMeasure(int,%20int)" target="_blank"><code>onMeasure()</code></a>; sólo los <em>"necesarios"</em>. Pero hay una nueva función que aparece en los primeros puestos de nuestro querido <a href="http://developer.android.com/guide/developing/tools/traceview.html" target="_blank">traceview</a>: <a href="http://developer.android.com/reference/android/widget/ListView.html#findViewTraversal(int)" target="_blank"><code>findViewTraversal()</code></a>. ¿Y quién llama tantísimas veces a esta última? pues <a href="http://developer.android.com/reference/android/view/View.html#findViewById(int)" target="_blank"><code>findViewById()</code></a>.<br />
+Y es que esta función, es la que enlaza un recurso de la interfaz de usuario de una aplicación, con una variable en nuestro código. O simplemente se encarga de acceder a ese recurso para cambiar una de sus propiedades.</p>
+<p>Supongamos, pues, que tenemos un layout con una veintena de <a href="http://developer.android.com/reference/android/widget/package-summary.html" target="_blank">widgets</a> entre layouts, Buttons, EditText, TextView, ImageView… Y que en un momento dado del ciclo de vida de la actividad, tenemos que acceder a uno ó varios de ellos para cambiar sus propiedades. Podemos acceder a ellos del modo:<br />
+<code>((EditText) this.findViewById(R.id.edittext_cliente)).setOnClickListener(…);</code><br />
+Aunque también podemos guardar el valor que devuelve la función <code>findViewById()</code> en una variable, o variable miembro de la Activity para operar con ella varias veces a lo largo del citado ciclo de vida.</p>
+<p>¿Cuál es la diferencia? y ya que estamos ¿cuál era nuestro error? Pues que cada vez que se llama a la función <code>findViewById()</code>, android recorre todo el árbol jerárquico del Layout que hemos definido previamente en XML, en busca del recurso al que queremos acceder. Como ya habréis averiguado, el costo de esa operación es muy alto si el control a encontrar es de los últimos en el árbol, o si hay muchos niveles de layouts anidados, o simplemente queremos cambiar el valor de una de las propiedades de ese recurso bastantes veces a lo largo del ciclo de vida de la aplicación.<br />
+Si a esto le sumamos que el cambio en una de las propiedades de un EditText (por ejemplo), afecta a cinco o seis widgets más; y a todos accedemos del modo <code>findViewById()</code>, <strong>estamos vendidos</strong>.</p>
+<p>La solución para una Activity, cuyos widgets han de ser modificados con bastante asiduidad es el guardar el resultado de la función archinombrada en este post en variables miembro, a las cuales se accederá sin tener que recorrer (<code>findViewTraversal()</code>) todo el árbol jerárquico "n" veces, con la consiguiente pérdida de velocidad en la transición de un estado a otro de la Activity.<br />
+Eso sí: Podemos prescindir de estas variables miembro si accedemos una, y sólo una, vez al widget en cuestión.</p>
+<p>Esto también hay que grabarlo a fuego en la mente.</p>

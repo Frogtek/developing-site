@@ -1,0 +1,50 @@
+---
+layout: post
+title: Entorno de desarrollo de Google App Engine en Fedora 15
+date: 2011-07-29 11:39:34.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- gae
+- programación
+- python
+tags: []
+meta:
+  _edit_last: '5'
+  short_url: http://bit.ly/q6348v
+author: guillermo
+---
+<p>Me parece interesante contar la experiencia que tuve ayer al <strong>configurar el entorno de desarrollo de GAE en una máquina Linux</strong> (Fedora 15 en este caso), sobre todo por si puede ayudar a otros desarrolladores y evitar algunos dolores de cabeza.</p>
+<p>Aquellos que trabajen con GAE han de saber que hasta <a href="http://code.google.com/intl/es-ES/appengine/docs/roadmap.html">nueva orden</a>, el sistema necesita Python 2.5 para poder funcionar correctamente. Google así lo recomienda, aunque recuerdo haberlo hecho funcionar sobre Python 2.6 en mi anterior vida (cuando era Ubuntu).</p>
+<p>Voy a intentar reconstruir el camino correcto a seguir para configurar el entorno de desarrollo de GAE sobre un Fedora 15 (ya que di muchas idas y venidas).</p>
+<p>La última versión de Fedora tiene por defecto Python 2.7, y si intentaba arrancar el proyecto en local usando esta versión de Python, tenía serios problemas de incompatibilidades de módulos, por ello me bajé <a href="http://www.python.org/download/releases/2.5.6/">Python 2.5</a>.</p>
+<p>Por otro lado instalé un par de librerías que necesitaría más adelante (esto tardé varias horas en hacerlo funcionar, por el orden en que hacía las cosas):</p>
+<pre lang="bash">sudo yum install openssl openssl-devel -y
+sudo yum install sqlite-devel</pre>
+<p>Una vez instaladas estas librerías era el momento de compilar el código de Python 2.5 e instalarlo. Antes de nada, hay que modificar el fichero <strong>&lt;python-folder&gt;/Modules/Setup.dist</strong> y descomentar las siguientes líneas:</p>
+<pre lang="bash"># Socket module helper for SSL support; you must comment out the other
+# socket line above, and possibly edit the SSL variable:
+SSL=/usr/local/ssl
+_ssl _ssl.c 
+	-DUSE_SSL -I$(SSL)/include -I$(SSL)/include/openssl 
+	-L$(SSL)/lib -lssl -lcrypto</pre>
+<p>(Líneas 206-209)</p>
+<p>De esta forma habilitamos el módulo de SSL cuando construyamos Python.</p>
+<p>Es hora de construir Python:</p>
+<pre lang="bash">su
+./configure
+make
+make altinstall</pre>
+<p>Con el <strong>make altinstall</strong> lo que hacemos es instalar Python en una ruta diferente y no machacar la versión actual que tengamos instalada en el sistema.</p>
+<p>Si todo ha ido bien, ahora podremos usar</p>
+<pre lang="bash">python2.5 dev_appserver.py --port 8080 RutaDeTuAplicación</pre>
+<p>Si compilamos Python 2.5 sin haber instalado las librerías arriba mencionadas o sin haber habilitado los módulos de SSL podríamos encontrarnos problemas como estos a la hora de arrancar el proyecto:</p>
+<pre lang="python">AttributeError: 'module' object has no attribute 'HTTPSHandler'</pre>
+<p>o</p>
+<pre lang="python">ImportError: No module named _sqlite3</pre>
+<p>(Dependiendo de lo complejo que sea vuestro proyecto, claro.)</p>
+<p>Espero que esta pequeña guía sirva de ayuda para aquellos que tengan los mismos problemas que tuve en su momento.</p>
+<p>Compartir es poder.</p>

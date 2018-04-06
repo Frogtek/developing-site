@@ -1,0 +1,35 @@
+---
+layout: post
+title: Trello y nuestro workflow de trabajo
+date: 2017-02-28 10:41:28.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- agile
+- metodología
+tags:
+- agile
+- despliegues
+- historia de usuario
+- revisión
+- tests
+- trello
+- user story
+meta:
+  _edit_last: '101011'
+author: miguel.julian
+---
+<p>Ya contamos en un <a href="http://developing.frogtek.org/2015/12/21/seleccionando-un-dia-de-convivencia-con-un-candidato-con-kata-incluida/">post anterior</a> parte del proceso de selección en el área de tecnología de Frogtek. Pero todavía podemos desvelar algún secreto más, y es que una de las primeras cosas que recibes al entrar el grupo de tecnología es una cuenta de Trello. Hasta ese momento podías conocer <strong>Trello</strong> o no; podías haberlo usado un poco para algunos proyectos, o tal vez para gestionar tus propias tareas. Pero ahora,<strong> con el acceso a los tableros de Frogtek… ya no hay vuelta atrás</strong>.</p>
+<p>Fue una de las cosas que más me impactó: todo tiene una tarjeta de Trello. Y sí, lo admito, al principio es un poco overwhelming, tantos tableros, tantas notificaciones. Pero ahora ya está en el ADN, ya forma parte de uno mismo. Y <strong>si no está en Trello, seguramente, no ha pasado</strong>. De todas los procesos que tenemos <em>trellificados</em> me gustaría centrarme hoy en uno: las peticiones que se realizan a tecnología.<br />
+<!--more--></p>
+<p>Tenemos nuestros productos, nuestro roadmap para ellos; pero todo lo que se sale de un roadmap de un producto empieza en el "Trello de Peticiones". Una primera lista tiene las instrucciones de uso, un enlace al diagrama del proceso y un enlace a un formulario para crear una petición. Bingo! El enlace te lleva a un Google Form que rellenará una fila en una spreadsheet. ¿Qué producto hay que modificar? ¿Cuál es el problema? ¿Quién eres? ¿Para cuándo? ¿Qué solución propones? Unas cuantas preguntas que <strong>por arte de <del datetime="2017-02-27T08:53:20+00:00">magia</del> Zapier aparecen en unos minutos en forma de tarjeta en Trello</strong>.</p>
+<p>Te levantas por la mañana, revisas los tableros. Vaya, <strong>una petición nueva</strong>. La lees. Si puedes hacerla de forma autónoma, adelante. Si no, guárdate la bala en la recámara para pedir un pair-programming en el stand-up. ¿Adelante? Añade un tag por aquí, añádate como miembro de la tarjeta. Pon algún comentario si es necesario (o incluso puedes preguntar en la tarjeta algún detalle más, aunque ahora Slack fagocita esta comunicación y los tableros guardan el resumen), crea una US y muévela a la lista de "Esperando a implementación". Espera, <strong>"¿crea una US?" ¿Cómo?</strong></p>
+<p>Segundo tablero de Trello que entra en escena. Mano al pecho, voz profunda: <strong>"el Trello de implementación"</strong>. Se abre y aparecen unas cuantas listas: plantillas, diseñando ATs, esperando validación, esperando implementación, en desarrollo, en pruebas, esperando despliegue, terminadas sin contabilizar, backlog y descartadas. Alguna tarjeta atascada desde hace eones (nadie es perfecto, dicen) pero aquí está la foto más precisa del "ahora" y el "mañana próximo". Esta es la parte que personalmente más pereza me da, pero reconozco que este pequeño esfuerzo luego da buenos frutos.</p>
+<p>Lista de plantillas, copias la de historia de usuario, le cambias el título: "Como customer care quiero tal funcionalidad para resolver tal problema". La estimas. Y te pones manos a la obra: test de aceptación 1 (AT1): Comprueba que existe un nuevo permiso de acceso para foo. AT2: Comprueba que foo se muestra en la sidebar, …. ATs diseñados, ahora toca esperar a que los validen. Bueno, seamos flexibles. Si no es muy importante te montas en el caballo y te pones manos a la obra. Si hay dudas o es importante preguntas en el stand-up, o por Slack. Y si puedes esperar, una mención en Trello y siempre hay ATs que cambian y mejoran.</p>
+<p>ATs validados, lo mueves a esperando implementación. Mejor empezamos a desarrollarlo ya, me queda una hora hasta el meeting de las 10. Por aquí, por allá, marcas la checklist de los ATs según los completas… ¡hecho! ¡A desplegar! Hold your horses! <strong>Adjunto las pull requests y muevo la tarjeta a "Se pueden probar"</strong>. Otro desarrollador la pilla y la prueba, valida que está bien (después de moverla a "En pruebas", claro). Y la mueve a "Esperando despliegue" o a "Terminado sin contablizar". Ahora sí. Despliegue y todas acaban ahí: "Terminado sin contabilizar". ¡Qué pereza! ¿No era suficiente con un email para mí, una hora de desarrollo y un despliegue rápido? Sí. Pero a partir de ahora viene la magia.</p>
+<p><strong>Recapitulemos</strong>. Hasta ahora La persona que realiza la petición ha tenido que pensar y se ha visto obligada a responder varias preguntas (qué, cómo, para cuándo, quién). Buena idea. Un desarrollador genera una US y normalmente recibe feedback sobre los ATs, o al menos el resto vemos y conocemos lo que se está haciendo para ayudar/probar/sugerir/… Buena idea. La historia de usuario tiene una estimación. Acertada, o no. Buena idea. La US la prueba otro desarrollador. Buena idea. Hay revisión de código además de las pruebas, sino, no hay merge. Buena idea. Si no está desplegado tiene su sitio, no hay nada que se quede sin desplegar, se minimizan los olvidos. Buena idea.</p>
+<p>Pero lo bueno viene ahora. La historia de usuario terminada, la petición la mueves a terminada también. Empieza la diversión. <strong>La US se contabiliza</strong>, se archiva en otro Trello que lleva las US asociadas a las diferentes versiones de los productos. Se envía un <strong>email para pedir feedback</strong> sobre la resolución de la incidencia. Se trasmiten los comentarios, se agregan las valoraciones. La persona que ha hecho la petición percibe que alguien, y no algo, ha hecho el trabajo. Buenas ideas. Y la mejor idea de todo este párrafo: algunas cosas están automatizadas, pero todas son transparentes al desarrollador.</p>
+<p>He nombrado tres tableros de Trello: peticiones, implementación y versiones (este por encima). Cualquier persona en Frogtek puede verlos y valorarlos. Tenemos datos sobre el número de US, el tamaño o la valoración. Datos. Y esos tres tableros forman parte de un proceso que, aunque no lo lleves en el ADN, insta y fomenta la colaboración dentro del equipo. Y de paso, ayuda a minimizar errores fomentando el peer-review.</p>

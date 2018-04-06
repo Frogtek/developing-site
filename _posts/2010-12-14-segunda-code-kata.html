@@ -1,0 +1,47 @@
+---
+layout: post
+title: Segunda frogtek code kata
+date: 2010-12-14 17:50:32.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- agile
+- herramientas
+- metodología
+- programación
+- python
+tags: []
+meta:
+  _edit_last: '9'
+  short_url: http://bit.ly/g3CuUM
+author: guillermo
+---
+<p>Como ya sabréis en <strong>Frogtek</strong> solemos realizar un <a href="http://developing.frogtek.org/2010/07/13/tpvs-talk-pizza-and-video/">TPV</a> cada dos semana. En esta ocasión hemos decidido realizar nuestra segunda <a href="http://en.wikipedia.org/wiki/Kata_(programming)">code kata</a> con un ejercicio llamado <a href="http://codingkata.org/katas/unit/backwards-talk">Backwards Talk</a> y que consiste en invertir un <strong>string</strong>. Por cambiar un poco con respecto a la primera sesión, hemos optado por realizarla en <strong>Python,</strong> salvo Guillermo que se ha atrevido con <strong>Javascript</strong>.</p>
+<p>La solución de Javi Martínez nos ha parecido una de las más acertadas, haciendo uso de recursividad. En Frogtek solemos decir que los programadores que utilizan recursividad deberían llevar <strong>pajarita</strong>, ¿veremos mañana a Martínez con una?</p>
+<pre lang="python">def reverseString(str):
+    if len(str) <= 0:
+        return ''
+    else:
+        return reverseString(str[1:]) + str[0]
+</pre>
+<pre lang="javascript">
+<script type="text/javascript">
+
+String msg = new String("");
+String gsm = new String("");
+
+function backwardsTalk(str) {
+    var N = str.length;
+    for (i=0, i < N; i++) {
+
+        gsm.i = str.N-i;
+
+    }
+    return gsm;
+}
+</script>
+</pre>
+<p>¿Comentarios? ¿Mejoras?</p>

@@ -1,0 +1,42 @@
+---
+layout: post
+title: R, rPython y ggplot2. Un poco de trabajo en equipo
+date: 2013-06-11 15:02:01.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- data mining
+- python
+- R
+tags:
+- código
+- python
+- R
+meta:
+  _edit_last: '10'
+author: guillermo
+---
+<p align="justify">Me llamo Jesús Armand y desde hace unos meses formo parte del equipo de Frogtek como científico de datos. Desde mi llegada, la compañía ha comenzado a utilizar nuevas herramientas en su día a día. Es por ello que a partir de ahora intentaré escribir sobre trucos, pequeños tutoriales o problemas con los que nos encontremos.</p>
+<p align="justify">Cuando se trabaja con datos, a veces nos encontramos con la necesidad de ejecutar distintos códigos o comandos en diferentes herramientas. Por ejemplo, podemos estar trabajando con una base de datos en <em>MySQL</em> para extraer cierta información que queremos filtrar con algún método implementado en <strong>Python</strong> y ese resultado representarlo en un gráfico utilizando el paquete <strong><a title="ggplot2" href="http://ggplot2.org/" target="_blank">ggplot2</a></strong>. Resulta engorroso el proceso de crear, guardar y volver a abrir un fichero en las distintas etapas del proceso.</p>
+<p align="justify">Es por ello que <a title="The R Project for Statistical Computing" href="http://www.r-project.org/" target="_blank"><strong>R</strong></a> a veces nos ayuda a simplificar todas estas tareas y a hacerlas más sencillas. Por ejemplo, con el paquete RMySQL podemos conectarnos de forma rápida con nuestra base de datos y realizar las consultas directamente desde la consola de R y guardar los resultados para, posteriormente, trabajar con el paquete <a title="rPython R package" href="http://rpython.r-forge.r-project.org/" target="_blank"><strong>rPython</strong></a>, creado por Carlos Gil Bellosta. En él podremos llamar fácilmente a las funciones desarrolladas en código Python y, finalmente, con las variables almacenadas en nuestro <em>workspace</em> en R, representar gráficamente la información que deseábamos en un principio con ggplot2.</p>
+<p align="justify">Hoy nos centraremos en un pequeño ejemplo para interactuar con estos dos últimos paquetes: rPython y ggplot2.</p>
+<p align="justify">El ejemplo va a consistir en, dado un vector con 83 valores, utilizar el método <strong>MADe</strong> para la detección y eliminación de valores extremos implementado en Python y representar el resultado en un histograma con el paquete ggplot2. El fichero <a href="http://developing.frogtek.org/wp-content/uploads/2013/06/datos.txt">datos-ejemplo-</a> tiene los datos que necesitaremos. Os animo a que implementéis vosotros el código en Python.</p>
+<p>Si no tenemos instalados en R los paquetes que necesitamos, ejecutaremos:</p>
+<pre lang="r">install.packages("rPython") 
+install.packages("ggplot2")</pre>
+<p>Los paquetes en R se cargan de la siguiente forma:</p>
+<pre lang="r">library("rPython")
+library("ggplot2")</pre>
+<p align="justify">El primer paso será indicar a R con qué fichero .py vamos a trabajar. Para ello ejecutaremos el comando:</p>
+<pre lang="r">python.load("statistical_formulas.py" )</pre>
+<p>donde el atributo es el nombre del fichero que contiene nuestra función (o funciones).</p>
+<p align="justify">La función que hemos definido necesita de una sola variable con datos en la llamada. En este caso será el vector <em>X</em>:</p>
+<pre lang="r">python.call("remove_outliers_MADe_method", X)</pre>
+<p align="justify">donde el primer argumento es el nombre la función/método que tenemos en nuestro código y el segundo atributo es nuestro vector.</p>
+<p align="justify">El resultado de la ejecución de esta llamada lo almacenaremos en la variable <em>resultado.</em></p>
+<p align="justify">Finalmente, sólo nos quedará invocar la función <em>gplot</em>() en ggplot2 para representar gráficamente un histograma:</p>
+<pre lang="r">qplot(resultado, geom="histogram")</pre>
+<p align="justify">Como habéis visto, el procedimiento es muy sencillo. Ahora, os animo a que implementéis vosotros mismos el algoritmo MADe para comparar el resultado.</p>

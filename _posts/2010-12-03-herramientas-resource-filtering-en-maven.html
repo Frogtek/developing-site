@@ -1,0 +1,79 @@
+---
+layout: post
+title: 'Herramientas: Resource filtering en Maven'
+date: 2010-12-03 12:56:47.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- herramientas
+- integración continua
+- programación
+tags:
+- ant
+- hudson
+- maven
+- profile
+meta:
+  _edit_last: '3'
+  short_url: http://bit.ly/eeUyh9
+  _wp_old_slug: ''
+  _oembed_47bc1ae16c4281e355f0301ae9598d54: "{{unknown}}"
+  _oembed_53e692f468f5a8729fac816db28df949: "{{unknown}}"
+  _oembed_9b7276ebdc8c796a2cc626e0854eea21: "{{unknown}}"
+  _oembed_2a3a1776b97091e267b02d8f17b3151a: "{{unknown}}"
+author: julio
+---
+<p>Nuestro querido <a href="http://developing.frogtek.org/2010/07/20/servidor-de-desarrollo/" target="_blank">servidor de desarrollo</a> es el encargado de generar las versiones de nuestros productos, los publica en la web, nos avisa por e-mail de que se han generado nuevas versiones, etc. Además se encarga de que desde el mismo código salgan dos versiones diferentes de la aplicación. La versión de <strong>producción</strong>, sólo para clientes finales, y la de pre-producción donde se prueban todas las funcionalidades antes de ser pasadas a <strong>producción</strong>.</p>
+<p>Las diferencias entre ambas versiones son mínimas pero delicadas, así que hace tiempo programamos una serie de <strong>bash scripts</strong> que hacían los cambios automáticamente en <strong>Hudson</strong>. Nada elegante pero muy útil para evitar errores al subir archivos de configuración a nuestro sistema de control de versiones.</p>
+<p>Hace unos días, a raíz de este <a href="http://francho.org/lab/689/truco-android-un-solo-codigo-varias-aplicaciones/" target="_blank">post</a> de <a href="http://francho.org/lab/" target="_blank">Francho</a>,  <a href="http://developing.frogtek.org/author/pedro/" target="_blank">Pedro</a> pensó que igual podíamos mejorar dichos scripts para incluir ese proceso de definición en la propia aplicación. Nosotros no usamos <strong>Ant</strong> a nivel del servidor de integración continua, sino <a href="http://maven.apache.org/index.html" target="_blank">Maven</a>. Me tocó desempolvar el <a href="http://oreilly.com/catalog/9780596517335" target="_blank">recomendable libro</a> que me dio a conocer <strong>Maven</strong> y me puse manos a la obra.</p>
+<p>Así descubrí el <a href="http://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html" target="_blank">Resource filtering</a>, plugin de <strong>Maven</strong> que permite filtrar archivos y sustituir variables definidas en el pom.xml (archivo de configuración de <strong>Maven</strong>). A continuación os muestro lo sencillo que fue deshacerme de tres o cuatro scripts y pasar a definir dicho proceso desde el propio archivo de configuración de <strong>Maven</strong>.</p>
+<p>Para ello en primer lugar se definen las variables.</p>
+<pre lang="XML">...
+
+   false
+   UA-********
+   http://*******/tiendatek/prebuilds/latest.apk
+   frogtek
+
+...
+</pre>
+<p><!--more--></p>
+<p>Después hay que especificar qué fichero queremos filtrar y dónde queremos que lo deje después de filtrar.</p>
+<pre lang="XML">...
+
+   
+	diffs
+	${project.basedir}/assets
+	true
+	
+		*.xml
+	
+   
+
+...
+</pre>
+<p>Sin olvidarnos de definir adecuadamente el fichero que queremos que sea filtrado.</p>
+<pre lang="XML">...
+
+
+
+
+
+...
+</pre>
+<p>De esta forma conseguimos que por defecto aplique las variables definidas en el <em>properties</em> de arriba. Pero, ¿y cómo hacemos que aplique otros valores diferentes si por ejemplo queremos la versión de <strong>producción</strong>? Ahora entran en acción los <a href="http://maven.apache.org/guides/introduction/introduction-to-profiles.html">profiles</a> de <strong>Maven</strong>.</p>
+<pre lang="XML">...
+
+  production
+
+  	true
+  	http://**********/tiendatek/builds/latest.apk
+  
+
+...
+</pre>
+<p>Ahora ya con solo activar el <strong>profile</strong> o no cuando compilemos con <strong>Maven</strong> conseguiremos tener versión de producción o no.</p>
+<p>De momento solo hemos aplicado el <em>resource filtering</em> aquí, un caso sencillo. Pero seguro que de aquí a un tiempo empezamos a encontrar sitios susceptibles de ser filtrados y mejorados con esta herramienta.</p>

@@ -1,0 +1,31 @@
+---
+layout: post
+title: "¿Por qué usar Maven?"
+date: 2011-08-01 06:04:21.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+- integración continua
+tags:
+- android
+- ant
+- Desk-surfing
+- integración continua
+- maven
+meta:
+  _edit_last: '3'
+  short_url: http://bit.ly/rrAmzN
+author: julio
+---
+<p><img class="alignright" title="MAven" src="{{ site.baseurl }}/assets/7783_doc.jpg" alt="" width="315" height="315" />A raíz de mi grata <a href="http://francho.org/lab/823/una-de-desksurfing-tu-a-pocketwidget-y-yo-a-frogtek/" target="_blank">visita a PocketWidget</a>, en nuestro <a href="http://developing.frogtek.org/2011/07/28/desk-surfing/" target="_blank">Desk-Surfing</a> más reciente, he revisado la configuración de <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Apache_Maven" target="_blank">Maven</a> que nos permite construir nuestros entregables.</p>
+<p>Al volver sobre ella con <a href="https://twitter.com/#!/francho_lab" target="_blank">Francho</a>, repasarla y volver a aplicarla en otros proyectos, me he dado cuenta de lo potente que es y lo difícil que sería la vida sin ella.</p>
+<p>Aparte de todas las bondades que su propia <a href="http://maven.apache.org/what-is-maven.html" target="_blank">página web</a> resalta, personalmente, me quedo con dos de ellas.</p>
+<ul>
+<li>La<strong> <a href="http://maven.apache.org/pom.html#Inheritance" target="_blank">herencia</a> </strong>entre los archivos de configuración. Permitiendo eliminar duplicidades en las configuraciones y facilitando la configuración de multiples proyectos similares partiendo de una configuración padre-base.</li>
+<li>Su <strong>extensibilidad</strong> mediante <a href="http://maven.apache.org/pom.html#Plugins" target="_blank">plugins</a>. Los hay de todos los tipos y si no encuentras uno que se cuadre a tus necesidades, puedes desarrollarlo y usarlo fácilmente. Nosotros el que más usamos es el de <a href="https://code.google.com/p/maven-android-plugin/" target="_blank">Android</a>. No ha estado siempre a la última, pero la comunidad que hay detrás es impresionante y en su última versión beta (2.9) ya soporta los <em>Librar</em><em>y Projects.</em></li>
+</ul>
+<p>Solo usamos <strong>Maven</strong> en el entorno de integración continua, porque durante desarrollo con el plugin de Eclipse ADT para Android, no solemos tener problemas. Pero a la hora de automatizar, la elección ha sido clara: <strong>Maven</strong> sobre <strong>Ant</strong>.</p>

@@ -1,0 +1,49 @@
+---
+layout: post
+title: Cuenta atrás en Android
+date: 2012-09-26 11:31:23.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+- programación
+tags:
+- android
+- cuenta
+- timer
+meta:
+  _edit_last: '3'
+author: guillermo
+---
+<p>Si alguna vez nos hemos visto en la situación de tener que realizar una <strong>cuenta atrás</strong> en nuestra aplicación Android (muy útil para juegos, para indicar el tiempo restante) seguramente habremos hecho uso de la clase típica para estas cosas en Java: <strong>TimerTask</strong> (java.util.TimerTask)</p>
+<pre lang="java">
+private TimerTask getTimerTask() {
+	return new TimerTask() {
+		@Override
+		public void run() {
+			// Aquí hacemos todo
+			} catch (Exception e) {
+				e.printStackTrace();
+				schedule(NOW);
+			}
+		}
+	};
+}
+</pre>
+<p>Deberíamos <strong>modificar bastante esa clase</strong> para que llevara una cuenta regresiva de los segundos que quedan, así como hacer un schedule cada segundo de la task.<br />
+En vez de esto, resulta mucho más elegante utilizar una clase que provee Android llamada <strong>CountDownTimer</strong>. Tan fácil como hacer lo siguiente:</p>
+<pre lang="java">
+timer = new CountDownTimer(secondsUntilFinished, 1000) {
+	public void onTick(long millisUntilFinished) {
+              // Do something every second
+	}
+
+	@Override
+	public void onFinish() {
+              // Do something when finished
+	}
+}.start();
+</pre>

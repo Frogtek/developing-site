@@ -1,0 +1,42 @@
+---
+layout: post
+title: "¿Es el pair programming más rápido?"
+date: 2014-08-26 13:01:45.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- miscelánea
+tags: []
+meta:
+  _edit_last: '2'
+author: guillermo
+---
+<p>Hace ya unos meses tuvimos el <strong>placer</strong> que tener a <a href="https://twitter.com/tolivern">Teresa Oliver</a> compartiendo un día con Frogtek. Nos visitó, le contamos cómo trabajamos, qué <strong>herramientas</strong> nos gustan, cómo recogemos las <strong>métricas</strong>, qué hacemos con ellas... y luego por la tarde ella lideró una <strong>retrospectiva</strong> y nos dio <strong>ideas</strong> sobre cómo hacerlas en el futuro.</p>
+<p>Cuando revisábamos nuestras métricas Teresa se mostró bastante interesada en conocer los datos que tenemos sobre historias de usuario (USs) programadas en <strong>pair</strong> con la idea, imagino, de validar si se puede <strong>defender el argumento</strong> de que hacer hacer pair-programming es más rápido. Validar algo así con <strong>datos empíricos</strong> sería algo bastante radical dado que podría servir para cambiar la mentalidad de muchos "managers" usando el argumento más <strong>simple</strong> y, por qué no decirlo, <strong>simplista</strong> <em>"si pones a dos ingenieros a trabajar en la misma tarea la acaban en menos de la mitad de tiempo"</em>.</p>
+<p>Yo no tenía la respuesta a la pregunta de Teresa pero sí tenía los <strong>datos en bruto</strong> para hacer una <strong>primera aproximación</strong>, así que me apunté la idea y hoy, más vale tarde que nunca, he hecho un pequeño, <strong>breve y simple</strong> análisis.</p>
+<p>Tomando las historias de usuario implementadas en Frogtek en los últimos 20 meses y eliminando los bugs, es decir, sólo tareas de añadir o cambiar funcionalidad, tenemos:</p>
+<ul>
+<li>El <strong>tamaño</strong> medio de las USs hechas en <strong>solitario: 0.38 puntos</strong>.</li>
+<li>El <strong>tamaño</strong> medio de las USs hechas en <strong>pair: 0.75 puntos</strong>.</li>
+</ul>
+<p>Primera conclusión, lógica por otro lado, el pair programming se usa especialmente cuando las <strong>tareas son complicadas, largas o arriesgadas</strong>.</p>
+<ul>
+<li><strong>Días brutos</strong> desde que se empieza el desarrollo, hasta que se termina, cuando se hace en <strong>solitario</strong>:  <strong>11.5 días, es decir 30 días por punto</strong>.</li>
+<li><strong>Días brutos</strong> desde que se empieza el desarrollo, hasta que se termina, cuando se hace en <strong>pair</strong>: <strong>24 días, es decir 32 días por punto</strong>.</li>
+</ul>
+<p>¡Oooohhhhh!... El <strong>gozo</strong> de nuestro "manager" en un <strong>pozo</strong>. Hacer <strong>pair programming no acelera el desarrollo... de las USs </strong>(ni siquiera considerando a los dos programadores, pair programming con tres es ya vicio, como una única <strong>criatura bicefálica mitológica</strong>... aunque esto bien puede deberse a que las tareas que se acometen en pair en Frogtek son siempre las más complicadas y habitualmente se infraestiman), otra cosa muy distinta es si hacer pair programming, en casos justificados, puede <strong>acelerar la velocidad del equipo en el medio plazo</strong>. Desgraciadamente ese es un análisis mucho más complicado de hacer y en Frogtek no tenemos los datos que validen nuestra opinión que es que sí, que hacer pair-programming <strong>acelera</strong> la velocidad del equipo ya que:</p>
+<ul>
+<li>Dota de <strong>consistencia</strong> al trabajo del equipo.</li>
+<li>Se crea código de mayor <strong>calidad</strong> que contendrá menos bugs.</li>
+<li>Sirve para trasmitir <strong>conocimientos</strong> y reducir el bus-factor.</li>
+<li>[inserte aquí su razón]</li>
+</ul>
+<p>Todos estos aspectos son <strong>difíciles de medir de forma cuantitativa</strong> para convencer a un "manager", en cualquier caso ojalá <strong>sólo fuera este factor</strong> el que complica el análisis de la velocidad de un equipo de desarrollo. Y si no que se lo pregunten a <a href="http://www.targetprocess.com/articles/speed-in-software-development.html">Michael Dubakov</a>... que por cierto ¡no mete el pair-programming en su modelo! (WTF)</p>
+<p><a href="http://www.targetprocess.com/articles/img/speed/map2.jpg"><img class="aligncenter" src="{{ site.baseurl }}/assets/map2.jpg" alt="" width="634" height="409" /></a></p>
+<p>&nbsp;</p>
+<p>Conclusión: seguimos teniendo que <strong>creernos</strong> que el pair programming (en su justa medida) es más rápido... <strong>a la larga</strong>. Al menos hasta que alguien nos dé <strong>mejores datos</strong> que los nuestros y un <strong>modelo</strong> para aplicarlos.</p>
+<p style="text-align: center;"><em>Bienaventurados los que creen, porque ellos irán más rápido.</em></p>
+<p style="text-align: right;">Libro de las bienaventuranzas del software.</p>

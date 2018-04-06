@@ -1,0 +1,66 @@
+---
+layout: post
+title: Restringir uso de emoticonos en EditText
+date: 2014-02-20 17:41:13.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+tags:
+- android
+- character
+- charat
+- edittext
+- emoji
+- emoticon
+- emoticono
+- facebook
+- filter
+- intentfilter
+- kat
+- kit
+- kit kat
+- kitkat
+- like
+- sdk
+- setfilters
+- sql
+- sqlite
+- whatsapp
+meta:
+  _edit_last: '8'
+author: guillermo
+---
+<p>La nueva versión 4.4 del SDK de android (Kit Kat) trae consigo los famosos emoticonos (o emojis), añadidos al teclado software, que tanto gustan en whatsapp o facebook.</p>
+<p><a href="http://developing.frogtek.org/wp-content/uploads/2014/02/emoji.png"><img class="aligncenter size-medium wp-image-1969" alt="emoji" src="{{ site.baseurl }}/assets/emoji-300x173.png" width="300" height="173" /></a></p>
+<p>&nbsp;</p>
+<p>Nos hemos encontrado con algún usuario de nuestra aplicación que los ha utilizado para dar más colorido a los nombres de proveedores, productos, clientes...</p>
+<p>Pero luego nos han dado problemas a la hora de hacer alguna consulta SQL con un LIKE comparando strings.</p>
+<p>¿Cómo lo he solucionado? Si limito los EditText a únicamente letras del abecedario o números, estoy haciendo que la aplicación no pueda ser 100% funcional en países donde se usan otro tipo de caracteres como Rusia, Japón, China...<br />
+He decidido usar la clase InputFilter, como sigue:</p>
+<pre>
+<code>
+InputFilter filter = new InputFilter() {
+public CharSequence filter(CharSequence source, 
+                           int start, 
+                           int end, 
+                           Spanned dest, 
+                           int dstart, 
+                           int dend) {
+        for (int i = start; i &lt; end; i++) {
+            if (!Character.isLetterOrDigit(source.charAt(i)) 
+                &amp;&amp; !Character.isWhitespace(source.charAt(i))) {
+                return "";
+            }
+        }
+        return null;
+    }
+};
+
+editText.setFilters(new InputFilter[]{filter});
+</code>
+</pre>
+<p>Espero que te sirva. O si tienes una solución mejor, es bienvenida.</p>

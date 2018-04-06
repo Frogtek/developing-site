@@ -1,0 +1,81 @@
+---
+layout: post
+title: 'Robolectric: TDD en Android'
+date: 2011-02-03 17:56:38.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+- herramientas
+tags:
+- activity
+- android
+- robolectric
+- TDD
+- tests
+meta:
+  _edit_last: '3'
+  short_url: http://bit.ly/fZU801
+author: guillermo
+---
+<p>Llevábamos ya desde nuestros inicios buscando herramientas que nos permitieran <strong>practicar TDD</strong> para desarrollar las <strong>clases de nuestro proyectos en Android</strong>. El problema era que las <strong>Activity</strong> (clase fundamental de las aplicaciones Android) solo podían ser testeadas a través del<strong> propio entorno Android</strong>, nunca como clase independiente. Por lo tanto, los únicos tests que habíamos realizado sobre esas clases eran <strong>tests de integración</strong>, que podían tardar del orden de <strong>4 minutos</strong> en ejecutarse por completo, lo que nos imposibilitaba el realizar un <strong>diseño guiado por tests</strong>.</p>
+<p><strong>Robolectric</strong> (<a href="http://pivotal.github.com/robolectric/">http://pivotal.github.com/robolectric</a>) es una herramienta que nos va a permitir lanzar tests unitarios en Android.<a href="http://developing.frogtek.org/wp-content/uploads/2011/02/robolectric.png"><img class="alignright size-full wp-image-982" title="robolectric" src="{{ site.baseurl }}/assets/robolectric.png" alt="" width="140" height="140" /></a></p>
+<p>Su uso nos aporta varias ventajas:</p>
+<ul>
+<li>Ejecuta tests en Android que <strong>duran segundos</strong> y no minutos, como en el caso de un Android jUnit test.</li>
+<li>Su velocidad nos permite<strong> practicar TDD</strong> al crear clases en Android.</li>
+<li>Podemos usar <strong>Mockito</strong> o <strong>PowerMock</strong> en conjunción con los tests de Robolectric.</li>
+<li>Nos permite utilizar clases de librerías Android, como <strong>JSONObjects</strong> o <strong>JSONArrays</strong>, que en otros entornos no podríamos usar.</li>
+</ul>
+<p>Como  algunas clases de Android no tienen métodos para acceder al estado o  las variables que contienen, la gente de Robolectric se ha sacado de la  manga los <strong>Shadows</strong> (ShadowImageView, ShadowRelativeLayout,  ShadowActivity, etc.), los cuales nos van a permitir realizar pruebas como  esta:</p>
+<div>
+<pre lang="java">@Test
+public void testImagenEsCorrecta() throws Exception {
+    ImageView imagenBanner = (ImageView) activity.findViewById(R.id.banner);
+    ShadowImageView shadowBanner = Robolectric.shadowOf(imagenBanner);
+    assertThat(shadowBanner.resourceId, equalTo(R.drawable.img_banner_grande));
+}
+</pre>
+</div>
+<p>Cómo configurar Robolectric para Eclipse:</p>
+<p>Estos son los pasos básicos para configurar Robolectric en Eclipse. Recomiendo seguir el <a href="http://pivotal.github.com/robolectric/quick-start.html">quick-start de la web oficial</a> para más detalles:</p>
+<ol>
+<li>Crear una nueva carpeta en la raíz de nuestro proyecto que vamos a testear, llamada test.</li>
+<li>Crear un nuevo proyecto (u obtenerlo del SVN) llamada MyProjectTest.</li>
+<li>Queremos meter el código dentro de la carpeta test antes creada,  así que en MyProjectTest haremos clic en propiedades y en Build  Path/Source/Link Source seleccionaremos la carpeta test.</li>
+<li>Añadir al proyecto el .jar de Android.</li>
+<li>Añadir al proyecto el .jar de Robolectric (¡con dependencias!).</li>
+<li>Añadir una nueva run configuration en Run/Run configurations, de forma que elijamos Eclipse JUnit launcher y en la pestaña Arguments seleccionaremos Other/Workspace y elegiremos la carpeta raíz del proyecto que queremos testear.</li>
+</ol>
+<p>Ejemplo de uso para testear una Activity:</p>
+<div>
+<div>
+<pre lang="java">@RunWith(RobolectricTestRunner.class)
+public class MyActivityTest {
+    private Activity activity;
+    private Button pressMeButton;
+    private TextView results;
+
+    @Before
+    public void setUp() throws Exception {
+        activity = new MyActivity();
+        activity.onCreate(null);
+        pressMeButton = (Button) activity.findViewById(R.id.press_me_button);
+        results = (TextView) activity.findViewById(R.id.results_text_view);
+    }
+
+    @Test
+    public void shouldUpdateResultsWhenButtonIsClicked() throws Exception {
+        pressMeButton.performClick();
+        String resultsText = results.getText().toString();
+        assertEquals("Testing Android Rocks!", resultsText);
+    }
+}
+</pre>
+</div>
+</div>
+<p>De momento, Robolectric es un proyecto joven (surgió en noviembre de 2010). Esperamos que esta herramienta mantenga una cierta continuidad, para que podamos obtener el máximo rendimiento a las prestaciones que nos ofrece.</p>
+<p>Por ahora estamos experimentando las posibilidades que nos otorga, todavía nos queda por descubrir como crear nuestros propios objetos Cursor dentro de este entorno. Seguiremos informando...</p>

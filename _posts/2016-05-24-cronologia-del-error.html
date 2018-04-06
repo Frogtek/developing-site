@@ -1,0 +1,79 @@
+---
+layout: post
+title: Cronología del error
+date: 2016-05-24 11:10:01.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- devops
+tags:
+- chef
+- despliegue
+- error
+- nginx
+- Slack
+meta:
+  _edit_last: '101011'
+author: miguel.julian
+---
+<p>En muchos artículos, incluidos muchos de los que hemos escrito, se acaba haciendo un poco de «autobombo» sobre las bondades de un proceso o de un equipo. Pero no sólo de los éxitos se aprende, también de los errores, ¡y mucho! Así que hoy te invitamos a <strong>un recorrido por parte de nuestra arquitectura y nuestras mejoras a través de un error</strong> (o dos, o tal vez tres, bueno, unos cuantos). Acompáñanos.</p>
+<p>En Frogtek desarrollamos Tiendatek, <strong>una aplicación para Android que sirve como TPV</strong>. Para buscar ese valor añadido tenemos un botoncito en la aplicación que dirige al usuario a una web (con un webview) donde podrá obtener mucha más información sobre su stock, mejores productos, histórico, ... Además tenemos una serie de APIs para usos diversos. Perdone, estamos en el 2016, si no expones una API para registrar las veces que uno va al servicio no eres nadie. Pues eso, servicios varios, que digamos, usa toda la empresa de una forma o de otra (no, lo de ir al baño no está implementado).</p>
+<h3>Comienza la historia: la motivación del cambio</h3>
+<p><strong>Medir y mejorar tiempos de respuesta.</strong> Fin de la sección.</p>
+<p>Hace unas semanas desplegamos una prueba de concepto para monitorizar y mejorar la forma en la que estaba expuesto un servicio. Lo que nosotros llamamos «el pedido sugerido». Al final siempre hay rincones del código y de nuestra infraestructura que reciben menos mimo del que merecerían. Y este era un claro ejemplo. ¿Un servicio con una tasa de errores del en torno al 7-8%? Un poco de chapa y pintura y ya lo tenemos en torno al 1-2% (principalmente timeouts por un socket que cierran los clientes impacientes).<br />
+<!--more--></p>
+<p>¡Fácil! ¿Por qué no hacemos ese cambio al resto de los servicios? Adelante.</p>
+<h3>El final de la historia: qué cambió</h3>
+<p>Lo siento, pero ya estoy haciendo spoiler. A día de hoy la historia ya ha acabado, y los cambios que se querían eran:</p>
+<ul>
+<li>En lugar de servir los <strong>servicios web con un Cherrypy, mucho mejor que responda Nginx</strong>.</li>
+<li>Si ya de paso es Nginx el que se encarga de la gestión SSL nos hace un gran favor.</li>
+<li>Actualizar todas las librerías de Python, principalmente subíamos Cherrypy de una versión del siglo XVIII a la última. ¿Quién dijo miedo?</li>
+</ul>
+<p>Ahora mismo cuando escribo estas líneas el cambio parece trivial. La infraestructura no es tan mala. ¿Qué podría ir mal? Algunos de los lectores, viciosos y malpensados, ya se están relamiendo con errores que a todos se nos ocurren. Pero oye, <strong>"en mi local funciona"</strong>.</p>
+<h3>Acto I: «Hacemos el cambio, y en media hora todo arriba»</h3>
+<p>Empezamos en <strong>«pair-deploy»</strong>. Branches revisadas: un poco de código de Python cambiando puertos y alguna redirección (¿redirección? sí, calla, no hagas spoiler). Una receta de Chef cambiada añadiendo Nginx y sus templates.</p>
+<blockquote><p>- Espera, espera, que primero aviso por Slack. Que en México-Colombia no están trabajando, pero nos tenemos que acostumbrar a avisar de los downtimes. Qué gozada, te pones a las diez de la mañana con los sistemas sin actividad. Es como entrar a un metro y estar solo.</p>
+<p>«Hola, somos la repera y vamos a hacer unas cuantas mejoras en los sistemas que nos van a llevar 30 minutos»<br />
+<strong>Traducción:</strong> «Hola, somos la repera y en 15 minutos tenemos esto arriba. A ver quién nos dice lo bien qué funciona ahora»</p></blockquote>
+<p>En un poco menos de media hora estaba <strong>todo funcionado en nuestros navegadores</strong>. Salvo el entorno de «light». Así que mensaje a Slack.</p>
+<blockquote><p>«Hola. Tenemos todos los servicios arriba excepto Light (que sólo afecta a unos pocos tenderos), y estamos trabajando en ello para solucionarlo»<br />
+<strong>Tradución:</strong> «Yeah!»</p></blockquote>
+<p>Primer problema. Light. En Python redirigimos algunas peticiones dependiendo de si un usuario está en el entorno de light o en el entorno de pro. Nginx pasa el código al entorno de pro. El entorno de pro manda una redirección al cliente para que vaya al entorno de light. Nginx manda la siguiente petición al entorno de light. Que ejecuta el mismo código de pro con algunos commits más. Checkea la URL, y viene sin puerto (la diferencia entre light y pro). Así que nos vuelve a mandar la redirección... «too many redirections». <strong>Nginx es más listo que el hambre y nos quita el puerto en el rewrite.</strong> Una vez descubierto, unas pruebas, y fixed.</p>
+<blockquote><p>«Hola. Han pasado dos horas, pero hemos visto el problema y Light está arreglado»<br />
+<strong>Traducción:</strong> «Ahora nos vamos a comer con la satisfacción del trabajo bien hecho. Luego ya nos ponemos con cosas importantes»</p></blockquote>
+<h3>Acto II: Tenemos tenderos que llaman porque no les va la aplicación</h3>
+<p>Vuelves de comer con energías renovadas. <strong>Slack lleno de conversaciones con menciones.</strong> Seguro que nos felicitan por el trabajo bien hecho.</p>
+<p>Lees la primera conversación, movimiento nervioso de pierna. Lees la segunda conversación, mariposas en el estómago. Lees la tercera, mierda. <strong>Lees los logs...</strong> <em>¡pero si funcionaba perfectamente!</em> <strong>Pulsaciones a 200.</strong> Espera, espera, un problema con Chef que nos ha dejado la conf a mitad. Maldito Chef. Pulsaciones a 80. Miras los archivos de configuración. Todo bien. Un restart de «creo en el FEM». Pulsaciones a 200. <strong>Monitorizas los logs. Te levantas, miras por la ventana. Pulsaciones a 120. Mejor. Venga, «pair-apagado-de-fuegos»</strong>.</p>
+<p>A los tenderos no les funciona. Vuelves a probar desde la tablet, funciona. - Oh!, esta es la versión de desarrollo-. Pruebas con la versión de producción, problemas. Código. Vaya, los tenderos están yendo a «frogtek.com» y no a nuestro flamante y unificado«frogtek.org». Por aquí tenemos algún error, resumido:</p>
+<blockquote><p>listen 80;<br />
+rewrite ^ https://$host$request_uri? permanent;</p></blockquote>
+<p><strong>No habíamos contemplado que todavía podrían venirnos peticiones desde frogtek.com</strong>. El problema reproducido en el navegador, se arregla la redirección. Los navegadores de escritorio van bien. <strong>Los logs no parecen enterarse de nuestra obra maestra</strong>, siguen llegando muchos errores 400. Toca probar con la tablet con la versión de producción, no mola nada eso de repetir errores. Error. «Venga, esto es una broma.»</p>
+<p>Pruebas con el navegador de Android, error en el certificado. Revisamos el certificado que está devolviendo el servidor, parece correcto. Pero se queja sobre que <strong>no encuentra el certificado de la entidad certificadora</strong>. Vaya, claro, no los tenemos encadenados porque antes Cherrypy parece que nos lo gestionaba.</p>
+<p>Los encadenamos. El navegador móvil funciona. En el de escritorio hace rato. En la aplicación...... ¡no! ¿Pero qué tipo de magia oscura está ocurriendo aquí? <strong>Los logs empiezan a demostrar que algo está volviendo a la vida.</strong> Ya hay bastantes peticiones correctas. Algo vuelve a la vida, pero algo se nos escapa. Probamos con la aplicación instalada desde cero, ¡y funciona! ¡funciona sin problemas! Algo hemos solucionado, vamos a hacer que la gente pruebe con más dispositivos. </p>
+<blockquote><p>- ¡Ey! a mí me funciona bien.<br />
+- ¡Ey! A mí me sigue sin ir.</p></blockquote>
+<h3>Acto III: Redirección permanente</h3>
+<p>Venga, vamos, una llamada y lo revisamos todos juntos. Cierra la aplicación, falla. Apaga la tablet, falla. Prueba con otro dispositivo, funciona. <strong>¿Y cómo debugeamos esto a distancia?</strong> ¿Cómo sabemos qué URL está solicitando? ¿Filtramos los logs? ¿Qué IP? Pero habrá muchas peticiones desde esa oficina. Solución: matar moscas a cañonazos. Después de este downtime enorme, estemos 5 segundos con el servicio caído, lo justo para ver el fallo en su dispositivo.</p>
+<p><strong>https://frogtek.com No es nada nuevo.</strong> Hemos omitido algunos de los errores y pruebas que hicimos durante el <em>Acto II</em>, pero ya nos habíamos enfrentado a este problema. Pero qué pasa, ¿cómo es que Nginx no aplica la nueva configuración? Mira, claro que la aplica, en «navegación privada» funciona perfectamente. Mira, con ese «permanent» es <strong>responsabilidad del navegador </strong>gestionar esa redirección y la puede recordar para siguientes visitas.</p>
+<p>Así que todos los tenderos que han intentado entrar a los reportes durante el tiempo de downtime siguen sin tener el problema solucionado. <strong>El webview de Android está cacheando la redirección</strong> y está fallando el checkeo del certificado. Ya que nuestro certificado es frogtek.org y no frogtek.com. ¿Cómo quitamos ese cacheo? Aparición estelar, ¿y si borramos sólo la caché de la aplicación?</p>
+<p><strong>¡Funciona! Notificamos este workaround</strong> para aquellos tenderos que se sigan viendo afectados por el problema. Lo hemos visto funcionar con nuestros ojos. Todos los que entran por primera vez hoy, funcionan. La aplicación en la Play Store funciona. Bueno, problema solucionado, si hay problemas serán aislados. A cenar y a dormir. Que menudo día.</p>
+<h3>Acto IV: Último arreglo</h3>
+<p>Esa es una de esas noches en las que no duermes muy tranquilo. Los errores que has cometido siguen pasando por tu cabeza una y otra vez. Poca profundidad en el diagnóstico del problema, y mucho peor, probar con pocos entornos, y dejándose el más importante. </p>
+<blockquote><p>«¿Cómo puedo ser tan ...?»<br />
+«Si sólo hubiera...»<br />
+«¿Cómo es que no había visto esto antes?»<br />
+«J***!»</p></blockquote>
+<p>Amanece. Slack. Varias menciones. Venga, esta vez seguro que nos felicitan por lo bien que funciona y por las pocas llamadas que han recibido. Somos unos cracks. No. Todavía <strong>algunos tenderos</strong> (pocos, al parecer) después de llamar a soporte y vaciar la caché de la aplicación <strong>reportan problemas</strong>. El error lo tenemos claro.</p>
+<p>Al parecer dormir y descansar clarifica la mente. Y también te pone con un tono más filosófico y trascendental.</p>
+<blockquote><p>- ¿Has dormido bien esta noche? A mí me costó dormir, pero luego del tirón, aunque me he despertado antes de tiempo.<br />
+- Yo me he despertado en mitad de la noche inquieto y pensando.<br />
+«Hablar sobre el problema:  ¿Versión diferente de Android? ¿Harán mal lo de limpiar la caché? ...»<br />
+- Oye, no puede ser que andemos así. No podemos hacerles perder el tiempo a soporte con esto.<br />
+- Tienes razón, eso es mucho dinero. Y nuestro tiempo. ¿Y si ponemos el segundo certificado y adiós problemas?</p></blockquote>
+<p>5 minutos de conferencia para comentar el problema y aprobar el gasto. Dicho y hecho. Configurar Nginx para servir utilizando los dos certificados, configuramos ambas redirecciones a https. <strong>Parece que funciona bien.</strong> Ahora sí estamos tranquilos.</p>
+<p>Al parecer, seguimos sin problemas. Ahora toca esperar que las mejoras se noten y podamos seguir con esta mejora continua en la infraestructura.</p>
+<p>Después del «pair-deploy» y el «pair-apagado-de-fuegos», esto también ha sido (más o menos) «pair-escrito».</p>

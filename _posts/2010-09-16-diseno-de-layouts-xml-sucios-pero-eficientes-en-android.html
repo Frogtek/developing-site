@@ -1,0 +1,48 @@
+---
+layout: post
+title: Diseño de layouts XML, sucios pero eficientes, en android
+date: 2010-09-16 22:13:13.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+- eficiencia
+- programación
+tags:
+- android
+- button
+- eclipse
+- edittext
+- eficiencia
+- fill_parent
+- inflate
+- layout
+- layoutinflater
+- layout_height
+- layout_width
+- onMeasure
+- optimizar
+- outline
+- relativelayout
+- tablet
+- textview
+- traceview
+- widget
+- wrap_content
+meta:
+  _edit_last: '8'
+  _wp_old_slug: ''
+author: guillermo
+---
+<p>Si no vienes del <a href="http://developing.frogtek.org/2010/09/16/optimizar-una-aplicacion-android-introduccion/" target="_blank">post introductorio</a>, quizás te gustaría leerlo.</p>
+<p>Bien, pues a medida que añadíamos nueva funcionalidad a la aplicación en la tablet, experimentábamos una lentitud tremenda en alguna de las actividades que abríamos. No era normal que si en el teléfono, el mismo layout funcionaba perfectamente, ¿por qué al unir dos layouts en uno sólo, pero más grande, vaya tan lento? Respuesta: no hay nada que el <a href="http://developer.android.com/guide/developing/tools/traceview.html" target="_blank">traceview</a> no solucione. Nada.</p>
+<p>Rápidamente, Julio comenzó a ver que había miles de llamadas a una función nativa de android que se llama <a href="http://developer.android.com/reference/android/view/View.html#onMeasure(int,%20int)" target="_blank"><code>onMeasure()</code></a>. La misma, se encarga de que cada vez que hay que posicionar un widget dentro del layout, hacer las medidas necesarias de lo ya presente en el mismo para así determinar dónde debe de ir colocado. ¿Y qué problema hay con esto? Pues que si tu layout tiene muchos widgets, y estos widgets tienen algunas de sus propiedades (como el <code>layout_width</code>, o <code>layout_height</code>) con valores <code>wrap_content</code> o <code>fill_parent</code>, todo resultará en un festival de <code>onMeasure()</code>. Creo recordar, que el 90% del tiempo de carga de una pantalla ineficiente nuestra, se lo llevaba esta función. Obviamente, pasamos de medio segundo para cargar una pantalla determinada en el teléfono, a 2 ó 3 (incluso más) en la tablet.<br />
+Por lo tanto, uno de los nuevos mandamientos que hay que grabarse a fuego es que: siempre darás medidas a tus widgets (Button, TextView, Layouts, EditText, etc), en lugar de que las decida android. Siempre, a no ser que sea estrictamente necesario; que alguna vez lo es.<br />
+Este es el primer paso para que la aplicación fluya un poquito más rápido que antes. Pero sólo un poquito.</p>
+<p>¿Qué, que aún no hemos ensuciado el layout? Bien, pues este punto tiene que ver con el nivel en que un widget se encuentra anidado. Podemos tener un layout muy sencillo, con un RelativeLayout y dos Button dentro, o podemos tener algo como <a href="http://developing.frogtek.org/wp-content/uploads/2010/09/layout_barroco.png" target="_blank">esto</a> (o peor). Es por esto lo que un día <a href="http://twitter.com/pabadsa1/status/22448822939" target="_blank">dije en la oficina</a>. Somos unos barrocos.<br />
+Por lo tanto, desde frogtek recomendamos encarecidamente que, a poder ser, se tenga un RelativeLayout padre con todos sus hijos al mismo nivel. Si se tienen 4 o 5 widgets en el layout, serás afortunado; si tienes 30 o 40 como en alguno de nuestra tablet, puedes volverte loco buscando uno en concreto en el Outline de eclipse. Cierto es que queda todo mucho más ordenado si vamos anidando widgets dentro de Layouts, pero se pierde rapidez al cargar, ya que también hay muchos más <code>onMeasures()</code> que si estuviesen todos al mismo nivel. Y traceview no miente.</p>
+<p>Por lo tanto, el primer paso para agilizar la carga (o recarga) de una pantalla, pasa por dar medidas a todo widget al que podamos dar medidas absolutas, e intentar que nuestros layouts sean lo menos barrocos posibles en cuanto a ordenación jerárquica se refiere.</p>
+<p>Consejo extra que se me ocurre mientras escribo: si utilizas el <a href="http://developer.android.com/reference/android/view/LayoutInflater.html" target="_blank">LayoutInflater</a> para cargar layouts dentro de otros, tener un layout con uno o dos niveles de anidación ayudará mucho. Nosotros, que tenemos layouts dentro de layouts, y de nuevo dentro de layouts (por necesidad), lo hemos notado.</p>

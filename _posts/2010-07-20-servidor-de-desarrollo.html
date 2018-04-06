@@ -1,0 +1,39 @@
+---
+layout: post
+title: Servidor de desarrollo
+date: 2010-07-20 10:07:05.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+- herramientas
+- integración continua
+tags:
+- funcionales
+- gae
+- maven
+- revisión de código
+- svn
+- test
+- web
+meta:
+  _edit_last: '6'
+  _wp_old_slug: ''
+author: julio
+---
+<p><img class="alignright" title="DarwinFrog" src="{{ site.baseurl }}/assets/x2_2020b2e" alt="Servidor de desarrollo" width="79" height="79" /></p>
+<p>Os presento a nuestro servidor de desarrollo: <strong>DarwinFrog</strong>.</p>
+<p>Debido a nuestra pasión por la <a href="http://en.wikipedia.org/wiki/Continuous_integration" target="_blank">integración continua</a>, las revisiones de código, las herramientas de calidad y los tests automáticos; el pobre servidor está pluriempleado.</p>
+<p>A modo de recuento las herramientas que habitan nuestro servidor y nos ayudan en nuestras tareas diarias son:</p>
+<ul>
+<li><a href="http://hudson-ci.org/" target="_blank">Hudson</a> servidor de integración continua, lleno de plugins para adaptarse al desarrollo en Android y <a href="http://code.google.com/intl/es-ES/appengine/docs/whatisgoogleappengine.html" target="_blank">Gae</a>.</li>
+<li><a href="http://subversion.tigris.org/" target="_blank">Subversion</a> en estos momentos nuestro sistema de control de versiones, estamos pensando migrar a algo más moderno como Git o Mercurial, pero no encontramos el momento adecuado.</li>
+<li><a href="http://www.sonarsource.org/" target="_blank">Sonar</a> plataforma de control de calidad del código, muy completa y visual.</li>
+<li><a href="http://www.reviewboard.org/" target="_blank">Review Board</a> herramienta de revisión de código muy útil y fácilmente enlazable con Subversion y otros sistemas de control de versiones.</li>
+<li><a href="http://nexus.sonatype.org/" target="_blank">Nexus</a> gestor de repositorios muy útil para almacenar artefactos propios generados por Maven y así no tener que preocuparse de las versiones de las librerías, ni de las dependencias.</li>
+<li><a href="http://seleniumhq.org/" target="_blank">Seleniumhq </a>plataforma para realizar tests funcionales web, versátil y fácilmente integrable con Hudson. Permite grabar los test de forma muy sencilla desde firefox entre otros.</li>
+</ul>
+<p>En próximos posts intentaremos entrar en más detalle y contaros más a fondo como utilizamos y para que cada una de las herramientas.</p>

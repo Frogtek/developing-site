@@ -1,0 +1,56 @@
+---
+layout: post
+title: Excepciones para controlar tu lógica
+date: 2011-06-07 13:00:20.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- eficiencia
+- miscelánea
+- programación
+tags:
+- android
+- excepciones
+- exceptions
+- java
+- logic
+meta:
+  _edit_last: '3'
+  short_url: http://bit.ly/lPqeoD
+author: guillermo
+---
+<p>Hace unos días apareció en nuestro board una User Story que tenía como título:<br />
+<em><br />
+"Pop-up warning when Cost is higher than Price"</em></p>
+<p>En sus AT's aparecían las pantallas donde debería hacerse esta comprobación. Así que nos pusimos manos a la obra y estudiamos cuál sería el impacto de este cambio. Vimos que tendríamos que añadir una condición en todas las pantallas y en todos los sitios donde son susceptibles de cambio las dos variables que nos atañen.</p>
+<p>Si optábamos por ese camino, esto iba a oler a bug, en el que te reportan que no se muestra el pop-up en un lugar que no tuviste en cuenta a la hora de añadir la condición. Con lo que decidimos no optar por la solución a priori mecánica y sencilla. De repente, la palabra <strong>"Excepciones"</strong> vino a nuestras mentes, <a href="http://www.rubenbernardez.com/blog/">Rubén</a> de <a href="http://www.biko2.com/">Biko2</a> estuvo durante tres días inculcando su sabiduria en el equipo de Frogtek y algo de lo que nos contó salía a la luz.</p>
+<p><img class="aligncenter size-full wp-image-1277" title="exceptions" src="{{ site.baseurl }}/assets/exceptions.jpg" alt="" width="300" height="300" /></p>
+<p>Así que decidimos implementarnos una excepción que se lanzase desde la lógica hacia la UI si esta condición se daba. De este modo el impacto sería mucho menor y desde la UI solo tendríamos que controlar dicha excepción y mostrar el pop-up, y además sería imposible saltarnos ningún sitio, puesto que tendríamos error de compilación. Así quedo nuestra clase:</p>
+<pre lang="java">package org.frogtek.tiendatekcore.exceptions;
+  public class CostHigherThanPriceException extends Exception {
+        public CostHigherThanPriceException() {
+            super("Cost is higher than price");
+        }
+    }</pre>
+<p>En este caso el mensaje no es importante para nosotros: solo queremos capturar el momento en el que sucede esta condición.</p>
+<p>El método del bean que lanzaba la excepción quedaría así:</p>
+<pre lang="java">    public void setPurchaseCost(long purchaseCost) throws CostHigherThanPriceException {
+        if (purchaseCost != this.mPurchaseCost) {
+            if (this.mPurchasePrice &lt; purchaseCost) {
+                throw new CostHigherThanPriceException();
+            } else {
+                this.mPurchaseCost = purchaseCost;
+            }
+        }
+    }</pre>
+<p>Después de esto surgieron por la oficina las dudas filosóficas de si estabamos tomando el camino correcto al usar excepciones para esto, o de si un excepción no debería controlar solo errores que no se pueden manejar. Esta es la definición oficial de java:</p>
+<p><em><strong>An exception is an event that occurs during the execution of a program that disrupts the normal flow of instructions.</strong></em></p>
+<p>Muy abierta y si os dais cuenta no habla en ningún momento de errores. Habla de eventos.</p>
+<p>Conclusiones que en Frogtek hemos obtenido:</p>
+<ul>
+<li>Que tener a una persona de fuera de la oficina con el espíritu y con las ganas de hacer bien las cosas es increíble.</li>
+<li>Que usar excepciones es una muy buena estrategia para definir tu lógica. <strong>Nosotros somos un equipo de 7 personas tocando y retocando el mismo código a diario. Ayuda mucho que tú tengas que llamar a un método que lance una excepción: desde el primer momento estás advertido de que ese método puede lanzar algo y estás en la obligación de controlarlo.</strong></li>
+</ul>

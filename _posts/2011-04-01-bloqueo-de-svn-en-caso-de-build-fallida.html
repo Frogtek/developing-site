@@ -1,0 +1,116 @@
+---
+layout: post
+title: Bloqueo de SVN en caso de build fallida
+date: 2011-04-01 06:07:11.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- agile
+- integración continua
+- metodología
+tags:
+- bash
+- block
+- build
+- commit
+- integration
+- jenkins
+- script
+- svn
+meta:
+  _edit_last: '6'
+  short_url: http://bit.ly/dQY6kM
+author: julio
+---
+<p>Hace poco tuvimos una <a href="http://blog.dev.openfinance.es/2011/03/una-semana-de-internship/">agradable visita</a> aquí en <strong>Frogtek</strong>. Una de las muchas aportaciones de <a href="https://twitter.com/#!/hell03610">Emma</a> fue hacernos replantear nuestro sistema de lanzamiento de <em>builds</em> en <a href="http://jenkins-ci.org/">Jenkins</a>, pasando de uno más pesado en recursos a otro más eficiente. A raíz de dicho cambio hemos aprovechado y mejorado el procedimiento de bloqueo que tenemos configurado en Jenkins y la forma en la que lo realizamos. Vamos a explicarlo para que nos ayudéis a mejorarlo todavía mas.</p>
+<p>En sí, el procedimiento consiste en no permitir <em>commits</em> al servidor <strong>SVN</strong> si hay una <em>build  rota</em>. Excepto al usuario que haya provocado dicha rotura. De esta forma nos aseguramos de varias cosas:</p>
+<ul>
+<li>No se avanza en el desarrollo si el código subido no es de una calidad mínima, pasa los test y se construye correctamente.</li>
+<li>Los desarrolladores se hacen responsables de los problemas que ellos han generado y los arreglan.</li>
+<li>Cuando existe un problema en una parte del proyecto, y dicho problema tarda en resolverse, todo el equipo se preocupa por saber qué pasa y ayudar a resolverlo para poder seguir avanzando.</li>
+</ul>
+<p><!--more--><br />
+Para conseguir este funcionamiento usamos dos <em>scripts</em>. Uno, invocado al comienzo y finalización de cada proyecto en <strong>Jenkins</strong>, encargado de realizar el bloqueo en sí. Y otro, invocado desde el hook de <a href="http://es.wikipedia.org/wiki/SVN">SVN</a> de <strong>pre-commit</strong>, que comprueba que no haya nadie bloqueando el servidor en el momento del <em>commit</em>.</p>
+<p>El primero de ellos:</p>
+<pre lang="BASH">
+#!/bin/bash
+#
+# Script that creates and fill the data for the lock or empty the files
+# in order to unblock jenkins
+#
+case $# in
+	3)
+		LOCK=$1
+		AUTHOR=$2
+		PROJECT=$3
+	;;
+	*) # Error 
+	 	echo  "Usage: $0 [lock|unlock] AUTHOR PROJECT_NAME" >&2
+		exit 1
+	;;
+esac
+
+AUTHORFILE=/frogtek/locks/$PROJECT
+
+if [ "unlock" = "$LOCK" ]; then
+	cat /dev/null > $AUTHORFILE
+	exit 0;	
+else
+	echo $AUTHOR > $AUTHORFILE	
+	exit 0;
+fi
+</pre>
+<p>Simplemente escribe el autor del bloqueo en un archivo por proyecto, un especie de lock. Al inicio de cualquier trabajo de Jenkins invocamos al script con el párametro <strong>lock</strong> el nombre del proyecto y el autor. Así :</p>
+<pre lang="BASH">lockOrUnlockJenkins.sh lock `svnlook author REPOS_PATH` ${JOB_NAME}</pre>
+<p>Y como último paso del mismo trabajo, hacemos un <strong>unlock</strong>:</p>
+<pre lang="BASH">lockOrUnlockJenkins.sh unlock jenkins ${JOB_NAME}</pre>
+<p>El segundo script cumple tres funciones:</p>
+<ul>
+<li>Comprobar que el mensaje que se envía con el <em>commit</em> no está vacío.</li>
+<li>Comprobar que tiene una longitud de entre 10 y 3000 caracteres.</li>
+<li>Asegurarse de que no se permiten <em>commits</em> si hay builds rotas en Jenkins, excepto aquellas del causante de la rotura.</li>
+</ul>
+<p>A continuación podemos ver el script que nos permite esto:</p>
+<pre lang="BASH">
+#!/bin/bash
+REPOS="$1"
+TXN="$2"
+SVNLOOK=/usr/local/bin/svnlook
+
+PROJECTS=( PROJECT1 PROJECT2 PROJECT3 PROJECT4 )
+
+AUTHOR=`$SVNLOOK author -t $TXN $REPOS`
+HUDSONUSER="hudson"
+
+NUM_CHARS=`$SVNLOOK log -t $TXN $REPOS | wc -c`
+
+COMMENT=`$SVNLOOK log -t $TXN $REPOS`
+
+if [ "$COMMENT" = "" ]; then
+  echo "" 1>&2
+  echo "*** Your commit has been blocked because you did not give any log message or your log message was too short." 1>&2
+  echo "Please write a log message describing the purpose of your changes and then try committing again." 1>&2
+  exit 1
+else
+  if [ "$NUM_CHARS" -lt 10 -o "$NUM_CHARS" -gt 300 ]; then
+  	echo "" 1>&2
+  	echo "*** Your commit has been blocked because you give a log message very short or very large.(10-300 characters)" 1>&2
+  	echo "Please write a log message describing the purpose of your changes and then try committing again." 1>&2
+  	exit 1
+  fi		
+
+  for i in 0 1 2 3
+  do
+	lock=`cat /frogtek/locks/${PROJECTS[i]}`
+        if [ "$lock" != "" -a  "$lock" != $AUTHOR ]; then
+ 		echo "SVN LOCKED BY COMPILATION FAILED IN " ${PROJECTS[i]} " COMMITED BY "$lock 1>&2
+      		exit 1
+      	fi
+  done
+  exit 0
+fi
+</pre>
+<p>Como veis nada muy complicado de configurar. ¿Qué os parece? ¿Cómo lo mejoraríais? ¿Utilizáis algo parecido?</p>

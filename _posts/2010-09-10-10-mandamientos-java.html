@@ -1,0 +1,73 @@
+---
+layout: post
+title: Los 10 mandamientos de Java
+date: 2010-09-10 10:35:47.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- eficiencia
+- programación
+tags:
+- código
+- eficiencia
+- java
+- mandamientos
+- pastafarismo
+- sonar
+meta:
+  _edit_last: '3'
+author: guillermo
+---
+<p>Quizás todavía hemos hablado poco de <a href="http://www.sonarsource.org/">Sonar</a>, pero es necesario indicar que se trata una de las herramientas indispensables a la hora de crear código elegante. Básicamente, esta utilidad nos permite <strong>analizar nuestros proyectos en busca de código poco eficiente o mejorable</strong>, ordenando estas infracciones (suena mejor que violaciones) por su gravedad (blocker, critical, major, minor e info).</p>
+<p>Con esfuerzo, hemos conseguido eliminar todas las infracciones críticas de nuestros proyectos, pero como sabemos que volveremos a tropezar dos veces con la misma piedra, necesitábamos algún tipo de <strong>recordatorio</strong> que nos permitiera tener siempre en mente el no volver a cometer esas infracciones.</p>
+<p>De ahí surgió la idea de crear una <strong>tabla con los diez mandamientos de Java</strong>. Aquí tenéis la versión final. Explicaré cada punto en detalle.</p>
+<p><strong><a href="http://developing.frogtek.org/wp-content/uploads/2010/09/commandmentsfrog.jpg"><img class="aligncenter size-medium wp-image-420" src="{{ site.baseurl }}/assets/commandmentsfrog-300x300.jpg" alt="Los 10 mandamientos de Java" width="402" height="402" /></a></strong><br />
+<strong>I. Thou shall not access non-static variables in a static manner.</strong></p>
+<p>Esta infracción se repetía bastante en nuestro código. Si tenemos un método estático , no debería poder acceder a variables que no están pensadas para llamarse de forma estática. El compilador lo permitirá, claro, pero manda al garete la filosofía de los métodos estáticos.</p>
+<p><strong>II. Do not write a static variable from an instance method. Ever.</strong></p>
+<p>Parecida a la anterior, pero al contrario. Si tenemos una variable estática, no deberíamos poder escribirla desde un método perteneciente a un objeto instanciado. Sirva de ejemplo:</p>
+<pre lang="java">private static String mTitle;
+...
+public void showDialog(String title, String message) {
+   mTitle = title;</pre>
+<p><strong>III. Thou shall not leave empty if-else/switch statements.</strong></p>
+<p>¿Cuántas veces habrá pasado? Dejamos un <em>todo</em> en el if y asunto resuelto. Pues a partir de ahora, pecado mortal.</p>
+<pre lang="java">if (item != null) {
+   newPurchase();
+} else {
+   // no purchase yet
+}</pre>
+<p>Aunque no lo pone, esto también se aplica a los bucles vacíos.</p>
+<p><strong>IV. Thou shall not repeat code in a if-else/switch statement.</strong></p>
+<p>A veces por dejadez, mantenemos dos bloques de un condicional exactamente iguales. Veamos un ejemplo con un switch:</p>
+<pre lang="java">switch(gafas){
+   case 1: return "de lejos"; break;
+   case 2: return "progresivas"; break;
+   case 3: return "del cerca"; break;
+   default: return "de lejos"; break;
+}</pre>
+<p>Podría modificarse quitando el caso 1 o fusionándolo con el default.</p>
+<p><strong>V. Thou shall not leave a private method not being called from anywhere.</strong></p>
+<p>Sencillo: no creemos métodos que no sean utilizados en ninguna parte. Si el título del metodo tiene un <em>rayica</em> amarilla, mal asunto. Siguiente.</p>
+<p><strong>VI. Remember to not null-check a value which is already null.</strong></p>
+<p>Si estamos seguros al 100% de que algo tiene como valor null, no tiene sentido hacer una comprobación. Lo mismo para el caso contrario: si es imposible que una variable tenga valor null, resulta redundante el comprobarlo.</p>
+<p><strong>VII. Thou shall not use short variable names.</strong></p>
+<p>Pecadores todos aquellos que utilizáis nombres de variables como "cursor c", "RelativeLayout rl" o "String s". Quedan excluidas las variables de iteración dentro de un bucle.</p>
+<p><strong>VIII. Do not take the visibility of variables in vain</strong></p>
+<p>Qué bonito sería el mundo si todas las variables fueran <em>public</em>. Nos ahorraríamos más de un disgusto. Pero si una variable sólo se utiliza dentro de el entorno de una clase, debemos declararla como <em>private</em>, o arder en el infierno. Lo mismo con <em>protected</em>, claro.</p>
+<p><strong>IX. Remember to write javadocs and keep it holy.</strong></p>
+<p>Método que dejamos sin Javadoc, 10 flagelaciones.</p>
+<p><strong>X. Avoid duplicate literals, if it is repeating, create a variable.</strong></p>
+<pre lang="java">if (numPiscinas == 1) {
+   show("mensaje", 1);
+} else if (numPiscinas == 2) {
+   show("mensaje", 2);
+} else if (numPiscinas >= 3) {
+   show("mensaje", 4);
+}</pre>
+<p>Si la cadena "mensaje" es usada en el código continuamente, mejor escribir una variable propia con la cadena, que seguro que nos resuelve la vida.</p>
+<p>Y eso es todo. Podemos crear código sin hacer caso de estos mandamientos, y obtendremos un buen resultado. Pero seguro que si los seguimos a rajatabla, <strong>adquirimos unas costumbres de programación muy saludables</strong>. Por supuesto, estos puntos son cuestionables, no se trata de los más críticos, sino simplemente de los que más suelen repetirse en nuestro código. Os animo a que elaboréis vuestra propia lista de mandamientos y la colguéis bien alta para tenerla siempre en mente. Y para acabar, me despediré con una frase de Charles Reade:</p>
+<blockquote><p>"Siembra un acto y cosecharás una costumbre. Siembra una costumbre y cosecharás un carácter. Siembra un carácter y cosecharás un destino."</p></blockquote>

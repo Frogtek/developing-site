@@ -1,0 +1,33 @@
+---
+layout: post
+title: Aquí huele a cuco (II)
+date: 2010-10-28 00:24:53.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+- aquí huele a cuco
+tags: []
+meta:
+  _edit_last: '8'
+  short_url: http://bit.ly/cFYd2E
+  pingfm_error: Your API key has been suspended.  Please contact us regarding this
+    matter.
+  _wp_old_slug: ''
+author: guillermo
+---
+<p>Revisando el código fuente que almacena una venta en la base de datos de la aplicación, me he encontrado con lo siguiente:</p>
+<p><code> </code></p>
+<p><code></p>
+<pre>public long save(long customerID, long discount, int type, int deviceType) {
+        if (this.mDm.openDBConnection()) {
+                […]
+        }
+        this.mDm.openDBConnection();
+        […]
+}</pre>
+<p></code></p>
+<p>¡Claro que sí! Por si acaso no estaba la conexión con la base de datos abierta, la abrimos de nuevo en lugar de cerrarla...</p>

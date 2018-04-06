@@ -1,0 +1,47 @@
+---
+layout: post
+title: Curso de TDD en Zaragoza con Carlos Ble
+date: 2011-01-21 11:35:35.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- programación
+tags:
+- curso
+- Mocks
+- Refactorización
+- TDD
+meta:
+  _edit_last: '3'
+  short_url: http://bit.ly/eyiPrw
+  _wp_old_slug: ''
+author: guillermo
+---
+<p>Los días 18 y 19 de enero tuvimos la oportunidad de asistir a un <strong>curso de TDD</strong> impartido por <a title="Blog de Carlos Ble" href="http://www.carlosble.com/" target="_blank">Carlos Ble</a>. Durante dos días, estuvimos aprendiendo la base del <strong>Test Driven Development</strong> y programando en parejas con diferentes personas, de diferentes empresas y con diferentes backgrounds de desarrollo. Vamos, pasándonoslo bien :).</p>
+<p>El primer día descubrimos los principios <a href="http://en.wikipedia.org/wiki/Solid_%28object-oriented_design%29" target="_blank"><strong>SOLID</strong></a> (<strong>S</strong>ingle responsibility, <strong>O</strong>pen-closed, <strong>L</strong>iskov substitution, <strong>I</strong>nterface segregation and <strong>D</strong>ependency inversion), que deben cumplir los métodos y clases que vayamos a implementar, que viene a ser lo siguiente:</p>
+<ul>
+<li>Single Responsibility -&gt; Un objeto debe tener una sola responsabilidad.</li>
+<li>Open/Close Principe -&gt; Las entidades de software deben estar abiertas a ser extendidas, pero cerradas a las modificaciones.</li>
+<li>Liskov substitution-&gt; Un objeto en un proceso puede ser sustituido por otro sin que se altere la funcionalidad de dicho proceso.</li>
+<li>Interface Segregation Principle-&gt; Los clientes no debería ser forzados a depender de interfaces que ellos no usan.</li>
+<li>Dependency Inversion Principle-&gt; Módulos de un nivel alto no deberían depender de módulos de bajo nivel.</li>
+</ul>
+<p>TDD realmente no es una herramienta "para testear", sino para <strong>diseñar tu API</strong>, para pensar y montar la arquitectura de la aplicación. Si simplificamos los pasos a seguir para hacer TDD, serían los siguientes:</p>
+<ul>
+<li>Crear una <strong>hoja de ruta</strong> con las especificaciones que queremos para una funcionalidad concreta</li>
+<li>En esa hoja de ruta, apuntar todos los posibles casos que se nos ocurran.</li>
+<li>Para cada caso de uso apuntado en tu hoja de ruta, montar un test pensando en cómo debería usarse dicha funcionalidad (al principio, es posible que ni compile el código, ya que todavía no hemos implementado nada de la API (¡luz roja!).</li>
+<li>Para cada test, hacer la <strong>mínima funcionalidad</strong>, de forma que el test pase (¡luz verde!).</li>
+<li>Una vez que el test pase, <strong>refactorizar</strong>.</li>
+</ul>
+<p>Sin duda una de las fases más importantes en el TDD: La refactorización nos permite darnos cuenta de cosas como:</p>
+<ul>
+<li><strong>Nomenclatura de nombres</strong>. ¿Estamos siendo claros? ¿Queremos expresar bien lo que hace tal método? ¿"hacerCosas" es buen nombre para un método? ;)</li>
+<li><strong>Extracción de métodos/clases</strong>. ¿Realmente este método debería estar en esta clase? ¿Qué responsabilidad tiene?</li>
+<li><strong>Arquitectura</strong>. ¿Usamos Interfaces para montarnos una buena arquitectura? ¿Cómo se van a comunicar los objetos entre sí? ¿Inyección de Dependencias? Particularmente esta es la parte que más me interesó, ya que aunque todos conocemos la herencia y tal, quizás no la usemos tanto como deberíamos.</li>
+</ul>
+<p>El segundo día fue realmente revelador: aprendimos a usar <strong>mocks</strong>, particularmente el framework <a title="Mockito" href="http://code.google.com/p/mockito/" target="_blank">Mockito</a> para Java. Cómo simular accesos a base de datos o conexiones a un servidor. El tema de los mock merece un post aparte, sin duda.</p>
+<p>Un curso <strong>muy recomendable</strong> para aquellos que quieren meterse en el mundo del TDD y la creación de buen código. Además de pasártelo bien, programando con gente desconocida (creo que es lo que más me gusta), aprendes un montón.</p>

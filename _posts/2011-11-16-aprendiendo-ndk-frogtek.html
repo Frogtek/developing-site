@@ -1,0 +1,65 @@
+---
+layout: post
+title: Aprendiendo a usar el NDK (Parte I)
+date: 2011-11-16 15:38:06.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+- ndk
+- programación
+tags:
+- android
+- hello world
+- nativo
+- ndk
+meta:
+  _edit_last: '4'
+author: guillermo
+---
+<p>En Frogtek, últimamente, hemos estado usando la <strong>NDK</strong> para poder dar a nuestro querido <strong>tiendatek</strong> una funcionalidad muy <strong>especial</strong>.<br />
+Queremos <strong>compartir</strong> con vosotros toda nuestra <strong>aventura</strong> y para eso vamos a comenzar desde lo más básico (<strong>NDK Hello World</strong>), terminando con algo realmente <strong>mágico</strong> (que no <em>majico</em>) y <strong>anfibio</strong>.</p>
+<p>La ndk es un conjunto de herramientas que nos permite construir librerías compartidas para poder llamar desde Java a código nativo.<br />
+Las instrucciones nativas se ejecutan sin pasar por la máquina virtual. Por eso, una de las razones por las cuales se escribe código en la ndk es el <strong>rendimiento</strong>.<br />
+En nuestro caso la elección de la ndk viene dada por la necesidad de cargar librerías que no podemos utilizar directamente en Java. Realmente podemos programar una aplicación 100% nativa. Es decir: incluyendo actividades codificadas completamente en C.</p>
+<p>Para realizar esta tarea, la gente de Google usa <a href="http://es.wikipedia.org/wiki/Java_Native_Interface">JNI (Java Native Interface)</a>. <strong>JNI</strong> es una interfaz que nos permite hacer llamadas a código escrito en C desde Java mediante un sencillo sistema de nombrado de los métodos.<br />
+Eso sí: debemos tener cuidado con la <strong>gestión de memoria que hace JNI</strong>; pero de ello hablaremos en próximos posts.</p>
+<p>Vayamos al grano. Debemos descargar el conjunto de herramientas que provee Android desde <a href="http://developer.android.com/sdk/ndk/index.html">aquí</a>. Después, debemos seguir estas instrucciones:</p>
+<p><span class="Apple-style-span" style="font-size: 16px; color: #444444; font-family: Georgia, 'Bitstream Charter', serif; line-height: 24px;">Creamos un proyecto Android normal, creando un layout básico con un botón (el que hará la llamada al código nativo). </span></p>
+<p><span class="Apple-style-span" style="font-size: 16px; color: #444444; font-family: Georgia, 'Bitstream Charter', serif; line-height: 24px;">En la carpeta raíz del proyecto creamos una carpeta llamada jni, que incluirá dos ficheros llamados Android.mk (el makefile, con la A en mayúscula). Este fichero contiene las instrucciones para construir el código nativo.</span></p>
+<pre>LOCAL_PATH:= $(call my-dir)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE:= ndksample
+LOCAL_SRC_FILES:= ndksample.c
+
+include $(BUILD_SHARED_LIBRARY)</pre>
+<p><span class="Apple-style-span" style="font-size: 16px; color: #444444; font-family: Georgia, 'Bitstream Charter', serif; line-height: 24px;">Seguidamente, crear otro fichero que nosotros hemos llamado ndksample.c (fichero que contendrá las funciones nativas). </span></p>
+<pre lang="c">
+#include <string.h>
+#include <jni.h>
+
+jstring Java_org_frogtek_ndksample_Main_getStringFromNDK(JNIEnv* env, jobject this)
+{
+	return (*env)-&gt;NewStringUTF(env, "Croak!!");
+}</jni.h></string.h></pre>
+<p>Ahora hay que compilar dicho fichero c para construir la librería que será cargada desde Java. Para ellos se utiliza la herramienta <em>nkd-build </em>que está en la carpeta de la ndk que anteriormente descargamos, ejecutando este comando:</p>
+<p><strong>./ndk-buil -C /ruta/a/nuestro/proyecto</strong></p>
+<p>Ha de ser la ruta raíz del proyecto. Este comando terminará con una linea similar a</p>
+<p><strong>libndksample.so =&gt; libs/armeabi/libndksample.so</strong></p>
+<p>Esto quiere decir que todo ha ido bien y que nos ha generado la librería, copiándola al sitio correcto dentro de nuestro proyecto. Si hacemos un refresh en Eclipse observaremos la presencia de dicho fichero.</p>
+<p>Una vez que tenemos la librería compilada y generada, podemos llamarla desde Java. Para este cometido, lo primero que tenemos que hacer es cargar dicha librería usando el siguiente método de la clase System:</p>
+<pre lang="java">static {
+        System.loadLibrary("ndksample");
+}</pre>
+<p>Esta llamada hay que hacerla de manera estática, dentro de la clase que hará uso de la función o funciones de C. Nótese que el nombre que ponemos ha de ser el que hemos puesto en LOCAL_MODULE en el Android.mk</p>
+<p>También tenemos que definir el método nativo para poder llamarlo desde Java. Lo haremos de la siguiente manera:</p>
+<pre lang="java"> public native String getStringFromNDK();</pre>
+<p>Tenemos que notar que dicho método ha de corresponder con la firma del que definimos en el código c, y no solo eso, también ha de coincidir el paquete y la clase que contienen esta llamada con la que hemos escrito en la firma del método de c.</p>
+<p>Ahora solo nos queda llamarlo para poder ver que todo funciona:</p>
+<pre lang="java"> Toast.makeText(Main.this, getStringFromNDK(), Toast.LENGTH_LONG).show();</pre>
+<p>Esto ha sido todo para nuestro primer post de una serie en la que hablaremos sobre la NDK. <strong>Y recordad, pequeños developers: lo nativo mola. Podéis descargar el proyecto desde <a href="http://developing.frogtek.org/wp-content/uploads/2011/11/frogtekNDKSample.zip">aquí</a>.</strong></p>

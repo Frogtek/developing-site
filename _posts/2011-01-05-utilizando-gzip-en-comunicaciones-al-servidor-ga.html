@@ -1,0 +1,76 @@
+---
+layout: post
+title: Utilizando gzip en las comunicaciones
+date: 2011-01-05 11:42:03.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- eficiencia
+- gae
+- google app engine
+- programación
+- python
+tags:
+- gae
+- google app engine
+- gzip
+- json
+meta:
+  _edit_last: '4'
+  short_url: http://bit.ly/fTplaT
+author: guillermo
+---
+<p>Como ya sabéis hace dos semanas estuvimos de <a href="http://developing.frogtek.org/2010/12/28/el-post-mortem-del-ranaton/"><em>ranatón</em></a>. En mi equipo, uno de nuestros objetivos era optimizar las comunicaciones entre el servidor y el cliente. El objetivo era optimizar todo lo que no habíamos optimizado todavía, ya que, en Colombia (donde están la mayoría de nuestros usuarios), las tarifas de datos aún son muy restrictivas en cuanto a datos enviados/recibidos.</p>
+<p>La comunicación actualmente se estaba realizando usando Json y en texto plano.</p>
+<p>Tal como este:</p>
+<pre lang="json">{"D":1,"sale_code":"301","type":"sale",
+"local_created":"2011-01-05 09:26:57.042","balance_sheet_code":"501",
+"customer_code":"-1","products":{"generic1":{"Q":1,"P":300,"F":1}},
+"final_price":300,"paid":1,"cash_operation_code":"401"}</pre>
+<p>En este ejemplo estabamos enviando una operación de tipo venta. Como <strong>primera optimización,</strong> decidimos <strong>acortar los nombres de las propiedades</strong>. De este modo nos quedó:</p>
+<pre lang="json">{"D":1,"SC":"301","T":"sale","LC":"2011-01-05 09:26:57.042",
+"BS":"501","CC":"-1","PR":{"generic1":{"Q":1,"P":300,"F":1}},
+"FP":300,"PD":1,"CO":"401"}</pre>
+<p>Así conseguimos reducir bastante el tráfico de datos, pero necesitabamos reducirlo todavía más, así que tomamos la decisión de utilizar la compresión <a href="http://es.wikipedia.org/wiki/Gzip">gzip</a>, y comprimir todo el texto enviado y recibido por el cliente. Y después de comprimirlo lo convertimos en una string con BASE64, de este modo formateabamos los datos sin retornos de carro y todo quedaba, si cabe, mas uniforme:</p>
+<pre>H4sIAAAAAAAAADWOzQoCMQyEX0Xm3JW03SrmaMWT
+aHU9KR5EiwiyygpeSt/dtCIE8s3kN+H5AuMwrK3toXCNH5GkBT
+fgY8ICrBU6L66t9l7ofX5EwVVxDWndkIQb0YzNhN10TK2R8ryT
+sqtDvnQ2hcIOnHCLfRzuF114Wy8EsCVSWIrKWfLfCL8PvLyDVpb
+lU/4C8o/at7UAAAA=</pre>
+<p>No es el caso más optimo para comprimir, pero hemos calculado que <strong>enviamos un 50% menos de datos al enviar la información comprimida</strong>. Para poder medir esto utilizamos <a href="http://www.wireshark.org/">WireShark</a> con un filtro tal como este (Gracias Jose):</p>
+<pre>(ip.src == 192.168.1.9  &amp;&amp;
+           ip.dst == 192.168.1.12 &amp;&amp;
+           tcp.port == 8080)</pre>
+<p>Para poder realizar la compresión en el cliente Android utilizamos la clase GZIPOutputStream de este modo:</p>
+<pre lang="java">public static byte[] zipStringToBytes( String input  ) throws IOException
+  {
+    ByteArrayOutputStream bos = new ByteArrayOutputStream();
+    BufferedOutputStream bufos = new BufferedOutputStream(new GZIPOutputStream(bos));
+    bufos.write( input.getBytes() );
+    bufos.close();
+    byte[] retval= bos.toByteArray();
+    bos.close();
+    return retval;
+  }</pre>
+<p>Y en la parte del servidor, nosotros utilizamos Google App Engine:</p>
+<pre lang="python">def decode_client_data(request_object):
+    if(request_object.META.get('HTTP_CONTENT_ENCODING',None)!=None):
+        gzip_string = base64.standard_b64decode(str(request_object.raw_post_data))
+        url_file_handle=StringIO(gzip_string)
+        gzip_file_handle = gzip.GzipFile(fileobj=url_file_handle)
+        decompressed_data = gzip_file_handle.read()
+        gzip_file_handle.close()
+        return decompressed_data
+    else:
+        return request_object.raw_post_data</pre>
+<p><strong>Gracias a la integración continua podemos asegurarnos de que ningún cliente trabajará contra una servidor que no acepte gzip</strong>, pero para evitarnos problemas y poder sacar versiones a producción del servidor sin tener que hacerlo del cliente, decidimos programar el servidor para que acepte operaciones sin comprimir y en versión de nombres de propiedades largas.</p>
+<p>Para que el servidor nos envie la información comprimida en gzip es mucho más fácil, puesto que lo hace de manera <a href="http://code.google.com/appengine/kb/general.html#compression">automática</a> siempre y cuando en las peticiones le digamos que nuestro cliente acepta compresión gzip. Nosotros lo hemos hecho de este modo:</p>
+<pre lang="java">HttpPost httppost = connectPOST(url);
+   httppost.setHeader("Accept-Encoding", "gzip");
+   httppost.setHeader("Content-Encoding", "GZIP");
+   httppost.setHeader("User-Agent", "gzip");</pre>
+<p>Hay que tener muy presente que el <strong>gzip automático por parte de GAE no funciona en local</strong>.</p>
+<p><strong>Si tenéis alguna duda o sugerencia no dudéis en comentarla.</strong></p>

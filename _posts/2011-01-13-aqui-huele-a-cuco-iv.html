@@ -1,0 +1,56 @@
+---
+layout: post
+title: Aquí huele a cuco (IV)
+date: 2011-01-13 06:00:59.000000000 +01:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+- aquí huele a cuco
+- humor
+- miscelánea
+- programación
+tags:
+- android
+- base de datos
+- cursores
+- java
+- Robotium
+- test funcionales
+meta:
+  _edit_last: '3'
+  short_url: http://bit.ly/hsqF0M
+author: julio
+---
+<p>Bueno, un poco de <strong>autocrítica</strong> nunca viene mal y en este caso yo soy uno de los culpables de este desaguisado....</p>
+<pre lang="java">public int getVendorsCount() {
+	if (this.mDm.openDBConnection()) {
+		this.mDbHelper = new VendorsDbAdapter();
+		Cursor cursor = this.mDbHelper.getVendorsCount();
+		if (cursor != null) {
+			cursor.close();
+			return cursor.getCount();
+		}
+		this.mDm.closeDBConnection();
+	}
+	return 0;
+}</pre>
+<p>Fijaos bien: estamos intentando acceder a un cursor después de cerrarlo..... además solo cerramos la base de datos si el cursor es <strong>null</strong>... vamos, una joya de código. Gracias a que tenemos <a href="https://code.google.com/p/robotium/">test funcionales en Android </a> hemos encontrado semejante esperpento. Ya vamos recuperando poco a poco lo invertido en ellos :) .</p>
+<p>Así he dejado el código después del pertinente refactor.</p>
+<pre lang="java">public int getVendorsCount() {
+	int vendorsCount = 0;
+	if (this.mDm.openDBConnection()) {
+		this.mDbHelper = new VendorsDbAdapter();
+		Cursor cursor = this.mDbHelper.getVendorsCount();
+		if (cursor != null) {
+			vendorsCount = cursor.getCount();
+			cursor.close();
+		}
+		this.mDm.closeDBConnection();
+	}
+	return vendorsCount;
+}</pre>
+<p>¿Bastante mejor no? ¿Alguna sugerencia para mejorarlo todavía más?</p>

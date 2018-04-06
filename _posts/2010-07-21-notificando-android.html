@@ -1,0 +1,69 @@
+---
+layout: post
+title: Notificando en Android
+date: 2010-07-21 10:03:53.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+- programación
+tags:
+- animaciones
+- diálogos
+- notificación
+- NotificationManager
+- tiendatek
+meta:
+  _edit_last: '4'
+author: guillermo
+---
+<p>El API de Android nos permite varias maneras de requerir la atención del usuario. Lo que resulta realmente difícil es decidir qué tipo de notificación usar en cada momento. Os vamos a mostrar qué tipos de notificaciones usamos en Frogtek y para qué.</p>
+<ul>
+<li><strong>Diálogos: </strong>usamos estos diálogos personalizados para preguntar al usuario y para mostrarle ayuda. <a href="http://developer.android.com/guide/topics/ui/dialogs.html" target="_blank">Hay varios tipos de Dialogos y varias maneras de manejarlos</a>, nosotros utilizamos actividades para manejarlos. Simplemente hay que decirle en el Manifest esto:</li>
+</ul>
+<pre lang="XML">android:theme="@android:style/Theme.Dialog"</pre>
+<p style="padding-left: 60px;">Este diálogo bloquea el hilo de la interfaz, incluso podemos decir que no sea        <a href="http://developer.android.com/reference/android/app/Dialog.html#setCancelable(boolean)" target="_blank">cancelable</a> y evitar así que desaparezca cuando el usuario pulsa el botón                    "BACK", así nos aseguraremos que siempre pase por nuestro código para                cancelarlo.</p>
+<ul>
+<li><strong>Barra de estado: </strong>en frogtek usamos esta barra para notificar al usuario y no requerir su interacción inmediata, por ejemplo para:
+<ol>
+<li>Mostrar que hay una nueva actualización de la aplicación disponible.<a href="http://developing.frogtek.org/wp-content/uploads/2010/07/device_21.png"><img class="aligncenter size-medium wp-image-191" title="device_2" src="{{ site.baseurl }}/assets/device_21-300x89.png" alt="" width="300" height="89" /></a></li>
+<li>Realizar un proceso en background y que el usuario pueda ver el proceso si le interesa.</li>
+</ol>
+<p><a href="http://developing.frogtek.org/wp-content/uploads/2010/07/tiendatek_notification_2.png"><img class="aligncenter size-medium wp-image-185" title="tiendatek_notification_2" src="{{ site.baseurl }}/assets/tiendatek_notification_2-300x154.png" alt="" width="300" height="154" /></a></p>
+<pre lang="JAVA">NotificationManager mNotificationManager;
+mNotificationManager = (NotificationManager)
+theContext.getSystemService(android.content.Context.NOTIFICATION_SERVICE); 
+
+PendingIntent contentIntent = PendingIntent.getActivity(theContext, 1, notificationIntent, 1);
+
+long when = System.currentTimeMillis();
+
+Notification notificationStatus = new Notification(icon,text,when);
+
+notificationStatus.setLatestEventInfo(theContext, title, text, contentIntent);
+mNotificationManager.notify(notificationID,notificationStatus);</pre>
+</li>
+<li><strong>Toast</strong>: este tipo de notificación en Android es idóneo para informar al usuario en la pantalla principal sin distraerle demasiado y dejando que el hilo principal siga su ejecución. En nuestra aplicación lo usamos para indicar el importe estimado en caja después de cada operación. Incluso podemos personalizar las vista de un toast (en nuestro caso cambiamos los colores del fondo):</li>
+<pre lang="JAVA">View layout = inflater.inflate(rLayout, viewGroup);
+TextView text = (TextView) layout.findViewById(rIdText);
+text.setText(textToShow);
+
+Toast toast = new Toast(ctx);
+toast.setDuration(Toast.LENGTH_LONG);
+toast.setView(layout);
+toast.show();</pre>
+</ul>
+<p><img class="aligncenter size-medium wp-image-194" title="toast" src="{{ site.baseurl }}/assets/toast-300x96.png" alt="" width="300" height="96" /></p>
+<ul>
+<li><strong>Animaciones</strong>: no tienen su finalidad directa en notificar al usuario, pero en Tiendatek probamos qué tal quedaría una animación <a href="http://developer.android.com/resources/samples/ApiDemos/src/com/example/android/apis/view/Animation1.html" target="_blank">shake</a> que agitase el total de una venta cada vez que el usuario añadía un producto. De este modo el usuario era consciente de dónde repercutía su acción y por otro lado simulábamos un efecto de añadir dinero.</li>
+</ul>
+<p><span style="font-size: medium;"><span style="line-height: 24px;">Debemos tener cuidado a la hora de notificar al usuario, a lo largo de nuestra experiencia hemos observado los siguientes puntos clave:</span></span></p>
+<ul>
+<li><span style="line-height: 27px; font-size: medium;"><strong>Homogeneidad</strong>. En el caso de Tiendatek, al ser una aplicación de contabilidad decidimos pintar las cifras/mensajes en relación con la dirección del dinero. De este modo estamos educando la vista del usuario. De un rápido vistazo sabrá el sentido de una operación.</span></li>
+<li><span style="line-height: 27px; font-size: medium;"><strong>Bloqueante</strong>. A lo largo de la vida de la aplicación hemos ido cambiando notificaciones dependiendo de si se necesita bloquear el hilo principal o no. </span></li>
+<li><span style="line-height: 27px; font-size: medium;"><strong>Claridad en los botones de respuesta</strong>. No podemos sacar un pop-up bloqueante informando de algo con un botón de respuesta "SÍ". Este tipo de situaciones pueden desorientar al usuario.</span></li>
+</ul>
+<p>Para terminar de recorrernos las notificaciones en Android, nos queda hablar de las luces LED y de los sonidos; estos últimos los hemos usado en Tiendatek para cuando un producto es leído por el lector de códigos de barras. Quizás Jose en un futuro post nos puede contar como añadir sonidos a una aplicación Android.</p>

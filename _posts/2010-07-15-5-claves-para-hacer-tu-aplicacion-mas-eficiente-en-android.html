@@ -1,0 +1,49 @@
+---
+layout: post
+title: 5 claves para hacer tu aplicación más eficiente en Android
+date: 2010-07-15 13:17:16.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+- eficiencia
+- programación
+tags:
+- convertView
+- máquina virtual
+- select
+meta:
+  _edit_last: '4'
+  _wp_old_slug: ''
+author: guillermo
+---
+<p style="text-align: left;">En frogtek hemos pasado una iteración centrándonos en mejorar la eficiencia de nuestro aplicación en Android. Estos son los 5 puntos principales que hemos encontrado:</p>
+<ul style="text-align: left;">
+<li style="text-align: left;">Mejorar la eficiencia de las consultas SQL. Esto es básico para cualquier aplicación ya sea móvil o de escritorio. El simple cambio de un "SELECT IN" por un "INNER" o crear un índice puede reducir en un 50% el tiempo de la consulta.</li>
+<li style="text-align: left;">Evitar crear objetos. Android esta basado en un <a href="http://es.wikipedia.org/wiki/Dalvik">máquina virtual</a> y resulta muy caro crear objetos. En nuestro caso habíamos creado un proyecto orientado a API en el que teníamos entidades propias, leíamos de la bbdd 1000 elementos y creábamos nuestros objetos con los datos leídos. Es 10 veces más rápido un acceso directo (cursores en nuestro caso) que pasar por objetos.</li>
+<li style="text-align: left;">Nunca uses un "wrap_content" para definir la altura de una lista. Para calcular el tamaño final de la lista android se recorre todos los elementos cada vez que hacemos scroll en la lista.</li>
+<li style="text-align: left;">Para crear el efecto de "pulsado" sobre una imagen lo más fácil es cambiar el png del fondo en el evento OnTouch. Esta solución solo incrementa el tamaño de la carpeta drawables y carga de memoria el heap de nuestra aplicación. Desde frogtek decidimos hacerlo "programmatically" usando el efecto alpha del framework de animaciones. Nos creamos un componente propio "FrogButton" el cual llamamos desde nuestro layout. Explicaremos cómo hacer esto en un futuro post.</li>
+<li style="text-align: left;">Listas eficientes usando el convertView del metodo getView. Si queremos personalizar cualquier lista necesitaremos crearnos nuestro propio list adapter e implementar el método getView. Bien, este método lo único que hace es devolver una vista especifica que la lista le pide bajo demanda. En el convertView lo que tenemos es una especie de holder que ya tiene datos cargados de la vista anterior (las listas suelen tener vistas similares). Simplemente controlando esto ganaremos mucha velocidad a la hora de desplazarte por la lista.</li>
+<p style="text-align: left;">
+<p style="text-align: justify;">
+<pre lang="java">public View getView(int position, View convertView, ViewGroup parent) {
+   RelativeLayout rowLayout;
+   if (convertView == null) {
+      rowLayout = (RelativeLayout) LayoutInflater.from(mContext).inflate(
+      R.layout.row_sales_item, parent, false);
+   } else {
+      rowLayout = (RelativeLayout) convertView;
+   }
+   //DO SOME STUFF HERE AND RETURN THE VIEW
+   return rowLayout;
+}</pre>
+<p style="text-align: justify;">
+</ul>
+<p style="text-align: left;">Os recomendamos estos dos vídeos para entender un poco mejor estos tips, aunque en cualquier caso nos podéis preguntar cualquier cosa:</p>
+<p style="text-align: left;"><a href="http://www.youtube.com/watch?v=N6YdwzAvwOA" target="_blank">Google I/O 2009 - ...Make your Android UI Fast ...</a></p>
+<p style="text-align: left;"><a href="http://www.youtube.com/watch?v=wDBM6wVEO70" target="_blank">Google I/O 2010 - The world of ListView</a></p>
+<p style="text-align: left;">Aquí una entrada hablando de la eficiencia en un blog de recomendada lectura.</p>
+<p style="text-align: left;"><a href="http://blog.radioactiveyak.com/2010/04/content-provider-iterator-or-things.html" target="_blank">http://blog.radioactiveyak.com/2010/04/content-provider-iterator-or-things.html</a></p>

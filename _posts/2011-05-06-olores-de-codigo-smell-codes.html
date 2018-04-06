@@ -1,0 +1,47 @@
+---
+layout: post
+title: Olores de código (Code Smells)
+date: 2011-05-06 13:10:55.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- programación
+tags: []
+meta:
+  _edit_last: '2'
+  _aioseop_title: Olores de código
+  _aioseop_description: Numeración de los olores de código más frecuentes en la programación.
+    Código duplicado, clases demasiado largas...
+  _aioseop_keywords: Clean Code, Code Smells, Olores de código, Programación
+  short_url: http://bit.ly/luHbiC
+author: guillermo
+---
+<p>Hace unas semanas tuvimos la suerte de contar con Rubén Bernárdez (@rubenbpv) en la oficina de Frogtek. Durante los 3 días que estuvo con nosotros, además de liderar el segundo Coding Dojo de Walqa nos estuvo contando sobre refactors, código limpio y los llamados olores de código.</p>
+<p>Recuerdo  que cuando escuché por primera vez el término "olores de código", en boca de Carlos Ble (@carlosble ) durante <a href="http://developing.frogtek.org/2011/01/21/curso-de-tdd-en-zaragoza-con-carlos-ble/">uno de sus cursos de TDD</a>, me resultó gracioso. Luego más adelante leyendo libros como <a href="http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882">Clean Code </a>(de @unclebobmartin) y <a href="http://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672">Refactoring</a> empecé a tomarme un poco más en serio el tema de los olores, o por lo menos el término acuñado para este tipo de problemas en código.</p>
+<p>Rubén, en una de sus clases magistrales, nos enseñó una presentación sobre este tema, tomé nota y ahora os presento el TOP de los Smell Codes:</p>
+<p><strong>Código duplicado</strong></p>
+<p>Sin duda el horror de los horrores. Encontrarse una misma funcionalidad en varios sitios. No hay nada más propenso a dar problema que código duplicado.</p>
+<p><span style="text-decoration: underline;">Solución</span>: sacar código duplicado a un método/clase nueva.</p>
+<p><strong>Código muerto</strong></p>
+<p>¿Cuantas veces nos hemos encontrado con código que no se usa? Los desarrolladores a veces pecamos de precavidos y vamos dejando clases y métodos "por si acaso esta funcionalidad vuelve a ser requerida" o "por si se usa".</p>
+<p><span style="text-decoration: underline;">Solución</span>: simplemente, borrar el código. Si hace falta más adelante, para eso está el sistema de control de versiones, no? :)</p>
+<p><strong>Métodos largos</strong></p>
+<p>Hay veces que nos encontramos con métodos o funciones cuyo fin no vemos a simple vista. ¿Qué hace este código? Si es tan largo, seguro que hace más de una cosa. Es difícil de leer y de mantener.</p>
+<p><span style="text-decoration: underline;">Solución</span>: Buscar las diferentes responsabilidades dentro de dicho código, extraerlas en clases y métodos.  Es preferible tener muchos métodos pequeños que un método enorme.</p>
+<p><strong>Clases largas</strong></p>
+<p>Estamos en las mismas que el caso anterior. Clases demasiado largas, seguro que tienen responsabilidades que no les corresponden. Igualmente difíciles de mantener y de interpretar.</p>
+<p><span style="text-decoration: underline;">Solución</span>: Mover los métodos según sus responsabilidades a otras clases, crear clases nuevas...</p>
+<p><strong>Lista larga de parámetros de una función</strong></p>
+<p>Según el libro "Clean Code", si una función tiene más de 2 parámetros... algo estamos haciendo mal. Una larga lista de parámetros dificulta su uso y comprensión. Si los parámetros son del mismo tipo puede llegar a confundir. ¿El String este primero que era, el usuario o el password?...¿O era el apellido?.</p>
+<p><span style="text-decoration: underline;">Solución</span>: En vez de un "addCustomer(String name, String surname, String phoneNumber, String....)" hacemos un "addCustomer(Customer newCustomer)" todo queda mucho más claro, ¿no?. La encapsulación puede ser útil en este tipo de olores.</p>
+<p><strong>Sentencias Switch</strong></p>
+<p>Descubrir que los switch son malvados me rompió una de mis bases de la programación (vale que también aprendí a programar en Modula2, donde no sabía lo que era un polimorfismo)</p>
+<p><span style="text-decoration: underline;">Solución</span>: Usar polimorfismos. En el capítulo 1 del libro de <em>Refactoring, Improving The Design Of Existing Code</em> hay un claro ejemplo de esta solución.</p>
+<p><strong>Comentarios</strong></p>
+<p>Demasiados comentarios en código pueden ocultar un olor. Si tienes que explicar demasiado un método o una clase, es que ese código no es claro. Es preferible que el código sea autoexplicativo a que pongas comentarios por cada método que crees. Es más, ¿cuantas veces se os han quedado esos comentarios obsoletos? Seguro que más de una.</p>
+<p><span style="text-decoration: underline;">Solución</span>: Crear código limpio y que se explique solo. Escribir comentarios en lugares donde no estés muy seguro del código o donde quieras recordar algo para futuros cambios.</p>
+<p>Bueno esto ha sido una pequeña introducción a los olores de código, en breve añadiré más. Espero que haya sido de interés.</p>
+<p>&nbsp;</p>

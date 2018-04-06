@@ -1,0 +1,56 @@
+---
+layout: post
+title: Crear nuestros propios adapters para listados, y no morir en el scroll
+date: 2010-10-02 16:42:51.000000000 +02:00
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+categories:
+- android
+- eficiencia
+- programación
+tags:
+- android
+- ArrayList
+- base
+- BaseAdapter
+- convertView
+- Cursor
+- database
+- datos
+- eficiencia
+- findViewById
+- getTag
+- getView
+- guy
+- listado
+- ListView
+- optimizar
+- reflection
+- romain
+- setTag
+- ViewHolder
+meta:
+  _edit_last: '8'
+  _wp_old_slug: ''
+author: guillermo
+---
+<p>Si no vienes del <a href="http://developing.frogtek.org/2010/09/16/optimizar-una-aplicacion-android-introduccion/" target="_blank">post introductorio</a>, quizás te gustaría leerlo.</p>
+<p>Tercera entrega de la optimización a la que fue sometida nuestra aplicación. Esta vez, tiene que ver con los listados de elementos; de muchos elementos, como puede ser el inventario de una tienda. Sirva como ejemplo práctico que solíamos crear nuestros propios adapters (<code>extend <a href="http://developer.android.com/reference/android/widget/BaseAdapter.html" target="_blank">BaseAdapter</a></code>, todo sea dicho) muy alegremente, pero sólo al principio. Como buenos desarrolladores, copiábamos código del primer sitio que encontrábamos, sin fijarnos en lo óptimo que era. Y como buenos desarrolladores, repito, hacíamos las pruebas de nuestros propios adapters con 5 o 6 elementos para simular el inventario de una tienda.<br />
+¿Qué pasó? Cuando tuvimos nuestro primer tendero con ganas de inventariar toda su tienda, enseguida se nos vio el plumero. Una lista de 1200 (mil doscientos) elementos, con código copi-pegado y poco probado, tiene un 99% de posibilidades de ir más lenta, al hacer scroll, que el stand-up meeting de un lunes de resaca.</p>
+<p>Como bien <a href="http://developing.frogtek.org/2010/09/20/el-findviewbyid-y-lo-cargante-que-puede-llegar-a-ser/#comment-60" target="_blank">apuntó Francho en un comentario</a>, una manera de ganar velocidad haciendo scroll es omitiendo los reiterados <code>findViewById</code> cada vez que hay que cambiar los valores del famoso <code>convertView</code>. En su lugar, debemos hacer uso de los tag que podemos asignar a las filas (rows) de nuestro listado. ¿A quién no le suenan las funciones <code><a href="http://developer.android.com/reference/android/view/View.html#setTag(java.lang.Object)" target="_blank">setTag()</a></code> y <code><a href="http://developer.android.com/reference/android/view/View.html#getTag()" target="_blank">getTag()</a></code>? Pues hace tiempo, a nosotros ni se nos pasaban por la cabeza. Luego de ver el magnífico video de la Google I/O 2009, <a href="http://www.youtube.com/watch?v=N6YdwzAvwOA" target="_blank">Making your Android UI Fast and Efficient</a>, hicimos una capillita en la oficina a Romain Guy. Merece la pena cada año ver los videos de la Google I/O...</p>
+<p>Muy bien. Con esto que he nombrado arriba, tenemos solucionado una parte de nuestro problema; es decir: que cada vez que se haga scroll y haya que buscar los widgets cuyas propiedades han de cambiar, no se haga siempre mediante el <code>findViewById()</code>, si no que utilicemos los tags.<br />
+La otra parte del problema, venía al experimentar que aún habiendo mejorado la velocidad de scroll un poquito, no conseguíamos ese efecto de fluidez que una lista ha de tener. ¿Por qué? Muy sencillo: cada nueva fila que aparecía en el listado al hacer scroll contenía uno, o a veces más, widgets cuyo contenido era calculado en el mismo momento del <code><a href="http://developer.android.com/reference/android/widget/Adapter.html#getView(int,%20android.view.View,%20android.view.ViewGroup)" target="_blank">getView()</a></code>. A veces eran cálculos de sumas, fáciles. Otras veces eran consultas a la Base de Datos, lo cual nos estaba robando mili-segundos de muy alto precio al hacer que el scroll de tu aplicación sea fluido.</p>
+<p>Por lo tanto, otro mandamiento que nos grabamos a fuego en la mente: No harás consultas a la Base de Datos en el <code>getView()</code> de tus propios adapters. Las consultas, se hacen antes del <code><a href="http://developer.android.com/reference/android/widget/ListView.html#setAdapter(android.widget.ListAdapter)" target="_blank">setAdapter()</a></code> del <code><a href="http://developer.android.com/reference/android/widget/ListView.html" target="_blank">ListView</a></code>. Si no, arderás en el infierno de los developers.</p>
+<p>Y ya, para rizar el rizo de la optimización de un listado y hacerlo más rápido que Usain Bolt: Dime cuál es la fuente de datos que alimenta tu Adapter, y te diré cuántos mili-segundos perderás en cada <code>getView()</code>.<br />
+¿Por qué digo esto? Por que, como <a href="http://developing.frogtek.org/2010/07/15/5-claves-para-hacer-tu-aplicacion-mas-eficiente-en-android/" target="_blank">bien dijo Pedro en un post</a>: hay que evitar a toda costa el trabajar con <code>ArrayList</code> de objetos propios en android. Reflection lo llaman, ¿no? Android y reflection no son buenos amigos.<br />
+Así que en lugar de acceder a los datos que poblarán nuestros <code>ListView</code> de manera limpia y con código legible, como puede ser un <code>ArrayList</code>, os recomendamos que uséis directamente el objeto <code><a href="http://developer.android.com/reference/android/database/Cursor.html" target="_blank">Cursor</a></code> devuelto por la Base de Datos. Sí: mucho más sucio el código, pero no veas lo rápido que va todo.</p>
+<p>En resumen, hoy hemos visto:</p>
+<ol>
+<li>El <code>ViewHolder</code> para evitar millones de <code>findViewById()</code></li>
+<li>No hacer consultas a la Base de Datos dentro de un <code>getView()</code></li>
+<li>La fuente de datos de un Adapter, a ser posible, que sea un <code>Cursor</code></li>
+</ol>
+<p><span style="font-size: medium;">¿Me olvido algo?</span></p>
