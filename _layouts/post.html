@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body id="page-top">
+  {% include nav.html %}
+
+  <section id="{{ page.title }}" class="container content-section blog-post">
+   <div class="row">
+     <div class="col-lg-8 col-lg-offset-2">
+
+       <h2>{{ page.title }}</h2>
+       <h4 class="text-center">por <strong>{{ page.author }}</strong></h4>
+       <h4 class="text-center">
+         <strong>{{ page.date | date_to_string }}</strong>
+         <p><small>
+           {% if page.tags %}
+             {% for tag in page.tags %}
+             <a href="/tag/{{ tag }}/">#{{ tag }}</a>
+             {% endfor %}
+           {% endif %}
+         </small>
+         </p>
+       </h4>
+
+       {{ content }}
+     </div>
+   </div>
+</section>
+
+
+  {% include contact.html %}
+  {% include scripts.html %}
+</body>
+
+</html>
