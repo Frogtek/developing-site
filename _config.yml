@@ -31,12 +31,16 @@ plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - jekyll-paginate
+  - jekyll-mentions
 
 # paginate blog
 paginate: 25
 paginate_path: "blog/page:num"
 post-preview-words: 128
 
+jekyll-mentions:
+  base_url: https://twitter.com
+  
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
