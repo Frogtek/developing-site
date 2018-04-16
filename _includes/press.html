@@ -12,7 +12,7 @@
       {% for review in reviews limit:num_reviews %}
       <div class="col-lg-4 col-sm-6">
         <a href="{{review.external_link}}" class="portfolio-box" target="_blank">
-          <img src="{{review.thumbnail}}" class="img-responsive" alt="{{review.title}}">
+          <img src="{{ site.baseurl }}{{review.thumbnail}}" class="img-responsive" alt="{{review.title}}">
           <div class="portfolio-box-caption">
             <div class="portfolio-box-caption-content">
               <div class="project-category ">

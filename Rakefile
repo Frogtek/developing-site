@@ -11,7 +11,7 @@ end
 
 desc 'run server'
 task :serve do
-  sh 'bundle exec jekyll serve --host 0.0.0.0 --watch jekyll serve --config _config.yml'
+  sh 'bundle exec jekyll serve --host 0.0.0.0 --watch jekyll serve --config _config.yml --baseurl ""'
 end
 
 desc 'Run html tests'

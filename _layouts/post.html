@@ -20,7 +20,7 @@
          <p class="hashtag"><small>
            {% if page.tags %}
              {% for tag in page.tags %}
-             <a href="/blog/tags/#{{ tag|slugify }}">#{{ tag }}</a>
+             <a href="{{ site.baseurl }}/blog/tags/#{{ tag|slugify }}">#{{ tag }}</a>
              {% endfor %}
            {% endif %}
          </small>

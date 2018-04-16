@@ -41,7 +41,7 @@
                 {% if post.tags contains tag %}
                   <li>
                     <small>{{ post.date | date_to_string }}.</small>
-                    <a href="{{ post.url }}">{{ post.title }}</a>
+                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
                   </li>
                   {% endif %}
                {% endfor %}

@@ -19,7 +19,7 @@
                {% for post in paginator.posts %}
                <li>
                   <small>{{ post.date | date_to_string }}.</small>
-                  <a href="{{ post.url }}">{{ post.title }}</a>
+                  <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
                 </li>
                {% endfor %}
              </ul>
