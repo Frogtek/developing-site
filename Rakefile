@@ -6,7 +6,7 @@ task :test => [:html_lint, :scss_lint]
 
 desc 'build web site'
 task :build do
-  sh 'bundle exec jekyll build'
+  sh 'bundle exec jekyll build --baseurl ""'
 end
 
 desc 'run server'
