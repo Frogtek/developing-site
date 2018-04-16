@@ -25,7 +25,7 @@ meta:
   short_url: http://bit.ly/dQY6kM
 author: julio
 ---
-<p>Hace poco tuvimos una <a href="http://blog.dev.openfinance.es/2011/03/una-semana-de-internship/">agradable visita</a> aquí en <strong>Frogtek</strong>. Una de las muchas aportaciones de <a href="https://twitter.com/#!/hell03610">Emma</a> fue hacernos replantear nuestro sistema de lanzamiento de <em>builds</em> en <a href="http://jenkins-ci.org/">Jenkins</a>, pasando de uno más pesado en recursos a otro más eficiente. A raíz de dicho cambio hemos aprovechado y mejorado el procedimiento de bloqueo que tenemos configurado en Jenkins y la forma en la que lo realizamos. Vamos a explicarlo para que nos ayudéis a mejorarlo todavía mas.</p>
+<p>Hace poco tuvimos una <a href="https://web.archive.org/web/*/http://blog.dev.openfinance.es/2011/03/una-semana-de-internship/">agradable visita</a> aquí en <strong>Frogtek</strong>. Una de las muchas aportaciones de <a href="https://twitter.com/#!/hell03610">Emma</a> fue hacernos replantear nuestro sistema de lanzamiento de <em>builds</em> en <a href="http://jenkins-ci.org/">Jenkins</a>, pasando de uno más pesado en recursos a otro más eficiente. A raíz de dicho cambio hemos aprovechado y mejorado el procedimiento de bloqueo que tenemos configurado en Jenkins y la forma en la que lo realizamos. Vamos a explicarlo para que nos ayudéis a mejorarlo todavía mas.</p>
 <p>En sí, el procedimiento consiste en no permitir <em>commits</em> al servidor <strong>SVN</strong> si hay una <em>build  rota</em>. Excepto al usuario que haya provocado dicha rotura. De esta forma nos aseguramos de varias cosas:</p>
 <ul>
 <li>No se avanza en el desarrollo si el código subido no es de una calidad mínima, pasa los test y se construye correctamente.</li>

@@ -56,5 +56,5 @@ jekyll-mentions:
 collections:
   authors:
     output: true
-    permalink: /team/:path/
+    permalink: /author/:path/
   press:

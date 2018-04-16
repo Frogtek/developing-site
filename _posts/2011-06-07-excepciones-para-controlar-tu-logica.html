@@ -27,7 +27,7 @@ author: guillermo
 "Pop-up warning when Cost is higher than Price"</em></p>
 <p>En sus AT's aparecían las pantallas donde debería hacerse esta comprobación. Así que nos pusimos manos a la obra y estudiamos cuál sería el impacto de este cambio. Vimos que tendríamos que añadir una condición en todas las pantallas y en todos los sitios donde son susceptibles de cambio las dos variables que nos atañen.</p>
 <p>Si optábamos por ese camino, esto iba a oler a bug, en el que te reportan que no se muestra el pop-up en un lugar que no tuviste en cuenta a la hora de añadir la condición. Con lo que decidimos no optar por la solución a priori mecánica y sencilla. De repente, la palabra <strong>"Excepciones"</strong> vino a nuestras mentes, <a href="http://www.rubenbernardez.com/blog/">Rubén</a> de <a href="http://www.biko2.com/">Biko2</a> estuvo durante tres días inculcando su sabiduria en el equipo de Frogtek y algo de lo que nos contó salía a la luz.</p>
-<p><img class="aligncenter size-full wp-image-1277" title="exceptions" src="{{ site.baseurl }}/assets/posts/exceptions.jpg" alt="" width="300" height="300" /></p>
+<p><img class="aligncenter size-full wp-image-1277" alt="exceptions" src="{{ site.baseurl }}/assets/posts/exceptions.jpg" alt="" width="300" height="300" /></p>
 <p>Así que decidimos implementarnos una excepción que se lanzase desde la lógica hacia la UI si esta condición se daba. De este modo el impacto sería mucho menor y desde la UI solo tendríamos que controlar dicha excepción y mostrar el pop-up, y además sería imposible saltarnos ningún sitio, puesto que tendríamos error de compilación. Así quedo nuestra clase:</p>
 <pre lang="java">package org.frogtek.tiendatekcore.exceptions;
   public class CostHigherThanPriceException extends Exception {

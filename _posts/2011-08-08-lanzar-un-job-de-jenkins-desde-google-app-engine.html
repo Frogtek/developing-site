@@ -23,7 +23,7 @@ author: guillermo
 ---
 <p>La semana pasada estuve dándole vueltas a este problema, después de varios intentos fallidos llegué, con la ayuda de Julio, a la solución que planteo en el título del post.</p>
 <p>Para empezar tenemos que ir al job en Jenkins que queramos lanzar desde fuera y activar la opción de "Lanzar ejecuciones remotas"</p>
-<p><a href="http://developing.frogtek.org/wp-content/uploads/2011/08/JobRemotoJenkins.png"><img class="aligncenter size-large wp-image-1385" title="JobRemotoJenkins" src="{{ site.baseurl }}/assets/posts/JobRemotoJenkins-1024x143.png" alt="" width="640" height="89" /></a></p>
+<p><a href="http://developing.frogtek.org/wp-content/uploads/2011/08/JobRemotoJenkins.png"><img class="aligncenter size-large wp-image-1385" alt="JobRemotoJenkins" src="{{ site.baseurl }}/assets/posts/JobRemotoJenkins-1024x143.png" alt="" width="640" height="89" /></a></p>
 <p>Por motivos de seguridad, Jenkins nos obliga a usar un Token que será usado al llamar al Job desde fuera.</p>
 <p>El código que usaremos en GAE (en Python) será el siguiente:</p>
 <pre lang="python">import urllib2, base64, httplib

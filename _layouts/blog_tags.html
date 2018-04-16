@@ -34,7 +34,7 @@
             {% endfor %}
 
             {% for tag in tags %}
-            <a name="{{tag}}"></a>
+            <a name="{{tag|slugify}}"></a>
             <h3>#{{tag|slugify}}</h3>
             <ul>
                {% for post in site.posts %}
