@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body id="page-top" class="blog">
+  {% include nav.html %}
+
+  <section id="{{ page.title }}" class="container content-section blog-index">
+   <div class="row">
+     <div class="col-lg-8 col-lg-offset-2" >
+
+
+          <h2 class="text-center">{{page.title}}</h2>
+
+             {{ page.content | markdownify }}
+
+            <ul>
+               {% for post in paginator.posts %}
+               <li>
+                  <small>{{ post.date | date_to_string }}.</small>
+                  <a href="{{ post.url }}">{{ post.title }}</a>
+                </li>
+               {% endfor %}
+             </ul>
+
+             <!-- Pagination links -->
+             <section id="post-navigation" class="container page-navigation">
+
+               {% if paginator.previous_page and paginator.next_page%}
+                 <h4>
+                     <a href="{{ paginator.previous_page_path }}" class="previous"><i class="fa fa-chevron-left"></i> Newer Posts</a>  <a href="{{ paginator.next_page_path }}" class="next">Older Posts <i class="fa fa-chevron-right"></i></a>
+                 </h4>
+               {% else %}
+                 {% if paginator.previous_page %}
+                   <h4><a href="{{ paginator.previous_page_path }}" class="previous"><i class="fa fa-chevron-left"> Newer Posts</i></a></h4>
+                 {% endif %}
+
+                 {% if paginator.next_page %}
+                   <h4><a href="{{ paginator.next_page_path }}" class="next">Older Posts <i class="fa fa-chevron-right"></i></a></h4>
+                 {% endif %}
+               {% endif %}
+
+             </section>
+             </div>
+           </div>
+         </section>
+
+  {% include contact.html %}
+  {% include scripts.html %}
+</body>
+
+</html>

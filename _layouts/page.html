@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body id="page-top" class="blog">
+  {% include nav.html %}
+
+  <section id="{{ page.title }}" class="container content-section">
+   <div class="row">
+     <div class="col-lg-8 col-lg-offset-2" >
+       {{ content }}
+     </div>
+   </div>
+  </section>
+
+  {% include contact.html %}
+  {% include scripts.html %}
+</body>
+
+</html>
