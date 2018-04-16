@@ -370,3 +370,17 @@ body {
   letter-spacing: -.003em;
   color: rgba(0,0,0,.84);
 }
+
+.page-navigation {
+  display: block;
+  font-size: 14px;
+  overflow: hidden;
+  padding-top: 100px;
+  text-align: center;
+  width: auto;
+
+  a {
+    font-size: 1.3em;
+    margin: 1em;
+  }
+}
