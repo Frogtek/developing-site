@@ -44,4 +44,5 @@ plugins:
 
 collections:
   authors:
-    output: false
+    output: true
+    permalink: /team/:path/

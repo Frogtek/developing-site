@@ -3,18 +3,21 @@
 
 {% include head.html %}
 
-<body id="page-top">
+<body id="page-top" class="blog">
   {% include nav.html %}
 
   <section id="{{ page.title }}" class="container content-section blog-post">
    <div class="row">
-     <div class="col-lg-8 col-lg-offset-2">
+     <div class="col-lg-8 col-lg-offset-2" >
+{% assign author_info = site.authors | where: "name", page.author | first %}
 
-       <h2>{{ page.title }}</h2>
-       <h4 class="text-center">por <strong>{{ page.author }}</strong></h4>
+       <h2 class="text-center">{{ page.title }}</h2>
+
        <h4 class="text-center">
-         <strong>{{ page.date | date_to_string }}</strong>
-         <p><small>
+         <img class="avatar text-center" src="{{author_info.avatar}}"/>
+         por <strong>{{ author_info.long_name  }}</strong><br/>
+         {{ page.date | date_to_string }}
+         <p class="hashtag"><small>
            {% if page.tags %}
              {% for tag in page.tags %}
              <a href="/tag/{{ tag }}/">#{{ tag }}</a>
@@ -28,7 +31,6 @@
      </div>
    </div>
 </section>
-
 
   {% include contact.html %}
   {% include scripts.html %}
