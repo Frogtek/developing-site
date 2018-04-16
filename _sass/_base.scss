@@ -384,3 +384,44 @@ body {
     margin: 1em;
   }
 }
+
+.social-share {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  padding-bottom: 30px;
+  padding-top: 20px;
+  text-align: center;
+
+  p {
+    color: $theme-light;
+    font-size: 16px;
+    a {
+      font-size: 25px;
+    }
+  }
+
+  .fa-twitter-square {
+    color: $twitter-color;
+  }
+  .fa-facebook-square {
+    color: $facebook-color;
+  }
+  .fa-google-plus-square {
+    color: $google-plus-color;
+  }
+  .fa-linkedin-square {
+    color: $linkedin-color;
+  }
+
+  i {
+    transition: all .3s ease-in-out;
+    &.active,
+    &:focus,
+    &:hover {
+      background-color: fade($theme-light, 0);
+      color: $theme-light;
+      outline: none;
+      font-size: 1.5em;
+    }
+  }
+}

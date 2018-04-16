@@ -1,0 +1,34 @@
+{% capture url %}{{ site.url }}{{ page.url }}{% endcapture %}
+<div class="social-share">
+  <p>comparte 
+    <a
+      id="social-twitter"
+      href='https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&via=francholab&url={{ url | uri_escape }}'
+      target="_blank"
+      title="Share this post on Twitter">
+      <i class="fa fa-twitter-square"></i>
+    </a>
+    <a
+      id="social-facebook"
+      href='https://www.facebook.com/sharer/sharer.php?t={{ page.title | uri_escape }}&u={{ url | uri_escape }}'
+      target="_blank"
+      title="Share this post on Facebook">
+      <i class="fa fa-facebook-square"></i>
+    </a>
+    <a
+      id="social-google"
+      href="https://plus.google.com/share?url={{ url | uri_escape  }}"
+      target="_blank"
+      title="Share this post on Google Plus">
+      <i class="fa fa-google-plus-square"></i>
+    </a>
+    <a
+      id="social-linkedin"
+      href="http://www.linkedin.com/shareArticle?mini=true&title={{ page.title | uri_escape }}&url={{ url | uri_escape }}&source={{ site.url|uri_escape }}"
+      target="_blank"
+      title="Share this post on LinkedIn">
+      <i class="fa fa-linkedin-square"></i>
+    </a>
+  </p>
+
+</div>
