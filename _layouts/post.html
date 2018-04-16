@@ -14,13 +14,13 @@
        <h2 class="text-center">{{ page.title }}</h2>
 
        <h4 class="text-center">
-         <img class="avatar text-center" src="{{author_info.avatar}}"/>
+         <img class="avatar text-center" src="{{author_info.avatar}}" alt="{{page.author}}"/>
          por <strong>{{ author_info.long_name  }}</strong><br/>
          {{ page.date | date_to_string }}
          <p class="hashtag"><small>
            {% if page.tags %}
              {% for tag in page.tags %}
-             <a href="/tag/{{ tag }}/">#{{ tag }}</a>
+             <a href="/blog/tags/#{{ tag|slugify }}">#{{ tag }}</a>
              {% endfor %}
            {% endif %}
          </small>
