@@ -1,8 +1,13 @@
 <section class="no-padding" id="portfolio">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 text-center">
+        <h2 class="section-heading">Dicen de nosotros</h2>
+        <hr/>
+    </div>
+  </div>
+
   <div class="container-fluid">
     <div class="row no-gutter">
-
-
       {% assign reviews = site.press | reverse %}
       {% if page.name == 'index.md' %}
         {% assign num_reviews = 6  %}

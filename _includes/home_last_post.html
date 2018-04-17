@@ -1,0 +1,24 @@
+<section id="last-post">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2 class="section-heading text-center">En nuestro blog</h2>
+                <hr>
+                <p class="text-faded">
+
+                {{ page.content | markdownify }}
+
+                {% assign post = site.posts.first %}
+                <h4> <strong> {{ post.date | date_to_string }} </strong>
+                  <small>. {{ post.category }} .</small>
+                  <strong> <a href="{{ post.url }}">{{ post.title }} </a> </strong>
+                </h4>
+
+                {{ post.content | truncatewords: site.post-preview-words | strip_html | markdownify }}
+                <p class="latest-post-more"><a href="{{ post.url }}">leer más</a></p>
+
+        <a href="/blog/index.html"><h4><strong>ver mas posts</strong></h4></a>
+            </div>
+        </div>
+    </div>
+</section>
