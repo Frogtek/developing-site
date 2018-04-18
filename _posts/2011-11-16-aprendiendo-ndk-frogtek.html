@@ -62,4 +62,4 @@ jstring Java_org_frogtek_ndksample_Main_getStringFromNDK(JNIEnv* env, jobject th
 <p>Tenemos que notar que dicho método ha de corresponder con la firma del que definimos en el código c, y no solo eso, también ha de coincidir el paquete y la clase que contienen esta llamada con la que hemos escrito en la firma del método de c.</p>
 <p>Ahora solo nos queda llamarlo para poder ver que todo funciona:</p>
 <pre lang="java"> Toast.makeText(Main.this, getStringFromNDK(), Toast.LENGTH_LONG).show();</pre>
-<p>Esto ha sido todo para nuestro primer post de una serie en la que hablaremos sobre la NDK. <strong>Y recordad, pequeños developers: lo nativo mola. Podéis descargar el proyecto desde <a href="http://developing.frogtek.org/wp-content/uploads/2011/11/frogtekNDKSample.zip">aquí</a>.</strong></p>
+<p>Esto ha sido todo para nuestro primer post de una serie en la que hablaremos sobre la NDK. <strong>Y recordad, pequeños developers: lo nativo mola. Podéis descargar el proyecto desde <a href="{{site.base_url}}/assets/posts/frogtekNDKSample.zip">aquí</a>.</strong></p>

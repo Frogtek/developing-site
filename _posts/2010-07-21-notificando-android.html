@@ -29,10 +29,10 @@ author: guillermo
 <ul>
 <li><strong>Barra de estado: </strong>en frogtek usamos esta barra para notificar al usuario y no requerir su interacción inmediata, por ejemplo para:
 <ol>
-<li>Mostrar que hay una nueva actualización de la aplicación disponible.<a href="http://developing.frogtek.org/wp-content/uploads/2010/07/device_21.png"><img class="aligncenter size-medium wp-image-191" alt="device_2" src="{{ site.baseurl }}/assets/posts/device_21-300x89.png" alt="" width="300" height="89" /></a></li>
+<li>Mostrar que hay una nueva actualización de la aplicación disponible.<img class="aligncenter size-medium wp-image-191" alt="device_2" src="{{ site.baseurl }}/assets/posts/device_21-300x89.png"  width="300" height="89" /></li>
 <li>Realizar un proceso en background y que el usuario pueda ver el proceso si le interesa.</li>
 </ol>
-<p><a href="http://developing.frogtek.org/wp-content/uploads/2010/07/tiendatek_notification_2.png"><img class="aligncenter size-medium wp-image-185" alt="tiendatek_notification_2" src="{{ site.baseurl }}/assets/posts/tiendatek_notification_2-300x154.png" alt="" width="300" height="154" /></a></p>
+<p><img class="aligncenter size-medium wp-image-185" alt="tiendatek_notification_2" src="{{ site.baseurl }}/assets/posts/tiendatek_notification_2-300x154.png"  width="300" height="154" /></p>
 <pre lang="JAVA">NotificationManager mNotificationManager;
 mNotificationManager = (NotificationManager)
 theContext.getSystemService(android.content.Context.NOTIFICATION_SERVICE); 
@@ -56,7 +56,7 @@ toast.setDuration(Toast.LENGTH_LONG);
 toast.setView(layout);
 toast.show();</pre>
 </ul>
-<p><img class="aligncenter size-medium wp-image-194" alt="toast" src="{{ site.baseurl }}/assets/posts/toast-300x96.png" alt="" width="300" height="96" /></p>
+<p><img class="aligncenter size-medium wp-image-194" alt="toast" src="{{ site.baseurl }}/assets/posts/toast-300x96.png"  width="300" height="96" /></p>
 <ul>
 <li><strong>Animaciones</strong>: no tienen su finalidad directa en notificar al usuario, pero en Tiendatek probamos qué tal quedaría una animación <a href="http://developer.android.com/resources/samples/ApiDemos/src/com/example/android/apis/view/Animation1.html" target="_blank">shake</a> que agitase el total de una venta cada vez que el usuario añadía un producto. De este modo el usuario era consciente de dónde repercutía su acción y por otro lado simulábamos un efecto de añadir dinero.</li>
 </ul>
