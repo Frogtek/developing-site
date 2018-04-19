@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body id="page-top" class="blog">
+{% include nav.html %}
+
+<section id="{{ page.title }}" class="container content-section job-offers">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2 class="text-center">{{page.title}}</h2>
+            {{ content | markdownify }}
+
+            {% assign offers = site.posts | where_exp:"item", "item.show_in_jobs == true" %}
+            {% if offers.size > 0 %}
+            <h2 class="text-center">Ofertas</h2>
+            <ul>
+                {% for post in offers %}
+                <li class="text-center">
+                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            {%endif%}
+
+        </div>
+    </div>
+
+</section>
+
+<aside class="bg-dark">
+    <div class="container text-center">
+        <div class="call-to-action">
+            <h2>Mándanos tu currículum a guillermo<i class="fa fa-at"></i>frogtek.org</h2>
+        </div>
+    </div>
+</aside>
+
+{% include contact.html %}
+{% include scripts.html %}
+</body>
+
+</html>

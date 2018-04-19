@@ -74,7 +74,7 @@ aside {
   text-transform: uppercase;
 }
 
-.navbar-default .navbar-nav > li  {
+.navbar-default .navbar-nav > li {
   // scss-lint:disable SelectorDepth
   > .menu-item:hover,
   > .menu-item:focus {
@@ -396,4 +396,12 @@ img::-moz-selection {
 
 .home-last-post {
   background-color: rgba($theme-light, .2);
+}
+
+.job-offers {
+  li {
+    list-style: none;
+    line-height: 2;
+    font-size: 1.5em;
+  }
 }

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: jobs
 title: Únete al equipo
 redirect_from:
   - /work-with-us
