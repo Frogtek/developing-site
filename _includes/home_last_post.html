@@ -6,18 +6,18 @@
                 <hr>
                 <p class="text-faded">
 
-                {{ page.content | markdownify }}
+                    {{ page.content | markdownify }}
 
-                {% assign post = site.posts.first %}
-                <h4> <strong> {{ post.date | date_to_string }} </strong>
-                  <small>. {{ post.category }} .</small>
-                  <strong> <a href="{{ post.url }}">{{ post.title }} </a> </strong>
+                    {% assign post = site.posts.first %}
+                <h4><strong> {{ post.date | date_to_string }} </strong>
+                    <small>. {{ post.category }} .</small>
+                    <strong> <a href="{{site.baseurl}}{{ post.url }}">{{ post.title }} </a> </strong>
                 </h4>
 
                 {{ post.content | truncatewords: site.post-preview-words | strip_html | markdownify }}
-                <p class="latest-post-more"><a href="{{ post.url }}">leer más</a></p>
+                <p class="latest-post-more"><a href="{{site.baseurl}}{{ post.url }}">leer más</a></p>
 
-        <a href="/blog/index.html"><h4><strong>ver mas posts</strong></h4></a>
+                <a href="{{site.baseurl}}/blog/index.html"><h4><strong>ver mas posts</strong></h4></a>
             </div>
         </div>
     </div>
