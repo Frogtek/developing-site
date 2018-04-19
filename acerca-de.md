@@ -19,4 +19,3 @@ redirect_from: /about
 Somos, a día de hoy, unos cuantos desarrolladores con distintos roles, inquietudes e intereses dentro de la empresa: Daniel Baeyens, David Durey, Jorge Pérez, Javier Linares, Jesús Calejero y Guillermo Caudevilla. Además, pasaron por aquí y contribuyeron a este blog: Pablo Abad, Pedro Fraca, Javier Martínez, Alberto Gualis, Jose Cortés y Julio García. Para una relación exhaustiva sobre nuestros roles y experiencia anterior a Frogtek te recomiendo que nos busques en LinkedIn.
 
 
-{% include press.html %}
