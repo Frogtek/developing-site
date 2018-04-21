@@ -21,8 +21,14 @@ meta:
 author: guillermo
 ---
 <p>Los que hayan usado el <strong>ndk</strong>, me comprenderan. La cuestión es que cada vez que quieres hacer un cambio tienes que <strong>compilar la librería</strong>. A veces resulta muy pesado, ya que después de esto tienes que limpiar y construir tu proyecto Android que usa dicha librería. Un proceso la mar de ligero si tu proyecto es mínimamente grande.</p>
+
 <p>Tras llevar un tiempo trabajando con esto pensé que sería interesante tener un observer que escuche y que compile el proyecto cada vez que guarde. Ya sólo me tendré que preocupar de hacer los pasos pertinentes en Eclipse para construir el apk con la librería recién compilada.</p>
+
 <p>Para hacer esto elegí python, ya que es un lenguaje realmente potente y fácil de ejecutar desde la consola. Tras buscan un poco opté por usar <a href="http://packages.python.org/watchdog/">WatchDog</a>, que es una librería que observa cambios en un fichero. Solo hay que escuchar y cuando se realice la acción de grabar lanzar la compilación. Se ha programado para que escuche cambios en un directorio entero, puedes cambiar para limitar al fichero con el que estés trabajando.</p>
+
 <p>Os dejo el código en <a href="https://web.archive.org/web/*/https://github.com/Frogtek/ndk-observer">github</a>. Es muy <strong>sencillo de usar y muy potente</strong>.</p>
+
 <p>La mejora más inmediata que se me ocurre es poder mostrar visualmente si la compilación ha ido bien o mal.</p>
+
 <p>Comentarios? Sugerencias?</p>
+

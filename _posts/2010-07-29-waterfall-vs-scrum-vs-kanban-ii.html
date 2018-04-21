@@ -25,7 +25,9 @@ meta:
 author: guillermo
 ---
 <p><a href="http://developing.frogtek.org/2010/07/20/waterfall-vs-scrum-vs-kanban-i/" target="_self">[Leer Waterfall vs SCRUM vs Kanban (I)]</a></p>
+
 <p>Fue así como descubrimos SCRUM, una metodología ágil que implementa de una u otra manera los <strong>4 principios fundamentales del <a href="http://agilemanifesto.org/" target="_blank">Agile Manifesto</a></strong>, a saber:</p>
+
 <ol>
 <li>Que aunque los procesos y las herramientas son importantes, lo son más los <strong>individuos </strong>y<strong> </strong>sus<strong> interacciones</strong>.</li>
 <li>Que aunque la documentación exhaustiva está muy bien, es mucho mejor tener <strong>prototipos</strong> que funcionan.</li>
@@ -33,6 +35,7 @@ author: guillermo
 <li>Y que aunque saber seguir un plan es una estupenda habilidad, más importante es saber <strong>cambiar</strong> dicho <strong>plan</strong> a tiempo.</li>
 </ol>
 <p><span style="font-size: medium;">SCRUM define distintos <strong>roles</strong> para las distintas personas que participan en un proyecto, no voy a entrar en detalles ya que existe multitud de literatura al respecto. Simplemente saber que existe el rol de <strong>Product</strong> <strong>Owner</strong> (en adelante PO) que es la persona que, en estrecho contacto con el cliente, define las pequeñas piezas de funcionalidad que se le van añadiendo poco a poco al producto. También se define el rol del <strong>Team</strong> (<strong>equipo de desarrolladores</strong>) que son los programadores de la cosa y el del <strong>SCRUM Master</strong>, que viene a ser el encargado de que todo el proceso que define SCRUM, el <strong>ritual</strong> periódico por el que hay que pasar inexorablemente, se lleve a la práctica como Dios manda. </span>¿Ritual?, ¿qué ritual?. Pues principalmente uno muy sencillo, el que sigue:</p>
+
 <ul>
 <li> Como nos resulta imposible saber con antelación qué es lo que quiere el cliente <strong>dividimos el tiempo en pequeños periodos</strong> (Sprints, típicamente de entre 2 y 4 semanas) sobre los que creemos tener suficiente visibilidad. Es decir, "no tengo ni idea de cómo va a evolucionar mi producto dentro de 6 meses pero sí creo saber que mi cliente quiere ver tales características funcionando dentro de 2 semanas"... Esto tiene que ver con los puntos 3 y 4 del Manifiesto Ágil (involucrar al cliente y gestionar el cambio).</li>
 <li>El PO, por lo tanto, estudia con el cliente la funcionalidad que les gustaría tener disponible en la próxima versión de la aplicación. Y luego participa en la <strong>reunión de planificación de principio de Sprint</strong> en la que, junto con el Equipo de Desarrollo, se clarifica qué hay que hacer y se decide quién hará qué y cuánto tiempo costará. Punto 1, sobre las personas y las interacciones.</li>
@@ -41,10 +44,18 @@ author: guillermo
 <li>El ritual termina con la<strong> reunión de Retrospectiva</strong>, donde el Equipo de Desarrollo junto con SCRUM Master y POs revisan el proceso y proponen mejoras para el siguiente Sprint.</li>
 </ul>
 <p style="text-align: center;"><img class="aligncenter size-full wp-image-248" alt="Imagen 1(2)" src="{{ site.baseurl }}/assets/posts/Imagen-122.png"  width="717" height="538" /></p>
+
 <p>Y vuelta a empezar. Hay normas extras, peculiaridades, cosas <strong>divertidas</strong> y complicaciones sobre las que se podría profundizar mucho, pero básicamente esto es SCRUM.</p>
+
 <p>En nuestro caso la cosa empezó bastante "de andar por casa". El PO era PO y SCRUM Master a la vez, los programadores no hacían Stand-ups... <a href="http://en.wikipedia.org/wiki/Cowboy_coding" target="_blank">Cowboy</a>-SCRUM como bien dice Pablo. Pero bueno, la intención es lo que cuenta, durante un tiempo al menos.</p>
+
 <p>Con la nueva oficina la cosa mejoró, al menos el equipo técnico ya se veía las caras. Stand-ups, Sprint Plannings, Sprint Reviews, Sprint Retrospectives... toda una plétora de <strong>reuniones</strong> salpicaba nuestro <strong>calendario</strong>. Mucha diversión mientras a la vez tratábamos de montar un <strong>entorno de desarrollo decente </strong>con pre-producción, producción, repositorios de código, branches... la juerga padre vamos. El típico momento en el que a los novatos emprendedores les empiezan a crecer los enanos y se dan cuenta de que ser profesional es difícil, muy <strong>difícil</strong> y complejo, muy <strong>complejo</strong>.</p>
+
 <p style="text-align: center;"><img class="aligncenter size-full wp-image-253" alt="Imagen 1" src="{{ site.baseurl }}/assets/posts/Imagen-11.png"  width="600" height="449" /></p>
+
 <p style="text-align: left;">Lo que veis más arriba era nuestro<strong> día a día</strong> por aquellos tiempos. Habíamos conseguido ya tener un proceso automático que compilaba todos los días a las 15:00 CET (a primera hora de la mañana de nuestros POs en USA y Colombia) una <strong>versión de preproducción</strong>. Al final del Sprint sacábamos dos <strong>versiones de producción</strong>, una el viernes después del Review del jueves y otra el domingo con las US (User Stories, pequeños fragmentos de funcionalidad) que nuestro programador exiliado en Santiago de Compostela hacía los fines de semana. Resultado: habíamos dado nuestro primer paso hacia un concepto que desconocíamos, la <strong>Integración Continua</strong>... y nos salían bugs por todos lados. Fue por eso que empezamos también a interesarnos por cosas como el <strong>TDD</strong> y las <strong>pruebas unitarias automáticas</strong> y nos empezáramos a preocupar de que la frase "pues en mi emulador funciona" se oyera cada vez menos.</p>
+
 <p style="text-align: left;">En lo que respecta a SCRUM dimos un paso de adelante contratando el servicio <a href="http://www.agilebuddy.com/" target="_blank">AgileBuddy</a> una página web que te permite gestionar distintos proyectos con sus respectivos <strong>Backlogs</strong> (el conjunto de funcionalidades a programar), los <strong>Sprint Backlogs</strong> (cosas a programar durante el Sprint), etc, etc. Se trata de una útil <strong>herramienta</strong> para gestionar tus proyectos usando esta metodología. Lo mejor, que te dota de un marco de trabajo donde tienes todo mucho más controlado y que te calcula automáticamente las <strong>métricas</strong> de tus proyectos (<strong>Burndown</strong> chart y demás). Lo peor, que a veces no es fácil entender la forma que tienen estas herramientas de calcular sus métricas y también que quizá entraba en demasiado detalle y era necesario <strong>desglosar</strong> tareas, <strong>imputar</strong> horas de forma no siempre tan fácil o intuitiva como nos gustaría.</p>
+
 <p style="text-align: left;">No fue <strong>AgileBuddy</strong>, no obstante, la razón por la apenas 4 meses después decidimos <strong>cambiar</strong> al <strong>Kanban</strong>. ¿Cambiamos por las <strong>razones</strong> adecuadas?, ¿fue un cambio <strong>precipitado</strong>?, ¿estábamos haciendo suficientemente <strong>bien</strong> SCRUM?... Todo eso y mucho más, en el próximo capítulo.</p>
+

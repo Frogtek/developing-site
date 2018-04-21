@@ -26,7 +26,9 @@ meta:
 author: julio
 ---
 <p>Hace poco tuvimos una <a href="https://web.archive.org/web/*/http://blog.dev.openfinance.es/2011/03/una-semana-de-internship/">agradable visita</a> aquí en <strong>Frogtek</strong>. Una de las muchas aportaciones de <a href="https://twitter.com/#!/hell03610">Emma</a> fue hacernos replantear nuestro sistema de lanzamiento de <em>builds</em> en <a href="http://jenkins-ci.org/">Jenkins</a>, pasando de uno más pesado en recursos a otro más eficiente. A raíz de dicho cambio hemos aprovechado y mejorado el procedimiento de bloqueo que tenemos configurado en Jenkins y la forma en la que lo realizamos. Vamos a explicarlo para que nos ayudéis a mejorarlo todavía mas.</p>
+
 <p>En sí, el procedimiento consiste en no permitir <em>commits</em> al servidor <strong>SVN</strong> si hay una <em>build  rota</em>. Excepto al usuario que haya provocado dicha rotura. De esta forma nos aseguramos de varias cosas:</p>
+
 <ul>
 <li>No se avanza en el desarrollo si el código subido no es de una calidad mínima, pasa los test y se construye correctamente.</li>
 <li>Los desarrolladores se hacen responsables de los problemas que ellos han generado y los arreglan.</li>
@@ -34,7 +36,9 @@ author: julio
 </ul>
 <p><!--more--><br />
 Para conseguir este funcionamiento usamos dos <em>scripts</em>. Uno, invocado al comienzo y finalización de cada proyecto en <strong>Jenkins</strong>, encargado de realizar el bloqueo en sí. Y otro, invocado desde el hook de <a href="http://es.wikipedia.org/wiki/SVN">SVN</a> de <strong>pre-commit</strong>, que comprueba que no haya nadie bloqueando el servidor en el momento del <em>commit</em>.</p>
+
 <p>El primero de ellos:</p>
+
 <pre lang="BASH">
 #!/bin/bash
 #
@@ -64,16 +68,20 @@ else
 fi
 </pre>
 <p>Simplemente escribe el autor del bloqueo en un archivo por proyecto, un especie de lock. Al inicio de cualquier trabajo de Jenkins invocamos al script con el párametro <strong>lock</strong> el nombre del proyecto y el autor. Así :</p>
+
 <pre lang="BASH">lockOrUnlockJenkins.sh lock `svnlook author REPOS_PATH` ${JOB_NAME}</pre>
 <p>Y como último paso del mismo trabajo, hacemos un <strong>unlock</strong>:</p>
+
 <pre lang="BASH">lockOrUnlockJenkins.sh unlock jenkins ${JOB_NAME}</pre>
 <p>El segundo script cumple tres funciones:</p>
+
 <ul>
 <li>Comprobar que el mensaje que se envía con el <em>commit</em> no está vacío.</li>
 <li>Comprobar que tiene una longitud de entre 10 y 3000 caracteres.</li>
 <li>Asegurarse de que no se permiten <em>commits</em> si hay builds rotas en Jenkins, excepto aquellas del causante de la rotura.</li>
 </ul>
 <p>A continuación podemos ver el script que nos permite esto:</p>
+
 <pre lang="BASH">
 #!/bin/bash
 REPOS="$1"
@@ -114,3 +122,4 @@ else
 fi
 </pre>
 <p>Como veis nada muy complicado de configurar. ¿Qué os parece? ¿Cómo lo mejoraríais? ¿Utilizáis algo parecido?</p>
+

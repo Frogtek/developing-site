@@ -19,13 +19,16 @@ meta:
 author: guillermo
 ---
 <p>En Android podemos definir nuestros propios arrays estáticos en xml y guardarlo en la carpeta res/values. De este modo lo tendremos siempre a mano (a través de la clase R) y soportará multi-idioma.</p>
+
 <p>Podremos crear arrays de los siguiente tipos:</p>
+
 <ul>
 <li><a href="http://developer.android.com/guide/topics/resources/more-resources.html#IntegerArray" target="_blank">IntergerArray</a></li>
 <li><a href="http://developer.android.com/guide/topics/resources/more-resources.html#TypedArray" target="_blank">TypedArray</a></li>
 <li><a href="http://developer.android.com/resources/tutorials/views/hello-spinner.html">StringArray</a></li>
 </ul>
 <p>Y la manera de definir un array es:</p>
+
 <pre lang="XML">
 <string-array name="helpModes">
    <item>Modo Aprendiz</item>
@@ -33,6 +36,7 @@ author: guillermo
 </string-array>
 </pre>
 <p>Para poder acceder posteriormente desde código es tan sencillo como hacer esto a través de un objeto Context:</p>
+
 <pre lang="Java">String[] helpModesArray;
 helpModesArray = getResources().getStringArray(R.array.helpModes);
 </pre>

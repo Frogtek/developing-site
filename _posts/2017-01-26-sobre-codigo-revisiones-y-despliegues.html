@@ -22,21 +22,31 @@ meta:
 author: miguel.julian
 ---
 <p>Lo sé. Lo admito. Me encanta la sensación de acabar de programar algo a las 5 de la mañana. Satisfecho. Orgulloso. Tal vez con un exceso de cafeína. <strong>Mergeas, despliegas y a dormir con una sonrisa</strong>. En tus sueños un cowboy se monta en su caballo, llega al pueblo y desmonta bajo la mirada de los pueblerinos. Captura a los malos, se sacude el polvo y se va triunfal con los suspiros de aquellos y aquellas a sus espaldas. Sí, ese <del>desarrollador</del> cowboy que es capaz de hacerlo todo, sin hablar con nadie, sin consensuar nada.</p>
+
 <p>Te levantas con la sonrisa todavía en la boca (dejemos de lado babas y otros sucesos paranormales). <strong>Vas al ordenador y ¡boom!, algo ha ido mal</strong>. La explosión despierta hasta al cowboy de tus sueños, que se tapa con una piel y se acurruca junto a la hoguera, ahora hay miedo en ojos del valiente cowboy. Creo que esta historia nos suena a muchos y a muchas. Y sí, los sueños y las sonrisas, e incluso las risas molan; pero mejor dejar las explosiones para nuestros proyectos locos y no para los serios, o para el trabajo.</p>
+
 <p>Historias de usuario públicas. Ramas. Revisión de código. Pruebas manuales. Pruebas automáticas. Despliegues. El cowboy puede hacer lo que quiera, que vamos a hacer que esto no explote (o mejor dicho, <strong>que explote cuanto menos, mejor</strong>).<br />
 <!--more--></p>
+
 <h5>HISTORIAS DE USUARIO PÚBLICAS</h5>
 <p>En Frogtek puedes afrontar una tarea montado en tu caballo. Pero <strong>vas a tener que escribir una US para la mayoría de los casos</strong>. Tendrás que escribir tests de aceptación (ATs). Y tendrás que mover la US encima de la lista "Esperando validación de ATs". No siempre esperamos esa validación, pero la historia de usuario está ahí, y los tests de aceptación también. Cualquiera puede verlo "en el ahora" o "en el futuro". Una tarea bastante común es revisar las nuevas para estar al tanto de lo que se ha hecho, o escucharlo en el stand-up y proponer al cowboy algún caso que no había contemplado. Calidad del trabajo mejorada.</p>
+
 <h5>RAMAS</h5>
 <p>Cada repo tiene su nombre. Pero si tenemos un entorno de producción en el que si algo falla lo vamos a lamentar, tenemos dos ramas. La de <em>desarrollo</em>, y la de <em>producción</em>. <strong>Todos los cambios se hacen sobre <em>desarrollo</em></strong>, mientras que la de <em>producción</em> que solo recibe cambios con pull requests desde la de <em>desarrollo</em>. Eso sí, las ramas están protegidas, git push --force es tu amigo… hasta que lo deja de ser. Entorno de producción controlado.</p>
+
 <h5>REVISIÓN DE CÓDIGO: PULL REQUESTS</h5>
 <p>Para mí, la base. Aunque me centre en una tarea y deje mis revisiones para dentro de dos días, todo el código se lee. Por alguna <a href="https://fosdem.org/">FOSDEM</a> escuché las diferentes valoraciones que se hacían de las revisiones de código desde un entorno libre (los asistentes en directo a un formulario) y un entorno como el de Microsoft. Las diferencias saltaban a la vista, así que cada persona tiene una opinión. Desde mi punto de vista <strong>revisando código aprendes todos los días</strong>. Pero es mucho mejor todavía cuando te revisan con sentido crítico y profundidad tu propio código. Ahí no solo aprendes cómo y dónde colocar el código, sino que también tienes que bajar de las alturas y descubrir las bondades de la palabra <em>peer</em>. Todo código necesita una pull request y (excepto fuerza ultra-mega-super mayor o menor) al menos una valoración positiva :+1: para ser mergeado. Calidad del código mejorada. Conocimiento de los desarrolladores mejorado.</p>
+
 <h5>PRUEBAS AUTOMÁTICAS</h5>
 <p>Con cada pull request nuestro amigo Jenkins se pone manos a la obra. Tests unitarios. Test de integración. Calidad de código y cobertura analizada. Tu pull request en unos minutos está verde o roja en función del resultado de los tests. <em>Sin mover un dedo</em>. Calidad de código mejorada. Probabilidad de errores como regresiones menor.</p>
+
 <h5>PRUEBAS MANUALES</h5>
 <p>Nuestra historia de usuario acaba siendo probada por otro desarrollador en un porcentaje de veces muy alto. <strong>Se prueban flujos alternativos </strong>que igual no había pensado el encargado de la historia de usuario, se descubren glitches, o incluso problemas de integración (1 + 1 + 1 no siempre son 3, y lo sabes). No todas las historias de usuario acaban siendo probadas por otro compañero, decir lo contrario sería mentir, pero una gran parte sí. Calidad mejorada.</p>
+
 <h5>DESPLIEGUES</h5>
 <p>Siempre mejorando. La rama de desarrollo se despliega automáticamente, el entorno de "PRE" siempre a la última sin intervención humana. El entorno de producción se despliega de forma manual (o automática después de un merge en la rama de producción) mediante <strong>jobs de Jenkins que corren tests automatizados</strong>. De nuevo buscamos esas regresiones, porque cada rama funcionaba separada, pero cuando las juntas las probabilidades de escuchar la explosión aumenta. Menos errores debido a un despliegue homogéneo. Mayor control sobre lo que está y lo que no está en producción, mejora de la calidad del producto.</p>
+
 <h5>LA CONCLUSIÓN</h5>
 <p>El cowboy trabaja mucho y muy bien. Pero dentro de un equipo, y un flujo de trabajo controlado, se despierta con una sonrisa y luego golpea la mesa del bar cuando se encuentra la revisión del código.<br />
 El ayudante del sheriff trabaja mucho y muy bien. Pero dentro de un equipo, y un flujo de trabajo controlado, tiene claro que cuando el sheriff reciba un balazo (no penséis en autobuses... cabr***s, siempre igual, ¡vacaciones!), <strong>no decaerá la calidad del producto</strong>.</p>
+

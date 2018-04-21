@@ -21,11 +21,15 @@ meta:
 author: guillermo
 ---
 <p>Después de varios meses trabajando en la <strong>migración a GIT</strong>, finalmente podemos decir que todo ha salido <a href="http://www.youtube.com/watch?v=TFRoRF9FvbI" target="_blank">a pedir de Milhouse</a>. Además nos ha servido para darnos cuenta de que vamos a tener que acostumbrarnos a que el sistema de <strong>control de versiones</strong> sea una parte fundamental de nuestra metodología de trabajo. Principalmente por el <strong>gráfico</strong> que aparece a continuación. Está extraído de este <a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank">gran artículo sobre control de ramas con GIT</a>. De él obtuvimos la inspiración para realizar nuestro sistema de branching, pero no es de esto de lo que queremos hablar...</p>
+
 <p style="text-align: center;"><img class="aligncenter size-medium wp-image-1707" alt="Screen-shot-2009-12-24-at-11.32.03" src="{{ site.baseurl }}/assets/posts/Screen-shot-2009-12-24-at-11.32.03-224x300.png"  width="224" height="300" /></p>
+
 <p>Más bien queremos contar algunos ajustes que hicimos a la configuración de git para que nos sea más usable. </p>
+
 <ol>
 <li>Crear unos cuantos útiles "alias":</li>
 <p>Lo primero es editar nuestro archivo .<strong>gitconfig</strong>, añadiendo algunas versiones cortas de los comandos más usados.</p>
+
 <pre lang="bash">[alias]
         co = checkout
         ci = commit
@@ -33,17 +37,23 @@ author: guillermo
         br = branch
         brancha = branch -a</pre>
 <p>Aquí va uno muy útil: mostrar el <strong>listado de commits en una línea</strong> cada uno y mostrando los autores al principio (todo ello a color):</p>
+
 <pre lang="bash">hist = log --graph --decorate --pretty=format:'%C(bold blue)%Creset
 %Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)'
 --abbrev-commit --date=relative</pre>
 <p>Los dos siguientes son muy útiles para gestionar los archivos y carpetas marcados como <strong>unchanged</strong>:</p>
+
 <pre lang="bash">unchange = update-index --assume-unchanged
 unchanged = !git ls-files -v | grep ^[a-z]</pre>
 <p>El primero nos permite marcar un archivo como "assume unchanged", en caso de que no queramos que tenga control de versiones. El segundo nos muestra qué archivos de nuestro repositorio están marcados de esta forma.</p>
+
 <p>Crear una nueva <strong>branch</strong> asociada a una nueva <strong>historia de usuario</strong>:</p>
+
 <pre lang="bash">us = "!f() { git checkout -b US$1; }; f"</pre>
 <p>Este comando funciona de la siguiente manera. Si tecleamos US 13, nos creará una nueva branch (desde la que estemos en ese momento) con el nombre US13. Muy útil.</p>
+
 <p>Y para acabar, activar el <strong>color</strong> para todos los comandos de GIT:</p>
+
 <pre lang="bash">[color]
         ui = true</pre>
 <li>Pasarnos a <strong>bash</strong> y crear más "<strong>alias</strong>":</li>
@@ -51,7 +61,10 @@ unchanged = !git ls-files -v | grep ^[a-z]</pre>
 alias gp='git pull'
 alias gs='git status'</pre>
 <p>Cambié mi terminal para que usara bash como intérprete, ya que me permitía funciones adicionales como la del punto 3. Después añadí unos cuantos alias entrando en el home y editando el archivo .bash_profile</p>
+
 <p>Hay gente que prefiere utilizar el comando completo, es cuestión de gustos. He añadido git pull y git status porque son algunos de los comandos que más uso en consola.</p>
+
 <li>Mostrar la <strong>rama actual en el shell de bash</strong>. Esto ya lo vimos en <a href="http://developing.frogtek.org/2012/02/24/ver-la-branch-de-git-en-la-que-estas-en-bash/">capítulos anteriores</a>.</li>
 </ol>
 <p>Y esto es todo. Recordad que lo principal es que cada uno configure sus instrumentos a su voluntad. Al fin y al cabo, se trata de estar a gusto con las herramientas que utilizas.</p>
+

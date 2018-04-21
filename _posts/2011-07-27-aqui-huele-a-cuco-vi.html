@@ -16,6 +16,7 @@ meta:
 author: guillermo
 ---
 <p>He consultado con los Ancianos de Tiendatek y parece ser que este código que voy a mostrar a continuación lleva en el proyecto desde antes que apareciera el primer teléfono Android... (fecha que no recordamos por su lejanía en el tiempo)</p>
+
 <pre lang="java">private void editVendor() {
 mVendor = mVendorsManager.getEntityById(mRowId);
 AnalyticsManager.trackAnalytics(getString(R.string.analitycs_vendors_detail_menu_edit), this);
@@ -37,4 +38,6 @@ i.putExtra(VendorsDbAdapter.KEY_VENDOR_FREQUENCY, mVendor.getVendorFreq());
 startActivityForResult(i, ACTIVITY_EDIT);
 }</pre>
 <p>No hay nada como pasarle TODOS los parámetros que necesitamos de un mismo objeto a una actividad.</p>
+
 <p>Se me ocurren dos soluciones a este "olor". Una de ellas tan simple como pasarle sólo el Id del "Vendor" y capturar el resto de datos en la actividad destino, o si "mVendor" fuera instancia de una clase serializable, pasar por los Extras el objeto completo. Al final opté por pasar sólo el Id del Vendor.</p>
+

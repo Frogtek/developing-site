@@ -15,9 +15,13 @@ meta:
 author: ricardo
 ---
 <p>Este post es un resumen de como ha sido nuestra transición de un MySQL gestionado por nosotros mismos a Amazon Aurora: las cosas que nos han gustado mucho, las que nos han gustado menos, y cómo hemos tenido que cambiar algunos de nuestros procesos para adaptarnos a las particularidades y oportunidades de esta manera de acceder a los datos.</p>
+
 <p>En febrero de 2016 ya había leído algunas cosas sobre Aurora: que era un servicio MySQL compatible, que prometía rendimientos muy superiores, más concurrencia, poder tener copias read only con latencias bajísimas y todo esto sin tener que preocuparte de desplegar instancias EC2 ni configurar servicios. Sonaba bien…Nombro febrero de 2016 porque en ese mes acudí al evento <a href="http://www.wtcbarcelona.com/en/news-wtcb/big-events/768-amazon-web-services">Data Analytics at AWS en Barcelona</a>  y allí nos dijeron que Aurora era el servicio que más rápidamente había crecido en la historia de AWS y toda una suerte de bondades. Está claro que en un evento patrocinado por la empresa que lo desarrolla van a subrayar sus fortalezas frente a sus debilidades, pero con todo y con eso debo confesar que me volví en el tren pensando “y por qué no pasamos de nuestro MySQL y empezamos a usar Aurora”.</p>
+
 <p>Creo que aquí vendría bien dar un poco de contexto. En Frogtek usamos diferentes tecnologías dependiendo de las preguntas que queremos hacer a nuestros datos. Una de ellas es MySQL. Antes de Aurora, teníamos un cluster master slave gestionado por nosotros mismos corriendo sobre instancias EC2. Este escenario cubría una doble necesidad: darnos alta disponibilidad y poder lanzar determinados procesos pesados contra la instancia slave.</p>
+
 <p>Sin embargo este modelo nos causaba algunos problemas:</p>
+
 <ul>
 <li>El nodo esclavo fundamentalmente lo usábamos para contestar SELECT pesados sin “molestar” al master. Pero teníamos problemas de sincronización, sufríamos desfases entre los datos que manejaba el master y el slave, algunas veces de minutos. Esto, aunque no era muy común nos generaba incertidumbre y una sensación de “no me puedo fiar de los datos del esclavo” por lo que ese nodo perdía gran parte de su funcionalidad.</li>
 <li>Debíamos gestionar nosotros las copias de seguridad. Hacerlas, comprobarlas, almacenarlas. No son tareas muy complejas pero llevan tiempo.</li>
@@ -25,8 +29,11 @@ author: ricardo
 <li>Ocuparnos de la actualización del MySQL y del SO que corría por debajo. Gestionar el tamaño de las particiones, los EBS...</li>
 </ul>
 <p>A priori Aurora tendría que solucionarnos estos problemas, así que en marzo del año pasado nos liamos la manta a la cabeza y migramos nuestra infraestructura MySQL a Aurora. El proceso de migración no fue muy doloroso: restauramos una copia de seguridad en Aurora, suscribimos nuestro nodo Aurora al MySQL gestionado por nosotros y cuando comprobamos que todo estaba bien lo promocionamos a master. Antes de hacerlo nosotros a mano, probamos el <a href="https://aws.amazon.com/es/dms/">AWS Database Migration Service</a>  pero no nos acabó de convencer. Seguramente porque cuando lo probamos nosotros estaba en beta, pero las pruebas que hicimos no nos acababan de funcionar bien.</p>
+
 <p>Nuestro Aurora tiene un nodo master y un reader. Al poco de empezar a usarlo se nos presentó el primer problema. El endpoint del cluster no balanceaba automáticamente las peticiones entre nuestros nodos. Realmente no es que funcionara mal, nosotros pensábamos que lo haría y resultó que no, por lo que necesitábamos seguir configurando a mano nuestras aplicaciones para balancearlas. Este comportamiento lo solucionó ya AWS  en septiembre del <a href="https://aws.amazon.com/es/blogs/aws/new-reader-endpoint-for-amazon-aurora-load-balancing-higher-availability/">año pasado </a>y ahora puedes apuntar todo al endpoint del cluster y el solito va mandando las SELECT a alguno de los reader.</p>
+
 <p>Esta son algunas de las cosas que nos han gustado del servicio, se van incluyendo nuevas funcionalidades periódicamente. Por ejemplo, desde que nosotros empezamos a usar Aurora hasta ahora han añadido:</p>
+
 <ul>
 <li>Clonado de instancias.</li>
 <li>Balanceo automático entre instancias.</li>
@@ -34,7 +41,9 @@ author: ricardo
 <li>Cargar datos desde AWS S3.</li>
 </ul>
 <p>La gente de Percona, que inicialmente fueron <a href="https://www.percona.com/blog/2015/11/16/amazon-aurora-looking-deeper/">bastante críticos</a> con Aurora hicieron un <a href="https://www.percona.com/blog/2015/12/03/amazon-aurora-sysbench-bencmarks/">test de rendimiento en 2015</a> y lo repitieron <a href="https://www.percona.com/blog/2016/05/26/aws-aurora-benchmarking-part-2/">unos meses después</a> y vieron una evolución positiva en el servicio.</p>
+
 <p>Y ya que estamos con lo que nos ha gustado:</p>
+
 <ul>
 <li>Servicio 100% gestionado. Dedicamos poquísimo tiempo al mantenimiento de la BBDD. Por ejemplo, la ampliación del disco es automática  y escalar horizontal y verticalmente es realmente sencillo.</li>
 <li>Antes hacíamos las copias de seguridad con dumps que podían necesitar horas para terminar. Con los snapshot lo hemos reducido a minutos. En las restauraciones ganamos incluso más.</li>
@@ -49,4 +58,6 @@ CALL mysql.rds_kill_query(ID).</li>
 <li>El precio. No es un servicio barato precisamente.</li>
 </ul>
 <p>Desde el punto de vista del rendimiento, cuando nos planteamos Aurora, además de quererlo para quitarnos trabajo de gestión de la BBDD queríamos ver si era posible usarlo como base de datos para consultas analíticas sobre tablas de tamaño medio (decenas de millones de tuplas). Típicas consultas con agregaciones más o menos complejas usando ventanas temporales amplias. Vimos que no, que Aurora en este caso de uso no aportaba mucho a lo que ya habíamos vivido con el MySQL gestionado por nosotros. La sensación (confirmada con los test que hicieron en Percona) es que es un servicio que admite mucha concurrencia de consultas y conexiones pero el que una única consulta no va a ser más veloz o mucho más veloz que un MySQL normal. Por lo que nosotros seguíamos teniendo consultas que tardaban horas en finalizar. Cómo resolvimos esto lo contaremos en otro artículo, pero diré a modo de resumen que en nuestro caso Aurora no nos sirvió como BBDD analítica. Además, en este sentido, se echa de menos que la implementación SQL de Aurora no incluya, por ejemplo, funciones de ventana.</p>
+
 <p>En definitiva,  estamos contentos con la decisión que tomamos. Nos ha ahorrado mucho tiempo en tareas de gestión y sobre todo nos ha dado tranquilidad y confianza en la capa de almacenamiento. No sustituye una base de datos OLAP, pero esto era un extra y aún sin eso, en nuestro caso, tenía sentido la migración.</p>
+

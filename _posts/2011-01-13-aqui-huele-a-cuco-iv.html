@@ -26,6 +26,7 @@ meta:
 author: julio
 ---
 <p>Bueno, un poco de <strong>autocrítica</strong> nunca viene mal y en este caso yo soy uno de los culpables de este desaguisado....</p>
+
 <pre lang="java">public int getVendorsCount() {
 	if (this.mDm.openDBConnection()) {
 		this.mDbHelper = new VendorsDbAdapter();
@@ -39,7 +40,9 @@ author: julio
 	return 0;
 }</pre>
 <p>Fijaos bien: estamos intentando acceder a un cursor después de cerrarlo..... además solo cerramos la base de datos si el cursor es <strong>null</strong>... vamos, una joya de código. Gracias a que tenemos <a href="https://code.google.com/p/robotium/">test funcionales en Android </a> hemos encontrado semejante esperpento. Ya vamos recuperando poco a poco lo invertido en ellos :) .</p>
+
 <p>Así he dejado el código después del pertinente refactor.</p>
+
 <pre lang="java">public int getVendorsCount() {
 	int vendorsCount = 0;
 	if (this.mDm.openDBConnection()) {
@@ -54,3 +57,4 @@ author: julio
 	return vendorsCount;
 }</pre>
 <p>¿Bastante mejor no? ¿Alguna sugerencia para mejorarlo todavía más?</p>
+

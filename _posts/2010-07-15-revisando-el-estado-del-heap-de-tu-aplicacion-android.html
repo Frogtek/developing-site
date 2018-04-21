@@ -22,12 +22,22 @@ meta:
 author: guillermo
 ---
 <p>Al hilo del post anterior hemos descubierto una utilidad que nos da la SDK de android para revisar el estado del heap de una determinada aplicación. Tendremos que tener instalado el <a href="http://www.eclipse.org/mat/" target="_blank">Memory Analizator</a> plugin para Eclipse, para ver y analizar los datos.</p>
+
 <p>Lo primero nos cambiaremos a la vista DDMS de android.</p>
+
 <p>Pulsaremos el botón que dice "Dump HPROF File"</p>
+
 <p><img class="alignnone size-medium wp-image-105" alt="Screen shot 2010-07-15 at 13.52.51" src="{{ site.baseurl }}/assets/posts/Screen-shot-2010-07-15-at-13.52.51-300x162.png"  width="300" height="162" /></p>
+
 <p>A partir de aquí se inicia un proceso automático que desencadena que se abra el plugin de mat para eclipse y en el que podremos ver datos como los siguientes:</p>
+
 <p>Los objetos que más espacio (Bytes/instancias) ocupan en el <a href="http://www.freepascal.org/docs-html/prog/progsu157.html" target="_blank">heap</a>.</p>
+
 <p><img class="alignnone size-medium wp-image-106" alt="Screen shot 2010-07-15 at 13.40.35" src="{{ site.baseurl }}/assets/posts/Screen-shot-2010-07-15-at-13.40.35-300x156.png"  width="300" height="156" /></p>
+
 <p><img class="alignnone size-medium wp-image-108" alt="Screen shot 2010-07-15 at 13.41.08 1" src="{{ site.baseurl }}/assets/posts/Screen-shot-2010-07-15-at-13.41.08-1-300x40.png"  width="300" height="40" /></p>
+
 <p>Incluso nos hará un informe con posibles <a href="http://es.wikipedia.org/wiki/Fuga_de_memoria" target="_blank">memory leaks</a>.</p>
+
 <p>En definitiva una gran herramienta que sin duda nos ayudará a ver que es lo que está pasando dentro de nuestra aplicación y quizás nos ayude a tomar estrategias de eficiencia.</p>
+

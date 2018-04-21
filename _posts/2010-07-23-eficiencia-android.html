@@ -20,9 +20,13 @@ meta:
 author: guillermo
 ---
 <p>Continuamos con nuestro afán por tener una aplicación más eficiente e iremos escribiendo con lo que nos vamos encontrado: tenemos una tabla con datos para sincronizar y mientras se sincronizan actualizamos una barra de progreso en la status bar. Actualmente, actualizábamos la barra de progreso cada vez que se procesaba una fila, con lo cual, actualizábamos la barra de progreso tantas veces como filas teniamos.</p>
+
 <p>Julio (QA) al percatarse de que esta operación costaba mucho tiempo, lanzó su herramienta más preciada..., el <a href="https://web.archive.org/web/*/http://developer.android.com/guide/developing/tools/traceview.html" target="_blank">traceview</a>. Se pasó por mi mesa y vimos que la clase Notify de Android se nos estaba llevando un gran tiempo debido al problema explicado en el párrafo anterior.</p>
+
 <p><img class="aligncenter size-large wp-image-233" alt="Screen shot 2010-07-22 at 15.37.11" src="{{ site.baseurl }}/assets/posts/Screen-shot-2010-07-22-at-15.37.11-1024x61.png"  width="640" height="38" /></p>
+
 <p>Con lo que nos pusimos manos a la obra y escribimos el correspondiente método estático que nos calcula el porcentaje y nos dirá si tenemos que actualizar la progress bar, de este modo siempre la actualizaremos 100 veces. Ahí va:</p>
+
 <pre lang="JAVA">/*** This method retuns true if an update is needed in the progess bar
  *
  * @param itemsCount The total number of items
@@ -43,4 +47,6 @@ author: guillermo
     }
  }</pre>
 <p>Por otro lado también hemos notado que el Log de Android consume bastantes recurso y así lo comentan en la <a href="http://developer.android.com/reference/android/util/Log.html" target="_blank">documentación</a>. Pero no tenemos muy claro qué pasa con el Log.d (DEBUG). Según dice en la documentación, no se escribe en tiempo de ejecución, pero... creemos que depende de si marcas el teléfono para debug o no.</p>
+
 <p>Como conclusión final hemos conseguido reducir un proceso que le costaba una hora a unos 20 minutos.</p>
+

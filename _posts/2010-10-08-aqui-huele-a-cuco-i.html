@@ -23,8 +23,11 @@ meta:
 author: guillermo
 ---
 <p>Desde Frogtek siempre hemos querido buscar la <strong>excelencia en nuestro código</strong> y en nuestro métodos. El pair programming, el desarrollo orientado a tests y la revisión de código forman parte de nuestro día a día. Pero como el ser humano es <strong>propenso a fallos</strong> y la mente humana no funciona a veces como debería, podemos ver que <strong>no todo es perfecto en el paraíso</strong>...</p>
+
 <p>Con esta entrada queremos inaugurar una sección en la que sacaremos a relucir los <strong>trapos más sucios de nuestros programadores.</strong> Bienvenidos todos a la nave del misterio...</p>
+
 <p>Comenzaremos con lo que encontramos en un archivo de Date Utilities, en el que habitan diversas <strong>funciones relacionadas con fechas</strong>. Concretamente <strong>nos fijaremos en dos de ellas</strong>...</p>
+
 <pre lang="java">    public static String getFirstDayOfMonth() {
         Calendar c = Calendar.getInstance();
         c.set(Calendar.DAY_OF_MONTH, 1);
@@ -37,4 +40,6 @@ author: guillermo
         return StringUtilities.getShortStringFromCalendar(c);
     }</pre>
 <p>¿Qué hay detras de este código? ¿Qué motivaciones ocultas llevaron a los programadores a crear este <strong>tándem siniestro</strong>?</p>
+
 <p><center><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="480" height="385" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="src" value="http://www.youtube.com/v/oRlmn0-2d3g?fs=1&amp;hl=es_ES" /><param name="allowfullscreen" value="true" /><embed type="application/x-shockwave-flash" width="480" height="385" src="http://www.youtube.com/v/oRlmn0-2d3g?fs=1&amp;hl=es_ES" allowscriptaccess="always" allowfullscreen="true"></embed></object></center></p>
+

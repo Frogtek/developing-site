@@ -19,17 +19,24 @@ meta:
 author: guillermo
 ---
 <p>Al programar aplicaciones en Android, resulta ineludible el hacer uso del recurso <strong>"strings.xml"</strong>, un archivo en el que podemos escribir todas las cadenas de texto que aparecen en nuestra aplicación. Las ventajas son claras:</p>
+
 <ul>
 <li><strong>Localización</strong>: disponemos de todas las cadenas de texto en un mismo archivo. Ideal para realizar <strong>correcciones </strong>o encontrar rápidamente un texto.</li>
 <li><strong>Reutilización</strong>: con total certeza una misma cadena aparecerá <strong>más de una vez en distintas partes</strong> de nuestra aplicación. Al almacenarlas de esta forma, facilitamos su reciclaje.</li>
 <li><strong>Multi idioma</strong>: incluso la aplicación más modesta puede necesitar en un futuro estar traducida a distintos idiomas. Con crear un archivo strings.xml adicional para el nuevo idioma, queda solucionado.</li>
 </ul>
 <p>Pero ¿qué pasa cuando queremos construir <strong>cadenas complejas</strong>? (u otras estructuras como enlaces). Pues bien, Android nos facilita el crear cadenas complejas mediante la utilización de <strong>parámetros dinámicos</strong>. Imaginemos que queremos crear una cadena como la siguiente:</p>
+
 <blockquote><p>Bienvenido a <a href="http://developing.frogtek.org">Developing Frogtek</a>.<br />
-Hoy es miércoles, 21 de julio.</p></blockquote>
+Hoy es miércoles, 21 de julio.</p>
+</blockquote>
 <p>de forma que <strong>la fecha cambie en función del día</strong> actual.</p>
+
 <p>Podríamos crear una cadena de este tipo en el archivo strings.xml:</p>
+
 <pre lang="XML">Bienvenido a <a href="%s">Frogtek.org</a>.n Hoy es %s</pre>
 <p>Después en nuestra aplicación podríamos mostrar la cadena de la siguiente forma:</p>
+
 <pre lang="java">getString(R.string.welcome_text, "http://developing.frogtek.org", Calendar.getDate())</pre>
 <p>Como se puede ver, la función getString acepta <strong>cualquier número de parámetros</strong>, al estilo del <em>printf </em>de C.</p>
+

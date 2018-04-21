@@ -22,10 +22,15 @@ meta:
 author: guillermo
 ---
 <p>La semana pasada estuve dándole vueltas a este problema, después de varios intentos fallidos llegué, con la ayuda de Julio, a la solución que planteo en el título del post.</p>
+
 <p>Para empezar tenemos que ir al job en Jenkins que queramos lanzar desde fuera y activar la opción de "Lanzar ejecuciones remotas"</p>
+
 <p><img class="aligncenter size-large wp-image-1385" alt="JobRemotoJenkins" src="{{ site.baseurl }}/assets/posts/JobRemotoJenkins-1024x143.png"  width="640" height="89" /></p>
+
 <p>Por motivos de seguridad, Jenkins nos obliga a usar un Token que será usado al llamar al Job desde fuera.</p>
+
 <p>El código que usaremos en GAE (en Python) será el siguiente:</p>
+
 <pre lang="python">import urllib2, base64, httplib
 from urllib2 import URLError, HTTPError
 from django.http import HttpResponse
@@ -49,3 +54,4 @@ def call_mlp_generator(request):
 
     return HttpResponse(response)</pre>
 <p>Bastante simple, sólo había que saber tocar las teclas adecuadas.</p>
+

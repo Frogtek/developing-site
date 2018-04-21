@@ -25,19 +25,27 @@ meta:
 author: julio
 ---
 <p>Por defecto en <em>Google App Engine</em> , <a href="http://code.google.com/p/googleappengine/wiki/SdkReleaseNotes">hasta hace bien poco</a>, solo se podía usar hasta la versión 1.1 de <strong>Django</strong>. Esto generaba problemas si tenías alguna otra aplicación web que requería una versión más reciente de <strong>Django</strong>, como por ejemplo nuestra <a href="http://www.reviewboard.org/">herramienta de revisión de código</a>. Obtenías una serie de conflictos que eran una molestia para el desarrollo y uso en local del servidor, impidiendo un desarrollo fluido y una configuración estable.</p>
+
 <p>La solución por la que optamos fue usar <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a>. Con esta herramienta podríamos separar el entorno de ejecución de <em>Google App Engine</em>, del resto de aplicaciones instaladas, tanto en el servidor de integración continua como en los equipos de los desarrolladores.</p>
+
 <p>Después de <a href="https://web.archive.org/web/*/http://blog.randell.ph/2010/08/02/unacceptableversionerror-django-1-1-was-requested-but-1-2-1-final-0-is-already-in-use/">consultar</a> <a href="http://www.travisswicegood.com/2010/01/17/django-virtualenv-pip-and-fabric/">varios</a> <a href="http://hudson-labs.org/content/python-love-story-virtualenv-and-hudson">sitios</a> web al respecto, el proceso de configuración quedo algo así:</p>
+
 <p><code><br />
 aptitude install python-virtualenv python-pip<br />
 </code><br />
 Para instalar tanto el propio virtualenv como <a href="http://pypi.python.org/pypi/pip">pip</a>, una herramienta para instalar paquetes en dicho entorno.</p>
+
 <p><code><br />
 virtualenv --no-site-packages --python=python2.5 ENV<br />
 </code><br />
 Para configurar en ENV el entorno. <em>--no-site-packages</em> indica que no herede ningún package de la instalación de la cual se toma python y le indicamos que queremos la versión 2.5 pues GAE se ejecuta en con la 2.5 en los servidores de Google.</p>
+
 <h4></h4>
 <p><code> pip install -E ENV Django==1.1<br />
 </code><br />
 Añadimos la versión de <strong>Django</strong> que utilizar con <em>pip</em>.</p>
+
 <p>Para finalizar ya solo falta copiar la carpeta de <em>Google App Engine</em> dentro de ENV.  Activar el entorno utilizando un par de scripts que hay en <em>ENV/bin/</em> y lanzar el servidor de desarrollo.</p>
+
 <p>Ahora mismo toda esta parafernalia tiene algo menos de sentido pues en la última versión del SDK del GAE han añadido la versión 1.2 de Django. Pero aún así puede ser útil para conseguir un entorno controlado y separado del resto de la máquina. Ya sea un servidor de integración continua o nuestra propia máquina de trabajo.</p>
+

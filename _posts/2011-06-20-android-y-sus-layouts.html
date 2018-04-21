@@ -24,9 +24,13 @@ meta:
 author: julio
 ---
 <p>Imaginad que al realizar una aplicación <strong>web</strong> compleja, en vez de hacerla para que se vea bien en todos los navegadores, la hacéis solo para una resolución de pantalla concreta y un <strong>navegador</strong> específico. Sería un infierno tener que repasarla entera, una vez acabada, para que se adapte a cualquier <strong>navegador</strong> y resolución, ¿verdad?.</p>
+
 <p><img class="alignright" alt="Android Layout" src="{{ site.baseurl }}/assets/posts/android-layout.jpg" alt="Android Layout" width="373" height="224" /></p>
+
 <p style="text-align: left;">Pues algo así nos pasó a nosotros, pero en <strong>Android</strong>. Parte de culpa tuvimos, he de reconocer, por no ser previsores y tirarnos por el camino fácil. Aunque diré en nuestra defensa que cuando se empezó nuestro producto <strong>Android</strong> estaba en pañales y no existía tanta tablet y teléfono en el cual ejecutar tu aplicación.</p>
+
 <p>Aquí van pues una serie de recomendaciones. Para que no cometáis los mismos errores que nosotros.</p>
+
 <ul>
 <li>Entended cómo funciona el <a title="Screens support" href="http://developer.android.com/guide/practices/screens_support.html" target="_blank">tema de las pantalla</a>s en <strong>Android</strong>, no es lo mismo una densidad que otra, el tamaño de pantalla, etc.</li>
 <li>No uséis la unidad de medida <em>px</em>. Mejor <em>dp</em>, o <em>sp</em> si son tamaños de texto.</li>
@@ -37,4 +41,6 @@ author: julio
 <li>No os dejéis enamorar por las bondades de los <a href="http://developer.android.com/reference/android/widget/RelativeLayout.html" target="_blank">RelativeLayout</a>. No son malos. Pero a veces un <a href="http://developer.android.com/resources/tutorials/views/hello-linearlayout.html" target="_blank">LinearLayout</a> con sus <a href="http://developer.android.com/reference/android/widget/LinearLayout.LayoutParams.html#attr_android:layout_weight" target="_blank">pesos</a> puede ser más fácilmente adaptado a varias pantallas.</li>
 </ul>
 <p>Y nada más. Si se os ocurre alguna más que nosotros no hemos nombrado, compartidlo con todos!</p>
+
 <p>&nbsp;</p>
+

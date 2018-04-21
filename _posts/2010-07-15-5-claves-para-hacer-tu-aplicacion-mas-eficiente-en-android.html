@@ -21,6 +21,7 @@ meta:
 author: guillermo
 ---
 <p style="text-align: left;">En frogtek hemos pasado una iteración centrándonos en mejorar la eficiencia de nuestro aplicación en Android. Estos son los 5 puntos principales que hemos encontrado:</p>
+
 <ul style="text-align: left;">
 <li style="text-align: left;">Mejorar la eficiencia de las consultas SQL. Esto es básico para cualquier aplicación ya sea móvil o de escritorio. El simple cambio de un "SELECT IN" por un "INNER" o crear un índice puede reducir en un 50% el tiempo de la consulta.</li>
 <li style="text-align: left;">Evitar crear objetos. Android esta basado en un <a href="http://es.wikipedia.org/wiki/Dalvik">máquina virtual</a> y resulta muy caro crear objetos. En nuestro caso habíamos creado un proyecto orientado a API en el que teníamos entidades propias, leíamos de la bbdd 1000 elementos y creábamos nuestros objetos con los datos leídos. Es 10 veces más rápido un acceso directo (cursores en nuestro caso) que pasar por objetos.</li>
@@ -43,7 +44,12 @@ author: guillermo
 <p style="text-align: justify;">
 </ul>
 <p style="text-align: left;">Os recomendamos estos dos vídeos para entender un poco mejor estos tips, aunque en cualquier caso nos podéis preguntar cualquier cosa:</p>
+
 <p style="text-align: left;"><a href="http://www.youtube.com/watch?v=N6YdwzAvwOA" target="_blank">Google I/O 2009 - ...Make your Android UI Fast ...</a></p>
+
 <p style="text-align: left;"><a href="http://www.youtube.com/watch?v=wDBM6wVEO70" target="_blank">Google I/O 2010 - The world of ListView</a></p>
+
 <p style="text-align: left;">Aquí una entrada hablando de la eficiencia en un blog de recomendada lectura.</p>
+
 <p style="text-align: left;"><a href="http://blog.radioactiveyak.com/2010/04/content-provider-iterator-or-things.html" target="_blank">http://blog.radioactiveyak.com/2010/04/content-provider-iterator-or-things.html</a></p>
+

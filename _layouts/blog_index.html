@@ -17,9 +17,8 @@
 
             <ul>
                {% for post in paginator.posts %}
-               <li>
-                  <small>{{ post.date | date_to_string }}.</small>
-                  <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                <li>
+                    {% include post_excerpt.html %}
                 </li>
                {% endfor %}
              </ul>

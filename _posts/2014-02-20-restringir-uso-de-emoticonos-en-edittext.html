@@ -35,12 +35,18 @@ meta:
 author: guillermo
 ---
 <p>La nueva versión 4.4 del SDK de android (Kit Kat) trae consigo los famosos emoticonos (o emojis), añadidos al teclado software, que tanto gustan en whatsapp o facebook.</p>
+
 <p><img class="aligncenter size-medium wp-image-1969" alt="emoji" src="{{ site.baseurl }}/assets/posts/emoji-300x173.png" width="300" height="173" /></p>
+
 <p>&nbsp;</p>
+
 <p>Nos hemos encontrado con algún usuario de nuestra aplicación que los ha utilizado para dar más colorido a los nombres de proveedores, productos, clientes...</p>
+
 <p>Pero luego nos han dado problemas a la hora de hacer alguna consulta SQL con un LIKE comparando strings.</p>
+
 <p>¿Cómo lo he solucionado? Si limito los EditText a únicamente letras del abecedario o números, estoy haciendo que la aplicación no pueda ser 100% funcional en países donde se usan otro tipo de caracteres como Rusia, Japón, China...<br />
 He decidido usar la clase InputFilter, como sigue:</p>
+
 <pre>
 <code>
 InputFilter filter = new InputFilter() {
@@ -64,3 +70,4 @@ editText.setFilters(new InputFilter[]{filter});
 </code>
 </pre>
 <p>Espero que te sirva. O si tienes una solución mejor, es bienvenida.</p>
+

@@ -22,10 +22,14 @@ meta:
 author: guillermo
 ---
 <p>El pasado jueves 7 de abril, la <em>troupe</em> de Frogtek acudimos en comandita al <a href="https://web.archive.org/web/*/http://francho.org/lab/795/taller-de-android-en-zaragoza-gtug/">taller</a> organizado por el <strong>GTUG</strong> Zaragoza e impartido por <a href="http://francho.org/lab/">Francho Joven</a>. La convocatoria fue un éxito y salimos todos muy contentos con lo aprendido y orgullosos de la aplicación que desarrollamos y subimos al market de Android.</p>
+
 <p>Una de las lecciones que vimos fue la de <strong>asignar formas</strong> (o shapes) <strong>creadas mediante programación</strong> a elementos como <strong>botones</strong>. Y yo pensé: ¿por qué no podemos hacer eso mismo con los botones de nuestra aplicación?</p>
+
 <p>Como ejemplo, pongamos que tenemos que añadir un botón de "regresar" típico, que al ser pulsado, vuelva a la pantalla anterior.<br />
 <center><img src="{{ site.baseurl }}/assets/posts/button_back1.png" alt="button_back" title="button_back" width="267" height="47" class="size-full wp-image-1187" /></center></p>
+
 <p>Lo primero es conseguir un Button con fondo rojo. Para ello, creamos un <strong>layout con un shape</strong> (en un fichero shape_red_background.xml) dentro de la carpeta layouts, que nos definirá un tipo de fondo que podremos aplicar a elementos rojos de nuestra aplicación. Le incluiremos un degradado para que quede más molón.</p>
+
 <pre lang="xml">
 <?xml version="1.0" encoding="UTF-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
@@ -36,6 +40,7 @@ author: guillermo
 </shape>
 </pre>
 <p>Después, queremos asignarle este fondo a nuestro botón, pero como queremos hacerlo reutilizable, vamos a definirlo en un estilo. Para ello, nos creamos un archivo style.xml dentro de nuestra carpeta values (el nombre es lo de menos, lo importante es que esté en values) y añadimos lo siguiente:</p>
+
 <pre lang="xml">
 <style name="LargeBackButton">
 	<item name="android:gravity">center</item>
@@ -57,10 +62,12 @@ author: guillermo
 </style>
 </pre>
 <p>Notad que el parámetro <strong>android:drawableLeft</strong> es para que aparezca una flechica a la izquierda de este botón. Y ahora solo queda añadir este botón a nuestro layout. Para ello basta con:</p>
+
 <pre lang="xml">
 <button android:id="@+id/button_back" style="@style/RedBackButton">
 </button></pre>
 <p>Bastante limpio, ¿no? Y lo mejor de todo es que si mañana nos piden el mismo botón, pero en color verde, como hemos utilizado <strong>herencia de estilos</strong>, con hacer un nuevo shape de color verde y crear su <em>style</em> es suficiente:</p>
+
 <pre lang="xml">
 <style name="GreenBackButton" parent="@style/LargeBackButton">
 	<item name="android:background">
@@ -69,4 +76,6 @@ author: guillermo
 </style>
 </pre>
 <p>Pensad ahora la cantidad de espacio que podemos ahorrarnos en nuestras aplicaciones si sustituimos los archivos de imagen por formas creadas mediante programación...</p>
+
 <p>EDIT: de momento, lo único que no he conseguido es darle sombra mediante programación. Existen parámetros shadow_color en Android, pero solo funcionan para elementos de tipo texto.</p>
+

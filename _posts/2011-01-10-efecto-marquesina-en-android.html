@@ -22,19 +22,28 @@ meta:
 author: guillermo
 ---
 <p>Cuando queremos mostrar un texto muy largo en una pequeña pantalla como la del móvil podemos crear un efecto de marquesina facilmente, podemos ponerlo a nivel de xml con esta propiedad.</p>
+
 <pre lang="xml">android:ellipsize="marquee"</pre>
 <p><del datetime="2011-01-10T11:21:39+00:00">Sólo se activara cuando el objeto tenga el foco. Podemos forzarlo por código usando el método </p>
+
 <pre lang="java"> requestFocus() </pre>
 <p></del></p>
+
 <p>Al parecer no hace falta que el elemento tenga el foco para que active la marquesina, pero si debe tener el singleLine activado. Gracias a Maestro Linares por las correcciones.</p>
+
 <p><a href="http://developer.android.com/reference/android/widget/TextView.html#attr_android:ellipsize">Aquí</a> la info oficial con el resto de valores.</p>
+
 <p><strong>Gracias a <a href="http://ggomeze.com/">Gerardo</a> sabemos algo más del comportamiento del efecto marquesina. Actualizo la entrada del post con sus comentario.</strong></p>
+
 <p>El TextView empezara a ser scrollable cuando tenga el foco y/o haya sido seteada como selected. Esto ultimo no puede hacerse desde el xml, por lo que sera necesario hacerlo desde el codigo.<br />
 El requestFocus puede funcionar, aunque es peligroso, ya que programaticamente estariamos dando el foco a ese objeto. Que sucede por ejemplo si queremos tener varios TextView con marquesina?.<br />
 Yo recomiendo hacerlo selected desde el codigo, por ejemplo en el onCreate:<br />
 mTextView.setSelected(true)</p>
+
 <p>Y desde el xml indicar:</p>
+
 <pre lang="xml"> android:singleLine=”true”
 android:ellipsize=”marquee”
 </pre>
 <p><strong>Si el TextView pertenece a un ListView este rotara el texto de forma automatica cuando el elemento tenga el foco.</strong></p>
+

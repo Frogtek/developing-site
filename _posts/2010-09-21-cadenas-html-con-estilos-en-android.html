@@ -17,12 +17,18 @@ meta:
 author: guillermo
 ---
 <p>Investigando un poco más sobre <strong>Android</strong>, hemos descubierto, que no solamente es posible trabajar con textos planos, sino que también, te permite insertar e interpretar cadenas <strong>html</strong>.</p>
+
 <p>A continuación mostramos un ejemplo de cadena html perfectamente codificada y almacenada en la carpeta res/values:</p>
+
 <pre lang="XML"><string name="text">Este texto es&lt;font color='red'>Rojo&lt;/font> y &lt;font color='blue'>Azul &lt;/font></string></pre>
 <p>Un forma simple de mostrar el fragmento de texto anterior es a través de las siguientes lineas de código:</p>
+
 <pre lang="JAVA">String text = getResources().getString(R.string.text);;
 CharSequence styledText = Html.fromHtml(text);
 ((TextView) findViewById(R.id.outputText)).setText(styledText, TextView.BufferType.SPANNABLE);</pre>
 <p>Donde como resultado obtenemos:</p>
+
 <p><em>Este texto es <span style="color: red;">Rojo</span> y <span style="color: blue;">Azul</span></em></p>
+
 <p>Para mas información, recomendamos consultar la <a href="http://http://developer.android.com/guide/topics/resources/string-resource.html#FormattingAndStyling">documentación</a> de Android.</p>
+

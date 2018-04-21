@@ -25,11 +25,17 @@ author: guillermo
 <li>¿Harto de consultar <a title="StackOverflow" href="http://stackoverflow.com/" target="_blank">StackOverflow</a> y <a title="la Internet entera" href="http://24.media.tumblr.com/tumblr_lgb02mCfLm1qe0eclo1_r5_500.gif" target="_blank">la Internet entera</a> para no encontrar una solución que funcione de verdad?</li>
 </ul>
 <p>Nosotros también lo estábamos. Concretamente, habíamos estado experimentando este problema durante años. Ahora tenemos la solución.</p>
+
 <p>Como nunca hemos sido unos expertos programadores, y teníamos muchas prisas por sacar mucho trabajo adelante, nos fiábamos del "método Google" para iniciar una nueva <code>Activity</code>:</p>
+
 <p><code>Intent intent = new Intent(this, NuevaActivity.class);<br />
 this.startActivity(intent);</code></p>
+
 <p>Y aun así... daba igual que la nueva, como la vieja <code>Activity</code> procesaran mucha información, o poca, que marcásemos la nueva <code>Activity</code> como <code>singleTop</code>, que invocásemos al <code>setEnabled(false);</code> del objeto <code>View</code> que llamaba al <code>startActivity()</code>. También hemos de decir que nuestros usuarios son expertos en pulsar varios botones al mismo tiempo, o que les tiemble el dedo y hagan varias pulsaciones muy rápidas sobre el mismo botón, o que debido a la lentitud del hardware chino se desesperen a la hora de completar una tarea y sigan pulsando el mismo botón hasta el infinito y más allá.<br />
 Abrir dos o más instancias de una <code>Activity</code> en nuestra aplicación era muy sencillo, hasta que se nos ocurrió convertir la variable de tipo <code>Intent</code> en un field de nuestra clase de tipo <code>Activity</code> padre. Y cada vez que queremos invocar al <code>startActivity(intent);</code>, lo hacemos sólo si el field <code>intent</code> es <code> == null</code>.<br />
 Hay que tener cuidado si la <code>Activity</code> padre es una pantalla principal desde la que se pueden iniciar distintas <code>Activity</code>, por que si todos los <code>new Intent()</code> los asociamos con el field que comentaba antes, al querer iniciar la segunda vez la <code>Activity</code>, como <code>intent != null</code>, la aplicación no haría nada. Es decisión del lector de esta entrada saber cuándo hacer que el field <code>intent</code> sea igual a <code>null</code> de nuevo. ¿Quizás en el <code>onResume()</code>? ¿O mejor en el <code>onActivityResult()</code>? ¿Qué tal crear una clase de tipo <code>Activity</code> con este truco y que todas las actividades de la aplicación hereden de esta clase?</p>
+
 <p>A nosotros nos funciona a la perfección, ¿y a ti?</p>
+
 <p>Cualquier mejora a este truco, queja, grito, etc. es más que bienvenida.</p>
+

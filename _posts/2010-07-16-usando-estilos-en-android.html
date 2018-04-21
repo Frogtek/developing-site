@@ -20,13 +20,21 @@ meta:
 author: guillermo
 ---
 <p style="text-align: justify;">Ayer lo comentó Pablo en la oficina y no puedo estar más de acuerdo:</p>
-<blockquote style="text-align: justify;"><p>Cada día que pasa, estoy más convencido de estar programando CSS en lugar de android.</p></blockquote>
+
+<blockquote style="text-align: justify;"><p>Cada día que pasa, estoy más convencido de estar programando CSS en lugar de android.</p>
+</blockquote>
 <p style="text-align: justify;">Programar la interfaz de usuario en <strong>Android</strong> tiene un cierto parecido a programar páginas webs.  Ya de por sí, en una aplicación Android, tenemos la vista separada del resto de la lógica, si usamos <strong>estilos</strong> en nuestros diseños, podremos además:</p>
+
 <p style="text-align: justify;">-<strong>Reutilizar código</strong>: ¿Que es mejor? ¿Tener para cada elemento atributos que definan su estilo, atributos que posiblemente se repitan en elementos similares? ¿o crear un estilo que unifique todos esos atributos de forma que podamos reutilizarlos cada vez que queramos?</p>
+
 <p style="text-align: justify;">-<strong>Tener un diseño homogéneo</strong>: ¿Os ha pasado de tener una aplicación en la que se tienen diferentes tamaños de letras para elementos similares? Seguramente en nuestra aplicación tengamos <a href="http://developer.android.com/reference/android/widget/TextView.html">TextViews</a>, <a href="http://developer.android.com/reference/android/widget/EditText.html">EditTexts</a> o <a href="http://developer.android.com/reference/android/widget/Button.html">Buttons</a> y queremos que todos tengan la misma forma.</p>
+
 <p style="text-align: justify;">Usar estilos en Android es tan simple como:</p>
+
 <p style="text-align: justify;">-Crear un fichero .xml dentro de la carpeta <strong>values</strong> de nuestra aplicación. El nombre del fichero puede ser cualquiera, pero por claridad, podríamos llamarlo "style.xml"</p>
+
 <p style="text-align: justify;">-Dentro del fichero <strong>style.xml</strong> añadimos los diferentes bloques de estilos, muy parecido a lo que nos podemos encontrar en un fichero .css</p>
+
 <pre lang="XML">  
 
 <resources>
@@ -55,9 +63,11 @@ author: guillermo
 
 </pre>
 <p>Por otro lado, aplicaremos el estilo en el elemento que queramos.</p>
+
 <pre lang="XML">
 
 <textview android:id="@+id/any_id" style="@style/NormalRowText" android:layout_width="wrap_content" android:layout_centervertical="true" android:layout_height="wrap_content" android:text="AnyString" />
 
 </pre>
 <p>De esta forma nos ahorramos muchas líneas de código.</p>
+

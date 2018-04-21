@@ -20,8 +20,11 @@ meta:
 author: guillermo
 ---
 <p>Revisando el código fuente que almacena una venta en la base de datos de la aplicación, me he encontrado con lo siguiente:</p>
+
 <p><code> </code></p>
+
 <p><code></p>
+
 <pre>public long save(long customerID, long discount, int type, int deviceType) {
         if (this.mDm.openDBConnection()) {
                 […]
@@ -30,4 +33,6 @@ author: guillermo
         […]
 }</pre>
 <p></code></p>
+
 <p>¡Claro que sí! Por si acaso no estaba la conexión con la base de datos abierta, la abrimos de nuevo en lugar de cerrarla...</p>
+
