@@ -6,7 +6,7 @@
 <body id="page-top" class="blog">
   {% include nav.html %}
 
-  <section id="{{ page.title }}" class="container content-section blog-index">
+  <section id="{{ page.title }}" class="container content-section blog-tag-index">
    <div class="row">
      <div class="col-lg-8 col-lg-offset-2" >
 
@@ -35,13 +35,17 @@
 
             {% for tag in tags %}
             <a name="{{tag|slugify}}"></a>
-            <h3>#{{tag|slugify}}</h3>
+            <h3>{{tag|slugify}}</h3>
             <ul>
                {% for post in site.posts %}
                 {% if post.tags contains tag %}
                   <li>
-                    <small>{{ post.date | date_to_string }}.</small>
                     <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                    <p>
+                        {% for tag in post.tags %}
+                        <a href="{{ site.baseurl }}/blog/tags/#{{ tag|slugify }}" class="tag">{{ tag }}</a>
+                        {% endfor %}
+                    </p>
                   </li>
                   {% endif %}
                {% endfor %}
