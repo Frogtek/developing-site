@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body id="page-top" class="team">
+{% include nav.html %}
+
+<section id="{{ page.title }}" class="container content-section">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2 class="text-center">{{page.title}}</h2>
+            {{ content }}
+
+            {% assign team_members = site.authors | where_exp:"item", "item.active == true" %}
+            <div class="row">
+                {% for team_member in team_members %}
+                <div class="text-center col-lg-4 col-sm-6"
+                ">
+                <img class="avatar text-center" src="{{site.baseurl}}{{team_member.avatar}}"
+                     alt="{{team_member.long_name}}"/>
+                <p><a href="{{team_member.linkedin}}">{{team_member.long_name}}</a></p>
+            </div>
+            {% endfor %}
+        </div>
+
+
+    </div>
+    </div>
+</section>
+
+{% include home_join_us.html %}
+{% include contact.html %}
+{% include scripts.html %}
+</body>
+
+</html>
