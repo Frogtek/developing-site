@@ -3,6 +3,7 @@
         <div class="row no-gutter">
             {% assign reviews = site.press | reverse %}
             {% if page.name == 'index.md' %}
+                {% assign reviews = site.press | reverse | where_exp:"item", "item.in_home == true" %}
                 {% assign num_reviews = 6 %}
             {% else %}
                 {% assign num_reviews = reviews | size %}
