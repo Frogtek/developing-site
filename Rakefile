@@ -19,7 +19,10 @@ task :html_lint => [:build] do
   options = {
     typhoeus: { ssl_verifypeer: false, ssl_verifyhost: 0 },
     only_4xx: true,
-    parallel: { in_processes: 5 }
+    verbose: true,
+    log_level: :debug,
+    parallel: { in_processes: 10 },
+    cache: { timeframe: '6w' }
   }
   HTMLProofer.check_directory('./_site', options).run
 end
