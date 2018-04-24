@@ -12,7 +12,7 @@
        <h2 class="text-center">{{ page.title }}</h2>
 
        <div class="post-info text-center">
-         {% assign author_info = site.authors | where: "name", page.author | first %}
+         {% assign author_info = site.authors | where: "username", page.author | first %}
          {% if author_info.avatar %}
            <img class="avatar text-center" src="{{site.baseurl}}{{author_info.avatar}}" alt="{{page.author}}"/>
          {% endif %}

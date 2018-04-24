@@ -1,5 +1,5 @@
 ---
-name: miguel.julian
+username: miguel.julian
 long_name: Miguel Julián
 avatar: /assets/authors/miguel.julian.jpg
 active: false

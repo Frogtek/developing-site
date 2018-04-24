@@ -60,3 +60,10 @@ collections:
     output: true
     permalink: /author/:path/
   press:
+
+defaults:
+  - scope:
+      path: ""
+      type: authors
+    values:
+      layout: blog_author

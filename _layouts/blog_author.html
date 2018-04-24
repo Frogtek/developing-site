@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body id="page-top" class="blog">
+{% include nav.html %}
+
+<section id="{{ page.title }}" class="container content-section blog-tag-index">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+
+
+            <h2 class="text-center">Más de {{page.long_name}}</h2>
+            {% if page.avatar %}
+            <div class="text-center">
+                <img class="avatar text-center" src="{{site.baseurl}}{{page.avatar}}" alt="{{page.long_name}}"/>
+            </div>
+            {% endif %}
+
+            {{ page.content | markdownify }}
+
+            <ul>
+                {% assign author_posts = site.posts | where: "author", page.username %}
+                {% for post in author_posts %}
+                <li>
+                    {% include post_excerpt.html %}
+                </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+</section>
+
+{% include contact.html %}
+{% include scripts.html %}
+</body>
+
+</html>

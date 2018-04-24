@@ -1,7 +1,6 @@
 ---
-name: ricardo
+username: ricardo
 long_name: Ricardo Buera
 avatar: /assets/authors/ricardo.jpg
 active: true
 ---
-Ricardo
