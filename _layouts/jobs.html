@@ -17,9 +17,7 @@
             <h2 class="text-center">Ofertas</h2>
             <ul>
                 {% for post in offers %}
-                <li class="text-center">
-                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-                </li>
+                    {% include post_excerpt.html %}
                 {% endfor %}
             </ul>
             {%endif%}
