@@ -56,11 +56,17 @@ General rules:
 3. Add the post header (with at least title, date, author and tags):
 4. Write your post (preferably in markdown)
 
-Note: if the post is from a new author you must create his profile file into `_authors` folder
+Note that:
+ 
+- The first paragraph (text until first line break) is used as excerpt in post lists
+- Post images/files must be on `./assets/posts` folder
+- If the post is from a new author you must create his profile file into `_authors` folder
+- To refer internal link you must use a liquid expression like: `{{ site.baseurl }}/relative_url`
 
 Sample:
     
     ---
+    layout: post
     title: My first post`
     date: 2018-01-20 13:13:54.000000000 +01:00
     author: guillermo
@@ -68,7 +74,7 @@ Sample:
     - tag1
     - tag2
     ---
-    This is my first post.
+    This is the excerpt of my first post.
     
     I can use [Markdown](https://daringfireball.net/projects/markdown)
     
@@ -81,6 +87,18 @@ If you want to include a youtube video in your post, use these snippet (change t
 ```
 {% include youtube.html youtube_id="BoDtuEUO328" %}
 ```
+
+#### Job offers
+
+If the post is a job offer add `show_in_jobs: true` to header and it will be showed in jobs section
+
+### Press links
+
+To add press item:
+
+1. Add a press thumbnail (650x350 pix) to `assets/press/`
+2. Create an entry in `./_press/` collection (follow filename convention)
+3. If you like that it appears on home add `in_home: true` to header
 
 ### Tweak site style
 
