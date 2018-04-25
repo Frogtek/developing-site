@@ -1,11 +1,9 @@
-{{_index}}
-
-<h3 class="excerpt-title"><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h3>
+<h3 class="excerpt-title"><a href="{{ post.url | relative_url }}">{{post.title}}</a></h3>
 <div class="excerpt-details">
     {% if post.tags %}
         <span class="excerpt-filter">
              {% for tag in post.tags %}
-             <a href="{{ site.baseurl }}/blog/tags/#{{ tag|slugify }}" class="tag">{{ tag }}</a>
+             <a href="{{ '/blog/tags/' | relative_url }}?q={{ tag|slugify }}" class="tag">{{ tag }}</a>
              {% endfor %}
         </span>
     {% endif %}
@@ -19,5 +17,5 @@
         <p>{{ post.excerpt | strip_html }}</p>
     {% endif %}
 
-    <div class="text-right"><a class="btn btn-primary" href="{{ site.baseurl }}{{ post.url }}">Leer más</a></div>
+    <div class="text-right"><a class="btn btn-primary" href="{{ post.url | relative_url }}">Leer más</a></div>
 </div>
