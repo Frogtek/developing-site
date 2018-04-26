@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Oferta de trabajo: Ingeniero de Datos (ABIERTA)'
-date: 2017-11-28 11:51:46.000000000 +01:00
+date: 2018-04-01 11:51:46.000000000 +01:00
 tags: []
 author: guillermo
 show_in_jobs: true
