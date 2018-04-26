@@ -17,7 +17,7 @@ El Grupo Frogtek es una empresa social con ánimo de lucro cuyo propósito es il
 
 Nuestra empresa es global y trabaja de forma distribuida. Las operaciones de venta, formación y soporte a tenderos están en México pero la creación de tecnología se ha hecho hasta la fecha en España aunque cada día más trabajamos en remoto y es menos importante dónde puedas estar. Buscamos una persona que venga a reforzar al equipo de tecnología y nos ayude a dar un salto de calidad.
 
-Entrevista ICEX [https://www.youtube.com/watch?v=BoDtuEUO328](https://www.youtube.com/watch?v=BoDtuEUO328)
+Más información: [https://www.youtube.com/watch?v=BoDtuEUO328](https://www.youtube.com/watch?v=BoDtuEUO328)
 
 **RESPONSABILIDADES**
 
@@ -65,4 +65,4 @@ Entrevista ICEX [https://www.youtube.com/watch?v=BoDtuEUO328](https://www.youtub
 - Buen ambiente.
 - Experiencia internacional y multicultural… y si te gusta viajar quizá puedas visitar México o algún otro país.
 
-**Si te interesa tener una primera entrevista con nuestro equipo, por favor envíame un mensaje y CV actualizado a guillermo arroba frogtek punto org**
+**Si te interesa tener una primera entrevista con nuestro equipo, por favor envíame un mensaje y CV actualizado a empleo-tech arroba frogtek punto org**
