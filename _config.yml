@@ -32,6 +32,8 @@ plugins:
   - jekyll-paginate
   - jekyll-mentions
 
+google-tracking-id: "A-51202135-1"
+
 # paginate blog
 paginate: 25
 paginate_path: "blog/page:num"

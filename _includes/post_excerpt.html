@@ -11,7 +11,7 @@
     <span class="excerpt-date">{{ post.date | date_to_string }}</span>
 </div>
 <div class="excerpt-content">
-    {% if forloop.first == true %}
+    {% if forloop.first == true or post.show_in_jobs == true %}
         {{ post.excerpt }}
     {% else %}
         <p>{{ post.excerpt | strip_html }}</p>
