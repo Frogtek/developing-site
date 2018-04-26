@@ -4,7 +4,7 @@ title: 'Job offer: Product Manager (OPEN)'
 date: 2017-11-14 08:39:22.000000000 +01:00
 tags: []
 author: guillermo
-show_in_jobs: true
+show_in_jobs: false
 ---
 **Role**: Product Manager  
 **Industry**: Retail Technology  
