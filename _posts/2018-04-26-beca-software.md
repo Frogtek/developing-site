@@ -42,4 +42,11 @@ Más información: [https://www.youtube.com/watch?v=BoDtuEUO328](https://www.you
 - Quizá hasta ha hecho sus pinitos con Tableau.
 - ...
 
+**REQUISITOS**
+
+**Para optar a la beca debes:**
+
+- Ser titulado de los últimos tres o estudiante del último año de carrera, o estudiante de post-grado o a falta del proyecto fin de carrera de la Universidad de Zaragoza o de la Universidad San Jorge.
+- No haber disfrutado de una beca IAF con anterioridad.
+
 **Si te interesa tener una primera entrevista con nuestro equipo, por favor envíame un mensaje y CV actualizado a empleo-tech arroba frogtek punto org**
