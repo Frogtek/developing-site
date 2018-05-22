@@ -16,4 +16,4 @@ Buscamos personas que vengan a reforzar al equipo de tecnología y nos ayuden a 
 
 *En Frogtek España SLU tratamos la información que nos facilitas con el fin de mantenerte informado de las distintas vacantes que se produzcan en nuestra organización. Los datos proporcionados se conservarán hasta que ejerzas tu derecho de cancelación. Tienes derecho a acceder a tus datos personales, rectificar los datos inexactos o solicitar su supresión cuando los datos ya no sean necesarios. Los datos no se cederán a terceros.*
 
-*Identidad: Frogtek España SLU - NIF: B22349872  Dir. postal: Parque Tecnológico Walqa Edificio 1, 22197 Cuarte, Huesca. Correo elect: guillermo arroba frogtek dot org*
+*Identidad: Frogtek España SLU - NIF: B22349872  Dir. postal: Parque Tecnológico Walqa Edificio 1, 22197 Cuarte, Huesca.*
