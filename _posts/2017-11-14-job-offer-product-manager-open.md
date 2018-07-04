@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Job offer: Product Manager (OPEN)'
+title: 'Job offer: Product Manager (CLOSED)'
 date: 2017-11-14 08:39:22.000000000 +01:00
 tags: []
 author: guillermo
