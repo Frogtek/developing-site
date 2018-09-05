@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 'Oferta de trabajo: Ingeniero de Datos (ABIERTA)'
+title: 'Oferta de trabajo: Ingeniero de Datos (CERRADA)'
 date: 2018-04-01 11:51:46.000000000 +01:00
 tags: []
 author: guillermo
-show_in_jobs: true
+show_in_jobs: false
 ---
 **Rol**: Ingeniero de Datos  
 **Industria**: Retail Technology  
