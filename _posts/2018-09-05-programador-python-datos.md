@@ -1,8 +1,6 @@
 ---
-layout: post
 title: 'Oferta de trabajo: Programador Python - Reference Data (ABIERTA)'
-date: 2018-09-06 11:51:46.000000000 +01:00
-tags: []
+date: 2018-09-06 
 author: guillermo
 show_in_jobs: true
 ---
@@ -23,7 +21,7 @@ Para más información puedes ver esta entrevista que, aunque es ya un poco anti
 
 **Como Programador Python - Reference Data de Frogtek éstas son algunas de las actividades que te serían encomendadas:**
 
-- Responsabilizarse del proceso de Reference Data, esto es, del mantenimiento y crecimiento de nuestra base de datos de productos. 
+- Responsabilizarse del proceso de Reference Data, esto es, del mantenimiento y crecimiento de nuestra base de datos de productos.
 - Entender el estado actual y las oportunidades de mejora de la serie de procesos involucrados: detección de nuevos lanzamientos en el mercado, alineación y caracterización de los productos y modelado en nuestras bases de datos para su uso en productos analíticos.
 - Planear, diseñar y ejecutar mejoras teniendo en cuenta a todas las partes involucradas (tenderos, equipo de campo, equipo de datos y partner).
 - Programar rutinas de tratamiento (comprobaciones de calidad, validaciones, transformaciones) de datos dentro de los procesos ETLs periódicos (semanales, diarios) de la compañía.
@@ -37,7 +35,7 @@ Para más información puedes ver esta entrevista que, aunque es ya un poco anti
 
 - Python (especialmente Pandas y Django)
 - SQL
-- Orientación a procesos, el nuestro es un entorno complejo que requiere de personas ordenadas y metódicas. 
+- Orientación a procesos, el nuestro es un entorno complejo que requiere de personas ordenadas y metódicas.
 - Con atención al detalle y que se imponga un standard de calidad alto, nuestro mayor valor es la alta calidad de los datos que generamos.  
 - Con capacidad para manejar varias tareas en paralelo y espíritu ágil, trabajamos en varios temas a la vez y somos suficientemente flexibles para cambiar de contexto e idear soluciones eficaces pero también eficientes.
 - Interés por los datos, facilidad con los datos, datos y más datos. ;)
