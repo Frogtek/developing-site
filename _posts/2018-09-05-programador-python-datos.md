@@ -1,8 +1,8 @@
 ---
-title: 'Oferta de trabajo: Programador Python - Reference Data (ABIERTA)'
+title: 'Oferta de trabajo: Programador Python - Reference Data (PAUSADA)'
 date: 2018-09-06 
 author: guillermo
-show_in_jobs: true
+show_in_jobs: false
 ---
 **Rol**: Programador Python - Reference Data  
 **Industria**: Retail Technology  
