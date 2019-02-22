@@ -4,6 +4,7 @@ date: 2019-02-21
 author: guillermo
 show_in_jobs: true
 ---
+
 **Rol**: Científico de datos
 **Industria**: Retail Technology  
 **Localización**: Ciudad de México (parcialmente remoto)  
@@ -19,7 +20,7 @@ Para más información puedes ver esta entrevista que, aunque es ya un poco anti
 
 **RESPONSABILIDADES**
 
-**Como Data Scientist serás responsable del análisis de una gran cantidad de datos recopilados de una amplia red de clientes en México, reportando directamente al líder del área de datos de la compañía. **
+**Como Data Scientist serás responsable del análisis de una gran cantidad de datos recopilados de una amplia red de clientes en México, reportando directamente al líder del área de datos de la compañía.**
 
 - Analizar de forma efectiva datos y analíticos para soporte del departamento de operaciones para generar estrategias de mejora. 
 - Generar reportes y análisis ad hoc basados en las diferentes necesidades de los clientes internos. 
