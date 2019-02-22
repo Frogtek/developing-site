@@ -5,8 +5,8 @@ author: guillermo
 show_in_jobs: true
 ---
 **Rol**: Analista de datos
-**Industria**: Retail Technology  
-**Localización**: Ciudad de México (parcialmente remoto)  
+**Industria**: Retail Technology
+**Localización**: Ciudad de México (parcialmente remoto)
 **Salario**: En función de experiencia
 
 **SOBRE NOSOTROS**
@@ -19,7 +19,7 @@ Para más información puedes ver esta entrevista que, aunque es ya un poco anti
 
 **RESPONSABILIDADES**
 
-**Como Data Analyst serás responsable del análisis de una gran cantidad de datos recopilados de una amplia red de clientes en México, reportando directamente al líder del área de datos de la compañía y trabajando de la mano con nuestro partner Nielsen (líder mundial en tratamiento de información de mercado). **
+**Como Data Analyst serás responsable del análisis de una gran cantidad de datos recopilados de una amplia red de clientes en México, reportando directamente al líder del área de datos de la compañía y trabajando de la mano con nuestro partner Nielsen (líder mundial en tratamiento de información de mercado).**
 
 - Extracción y manipulación de datos de grandes bases de datos. 
 - Analizar y validar de forma efectiva datos y analíticos para clientes externos e internos. 
