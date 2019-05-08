@@ -1,8 +1,8 @@
 ---
-title: 'Oferta de trabajo: Data Analyst - SQL'
+title: 'Oferta de trabajo: Data Analyst - SQL (CERRADA)'
 date: 2019-02-21 
 author: guillermo
-show_in_jobs: true
+show_in_jobs: false
 ---
 **Rol**: Analista de datos
 **Industria**: Retail Technology
