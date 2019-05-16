@@ -1,5 +1,5 @@
 ---
-title: 'Oferta de trabajo: Programador Python - Reference Data (PAUSADA)'
+title: 'Oferta de trabajo: Programador Python - Reference Data (CERRADA)'
 date: 2018-09-06 
 author: guillermo
 show_in_jobs: false
