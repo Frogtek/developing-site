@@ -8,7 +8,7 @@ show_in_jobs: true
 **Rol**: Ingeniero ETL
 **Industria**: Retail Technology  
 **Localización**: España (remoto)  
-**Salario**: En función de experiencia
+**Salario**: Entre 24K€ y 36K€, en función de experiencia
 
 **SOBRE NOSOTROS**
 
