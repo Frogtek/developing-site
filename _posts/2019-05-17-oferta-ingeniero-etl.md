@@ -18,7 +18,7 @@ Casi 2000 tiendas en México ya se benefician del uso de Tiendatek y en 2018 má
 
 Nuestra empresa es global y trabaja de forma distribuida. Las operaciones de venta, formación y soporte a tenderos están en México pero la creación de tecnología se ha hecho hasta la fecha en España.
 
-Para más información puedes ver [esta entrevista que](https://www.youtube.com/watch?v=BoDtuEUO328), aunque es ya un poco antigua, explica bastante bien el propósito y nuestro modelo de negocio.
+Para más información puedes ver [esta entrevista](https://www.youtube.com/watch?v=BoDtuEUO328) que, aunque es ya un poco antigua, explica bastante bien el propósito y nuestro modelo de negocio.
 
 **¿POR QUÉ NECESITAMOS UN INGENIERO ETL?**
 
