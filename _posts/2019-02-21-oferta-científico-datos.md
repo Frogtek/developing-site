@@ -1,8 +1,8 @@
 ---
-title: 'Oferta de trabajo: Data Scientist'
+title: 'Oferta de trabajo: Data Scientist' (CERRADA)
 date: 2019-02-21 
 author: guillermo
-show_in_jobs: true
+show_in_jobs: false
 ---
 
 **Rol**: Científico de datos
