@@ -1,8 +1,8 @@
 ---
-title: 'Oferta de trabajo: Ingeniero ETL - Python, AWS (ABIERTA)'
+title: 'Oferta de trabajo: Ingeniero ETL - Python, AWS (CERRADA)'
 date: 2019-05-17 
 author: guillermo
-show_in_jobs: true
+show_in_jobs: false
 ---
 
 **Rol**: Ingeniero ETL
