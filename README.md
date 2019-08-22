@@ -4,51 +4,44 @@
 This is the source code for [developing.frogtek.org](http://developing.frogtek.org) website.
 It is based on [Jekyll](https://jekyllrb.com/) and deployed to [Github pages](https://pages.github.com)
 
-## Development
+## Install/run from local
 
-You must have `ruby` and `bundler` installed
+### First time only
+
+You must have `ruby` and `bundler` installed:
 
 ```
 gem install bundler
 ```
 
-To install all dependencies run:
+To install all dependencies:
 
 ```
-bundle install
+make install
 ```
+
+### Every time
 
 To run the web locally on [http://localhost:4000](http://localhost:4000)
 
 ```
-bundle exec rake serve
+make
 ```
 
-To execute all tests:
+To execute all tests (or HTML tests or Css tests only):
 
 ```
-bundle exec rake test
-```
-
-To execute only html test:
-
-```
-bundle exec rake html_lint
-```
-
-To execute only css test:
-
-```
-bundle exec rake scss_lint
+make test
+make test_html
+make test_css
 ```
 
 ## Contributing
 
 General rules:
 
-- Don't publish (commit to master) directly. Create a branch, do a pull request and request for a code review
-- Run the tests (and fix it) before merge to master
-- When it is possible, use markdown (.md) instead html (.html)
+- Run the tests (and fix them) before creating a pull request to master.
+- Use markdown (.md) instead of HTML (.html) when possible.
 
 ### Writing posts
 
