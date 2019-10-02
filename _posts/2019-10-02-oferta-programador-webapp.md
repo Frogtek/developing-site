@@ -34,10 +34,11 @@ Para el Grupo Frogtek el crecimiento del panel de tiendas es una prioridad estra
 
 Éstas son algunas de las habilidades que consideramos claves para poder ser un Programador Web Front-end (Vue.js o React.js) en Frogtek.
 
-- A priori cualquiera de las dos tecnologías nos encajan aunque nos inclinamos ligeramente por Vue.js, pero dado que el proyecto empieza de cero estamos dispuestos a centrarnos en la tecnología que mejor domine la persona que consideremos idónea. En cualquier caso deberías tener **experiencia demostrable en desarrollo con alguna de las dos tecnologías de varios años**. ¡Nos encantaría ver ejemplos de apps que hayas hecho!
+- A priori cualquiera de las dos tecnologías nos encajan, aunque nos inclinamos ligeramente por **Vue.js**. No obstante, dado que el proyecto empieza de cero, estamos dispuestos usar la tecnología que mejor domine la persona que consideremos idónea. En cualquier caso, deberías tener **experiencia demostrable de varios años en el desarrollo con alguna de las dos tecnologías**. ¡Nos encantaría ver ejemplos de apps que hayas hecho!
+- Usaremos **Electron** para construir la webapp, así que tener experiencia con él y conocerlo es algo que valoraríamos positivamente.
 - Esperamos que, como es lógico, controles en profundidad tecnologías como **HTML, JavaScript, CSS**...
 - Tiendatek es una herramienta que trabaja con datos de manera intensiva, así que es importante también conocer **SQL**, saber manejar bases de datos cifradas, ser capaz de hacer optimizaciones básicas de consultas...
-- Metodológicamente nos gustaría que tuvieras conocimientos de agilismo te guste escribir **test en tu código** y el **pair programming**.
+- Metodológicamente nos gustaría que tuvieras conocimientos de agilismo, te guste escribir **test en tu código** y el **pair programming**.
 - Aunque trabajes en el producto para tenderos, Frogtek es una empresa que adquiere datos, procesa datos, respira datos... vive de los datos. Así que esperamos que te gusten los datos y tengas facilidad con ellos. :wink: 
 - **Orientación a procesos**, el nuestro es un entorno complejo que requiere de personas ordenadas y metódicas.
 - Con **atención al detalle** y que se imponga un standard de calidad alto, nuestro mayor valor es la alta calidad de los datos que generamos.
