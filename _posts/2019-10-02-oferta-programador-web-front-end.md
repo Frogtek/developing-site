@@ -11,6 +11,7 @@ show_in_jobs: true
 **Salario**: Horquilla de salida entre 27K€ y 33K€, en función de experiencia
 
 **SOBRE NOSOTROS**
+
 El Grupo Frogtek es una empresa social con ánimo de lucro cuyo propósito es ayudar a los tenderos de países emergentes a escapar de la pobreza y competir en mejores condiciones. Lo hacemos, principal aunque no únicamente, ofreciendo una aplicación Android, Tiendatek, que el tendero puede usar para gestionar y optimizar su negocio ¡y conseguimos que aumenten un ventas un 15% de media tras el primer año de uso! Rentabilizamos el proyecto a través de la venta estudios de mercado basados en los datos de ventas y compras de los tenderos que almacenamos y procesamos en nuestros servidores en Google y en Amazon y que vendemos directamente a empresas fabricantes y distribuidoras a través de nuestro producto [Frogtek Analytics](https://frogtek.org/analytics/) o mediante nuestra alianza con Nielsen.
 
 Casi 2000 tiendas en México ya se benefician del uso de Tiendatek y en 2018 más de 10 empresas líderes globales fabricantes y distribuidores han confiado en los datos que proporcionan para mejorar su operación y su estrategia. El Grupo Frogtek es una empresa rentable que está aumentando su facturación en más de un 50% anual.
