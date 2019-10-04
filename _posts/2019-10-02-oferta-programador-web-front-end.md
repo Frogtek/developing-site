@@ -19,6 +19,7 @@ Nuestra empresa es global y trabaja de forma distribuida. Las operaciones de ven
 Para más información puedes ver [esta entrevista](https://www.youtube.com/watch?v=BoDtuEUO328) que, aunque es ya un poco antigua, explica bastante bien el propósito y nuestro modelo de negocio.
 
 **¿POR QUÉ NECESITAMOS UN PROGRAMADOR WEB?**
+
 Para el Grupo Frogtek crear productos de valor para pequeñas tiendas siempre ha sido una prioridad estratégica. Necesitamos reforzar el equipo de innovación con alguien que nos permita acelerar la creación de nuevos productos que aporten más valor y sean, a la vez, más accesibles para nuestros clientes.
 
 1) **Durante el primer mes** esperamos que seas capaz de integrarte en el equipo, conocer a tus compañeros e integrarte en nuestras rutinas y métodos de trabajo. Esperamos también que el primer mes sirva para entender muy bien como funcionan nuestros productos a nivel de usuario y técnicamente y conozcas el roadmap de innovación que tenemos previsto. Planeamos también la celebración de un kickoff presencial de una semana en la que defineremos la arquitectura técnica sobre la que basaremos los siguientes desarrollos y decidiremos cómo vamos a hacer el testing y los despliegues.
@@ -28,13 +29,15 @@ Para el Grupo Frogtek crear productos de valor para pequeñas tiendas siempre ha
 3) **Al cabo del primer año** Esperamos tener como mínimo un nuevo producto ya consolidado, desplegado y siendo utilizado por cientos de usuarios reales. Para entonces estaremos ya pensando en los nuevos casos de uso para ayudar a los tenderos a ganar más y eficientar la cadena del valor del canal tradicional junto con nuestros partners y clientes.
 
 **¿QUÉ TIENES QUE SABER?**
-Éstas son algunas de las habilidades que consideramos claves para poder ser un Programador Web Front-end (Vue.js o React.js) en Frogtek.
+
+Éstas son algunas de las habilidades que consideramos claves para poder ser un **Programador Web Front-end (Vue.js o React.js)** en Frogtek.
 - A priori cualquiera de las dos tecnologías nos encajan, aunque nos inclinamos ligeramente por **Vue.js**. No obstante, dado que el proyecto empieza de cero, estamos dispuestos usar la tecnología que mejor domine la persona que consideremos idónea. En cualquier caso, deberías tener **experiencia demostrable de varios años en el desarrollo con alguna de las dos**. ¡Nos encantaría ver ejemplos de apps que hayas hecho!
 - Usaremos **Electron** para construir los nuevos productos, así que tener experiencia con él y conocerlo es algo que valoraríamos positivamente.
 - Esperamos que, como es lógico, controles en profundidad tecnologías como **HTML, JavaScript, CSS**...
 - Nuestras soluciones trabajan con datos de manera intensiva, así que es importante también conocer **SQL**, saber manejar bases de datos cifradas, ser capaz de hacer optimizaciones básicas de consultas...
-- Metodológicamente nos gustaría que tuvieras conocimientos de agilismo, sepas cubrir tu código con diferentes tipos de *tests automatizados* y te guste  el *pair programming*
+- Metodológicamente nos gustaría que tuvieras conocimientos de agilismo, sepas cubrir tu código con diferentes tipos de **tests automatizados** y te guste  el **pair programming**.
 - Aunque trabajes en el producto para tenderos, Frogtek es una empresa que adquiere datos, procesa datos, respira datos... vive de los datos. Así que esperamos que te gusten los datos y tengas facilidad con ellos. :wink: 
+- También valoraríamos positivamente, aunque no es en abosluto necesario, que tengas experiencia con otros lenguajes de nuestro stack tecnológico. En concreto trabajamos mucho con **Python**.
 - **Orientación a procesos**, el nuestro es un entorno complejo que requiere de personas ordenadas y metódicas.
 - Con **atención al detalle** y que se imponga un standard de calidad alto, nuestro mayor valor es la alta calidad de los datos que generamos.
 - Buen nivel de inglés
