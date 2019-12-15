@@ -32,7 +32,7 @@ Para el Grupo Frogtek crear productos de valor para pequeñas tiendas siempre ha
 **¿QUÉ TIENES QUE SABER?**
 
 Éstas son algunas de las habilidades que consideramos claves para poder ser un **Programador Web Front-end (VueJS)** en Frogtek.
-- Como es obvio hay que tener **experiencia demostrable de varios años en el desarrollo front-end con VueJS**. ¡Nos encantaría ver ejemplos de apps que hayas hecho!
+- Como es obvio hay que tener **experiencia demostrable de varios años en el desarrollo front-end con VueJS preferiblemente usando frameworks como Vuetify, Quasar u otros**. ¡Nos encantaría ver ejemplos de apps que hayas hecho!
 - Usaremos **Electron** para construir los nuevos productos, así que tener experiencia con él y conocerlo es algo que valoraríamos positivamente.
 - Esperamos que, como es lógico, controles en profundidad tecnologías como **HTML, JavaScript, CSS y que sepas maquetar**...
 - Nuestras soluciones trabajan con datos de manera intensiva, así que es importante también conocer **SQL**, saber manejar bases de datos cifradas, ser capaz de hacer optimizaciones básicas de consultas...
