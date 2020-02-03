@@ -1,8 +1,8 @@
 ---
-title: 'Oferta de trabajo: Programador Web Front-end (VueJS)  (ABIERTA)'
+title: 'Oferta de trabajo: Programador Web Front-end (VueJS)  (CERRADA)'
 date: 2019-10-02 
 author: guillermo
-show_in_jobs: true
+show_in_jobs: false
 ---
 
 **Rol**: Programador Web Front-end (VueJS)
