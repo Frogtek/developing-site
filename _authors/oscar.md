@@ -2,6 +2,6 @@
 username: oscar
 long_name: Óscar Cayetano
 avatar: /assets/authors/oscar.jpg
-active: true
+active: false
 linkedin: https://www.linkedin.com/in/hoscar/
 ---
