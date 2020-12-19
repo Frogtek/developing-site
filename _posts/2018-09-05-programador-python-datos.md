@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 'Oferta de trabajo: Programador Python - Reference Data (CERRADA)'
 date: 2018-09-06 
 author: guillermo

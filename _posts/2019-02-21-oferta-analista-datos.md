@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 'Oferta de trabajo: Data Analyst - SQL (CERRADA)'
 date: 2019-02-21 
 author: guillermo

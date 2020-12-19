@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 'Oferta de trabajo: Programador Web Front-end (VueJS)  (CERRADA)'
 date: 2019-10-02 
 author: guillermo

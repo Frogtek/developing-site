@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 'Oferta de trabajo: Programador de productos de visualización de inteligencia de negocio - R/Shiny, Python/Pandas, SQL (ABIERTA)'
 date: 2020-12-18 
 author: guillermo

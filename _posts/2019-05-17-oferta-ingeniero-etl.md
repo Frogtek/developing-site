@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 'Oferta de trabajo: Ingeniero ETL - Python, AWS (CERRADA)'
 date: 2019-05-17 
 author: guillermo
