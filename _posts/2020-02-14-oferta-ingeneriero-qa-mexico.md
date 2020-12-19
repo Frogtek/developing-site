@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 'Oferta de trabajo: Ingeniero QA para México (PAUSADA)'
 date: 2020-02-14 
 author: guillermo
