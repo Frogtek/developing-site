@@ -1,12 +1,12 @@
 ---
 layout: post
-title: 'Oferta de trabajo: Programador de productos de visualización de inteligencia de negocio - R/Shiny, Python/Pandas, SQL (ABIERTA)'
+title: 'Oferta de trabajo: Ingeniero de visualización de datos - R/Shiny, Python/Pandas, SQL (ABIERTA)'
 date: 2020-12-18 
 author: guillermo
 show_in_jobs: true
 ---
 
-**Rol**: Programador de productos de visualización de inteligencia de negocio (R/Shiny, Python/Pandas, SQL)
+**Rol**: Ingeniero de visualización de datos (R/Shiny, Python/Pandas, SQL)
 **Industria**: Retail Technology  
 **Localización**: España (remoto)  
 **Salario**: Horquilla de salida entre 24K€ y 33K€, en función de experiencia
@@ -20,7 +20,7 @@ Más de 2500 tiendas en México ya se benefician del uso de Tiendatek y en 2020 
 Nuestra empresa es global y trabaja de forma distribuida. Las operaciones de venta, formación y soporte a tenderos están en México pero la creación de tecnología se ha hecho hasta la fecha en España.
 Para más información puedes ver [esta entrevista](https://www.youtube.com/watch?v=BoDtuEUO328) que, aunque es ya un poco antigua, explica bastante bien el propósito y nuestro modelo de negocio.
 
-**¿POR QUÉ NECESITAMOS UN PROGRAMADOR DE INTELIGENCIA DE NEGOCIO?**
+**¿POR QUÉ NECESITAMOS UN INGENIERO DE VISUALIZACIÓN DE DATOS?**
 
 Acelerar el desarrollo y venta de nuevos productos de inteligencia de negocio a grandes empresas del sector de retail es uno de los principales objetivos estratégicos del Grupo Frogtek en 2021. Queremos reforzar el equipo de desarrollo de producto para apoyar estos desarrollos y despliegues asegurando la máxima calidad y puntualidad en entregas y despliegues para el equipo comercial.
 
@@ -32,7 +32,7 @@ Acelerar el desarrollo y venta de nuevos productos de inteligencia de negocio a 
 
 **¿QUÉ TIENES QUE SABER?**
 
-Éstas son algunas de las habilidades que consideramos claves para poder ser un **Programador de productos de visualización de inteligencia de negocio (R/Shiny, Python/Pandas, SQL)** en Frogtek.
+Éstas son algunas de las habilidades que consideramos claves para poder ser un **Ingeniero de visualización de datos (R/Shiny, Python/Pandas, SQL)** en Frogtek.
 
 *R*
 
