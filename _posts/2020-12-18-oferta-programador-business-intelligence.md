@@ -71,6 +71,8 @@ Acelerar el desarrollo y venta de nuevos productos de inteligencia de negocio a 
 - Buen nivel de inglés
 - Capacidad para trabajar de manera remota, autónoma y con horario flexible.
 
+NOTA: si tu interés es principalmente el machine learning, la ciencia de datos, la inteligencia artificial, deep learning y demás este no es el puesto que buscas.
+
 **¿QUÉ OFRECEMOS?**
 - Manejamos para este puesto una horquilla de salida de **entre 24K€ y 33K€**, en función de la experiencia que tengas.
 - Entre **95% y 100% de tele-trabajo**, nuestra oficina está en el Parque Tecnológico Walqa, en Huesca, al pie de los Pirineos. Si vives cerca nos vemos allí una vez a la semana (cuando no hay pandemia, claro), si no también podemos hacerte un hueco en nuestros standups virtuales y vernos las caras una semana cada 3 o 4 meses en nuestras reuniones trimestrales.
