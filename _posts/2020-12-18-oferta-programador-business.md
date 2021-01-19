@@ -71,7 +71,9 @@ Acelerar el desarrollo y venta de nuevos productos de inteligencia de negocio a 
 - Buen nivel de inglés
 - Capacidad para trabajar de manera remota, autónoma y con horario flexible.
 
-NOTA: si tu interés es principalmente el machine learning, la ciencia de datos, la inteligencia artificial, deep learning y demás este no es el puesto que buscas.
+NOTAS IMPORTANTES: 
+- si tu interés es principalmente el machine learning, la ciencia de datos, la inteligencia artificial, deep learning y demás este no es el puesto que buscas.
+- para esta oferta en particular estamos buscando a alguien en un uso horario que se solape completamente con el de España.
 
 **¿QUÉ OFRECEMOS?**
 - Manejamos para este puesto una horquilla de salida de **entre 24K€ y 33K€**, en función de la experiencia que tengas.
