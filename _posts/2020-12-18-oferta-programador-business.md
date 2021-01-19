@@ -73,7 +73,7 @@ Acelerar el desarrollo y venta de nuevos productos de inteligencia de negocio a 
 
 NOTAS IMPORTANTES: 
 - si tu interés es principalmente el machine learning, la ciencia de datos, la inteligencia artificial, deep learning y demás este no es el puesto que buscas.
-- para esta oferta en particular estamos buscando a alguien en un uso horario que se solape completamente con el de España.
+- para esta oferta en particular estamos buscando a alguien en un huso horario que se solape completamente con el de España.
 
 **¿QUÉ OFRECEMOS?**
 - Manejamos para este puesto una horquilla de salida de **entre 24K€ y 33K€**, en función de la experiencia que tengas.
