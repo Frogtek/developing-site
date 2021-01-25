@@ -13,7 +13,7 @@ show_in_jobs: true
 
 **SOBRE NOSOTROS**
 
-El Grupo Frogtek es una empresa social con ánimo de lucro cuyo propósito es ayudar a los tenderos de países emergentes a escapar de la pobreza y competir en mejores condiciones. Lo hacemos, principal aunque no únicamente, ofreciendo una aplicación Android, Tiendatek, que el tendero puede usar para gestionar y optimizar su negocio ¡y conseguimos que aumenten sus ventas un 15% de media tras el primer año de uso! Rentabilizamos el proyecto a través de la venta estudios de mercado basados en los datos de ventas y compras de los tenderos que almacenamos y procesamos en nuestros servidores en Google y en Amazon y que vendemos directamente a empresas fabricantes y distribuidoras a través de nuestro producto [Frogtek Analytics](https://frogtek.org/analytics/).
+El Grupo Frogtek es una empresa social con ánimo de lucro cuyo propósito es ayudar a los tenderos de países emergentes a escapar de la pobreza y competir en mejores condiciones. Lo hacemos, principal aunque no únicamente, ofreciendo una aplicación Android, Tiendatek, que el tendero puede usar para gestionar y optimizar su negocio ¡y conseguimos que aumenten sus ventas un 15% de media tras el primer año de uso! Rentabilizamos el proyecto a través de la venta de estudios de mercado basados en los datos de ventas y compras de los tenderos que almacenamos y procesamos en nuestros servidores en Google y en Amazon y que vendemos directamente a empresas fabricantes y distribuidoras a través de nuestro producto [Frogtek Analytics](https://frogtek.org/analytics/).
 
 Más de 2500 tiendas en México ya se benefician del uso de Tiendatek y en 2020 más de 15 empresas líderes globales fabricantes y distribuidores han confiado en los datos que proporcionan para mejorar su operación y su estrategia. El Grupo Frogtek es una empresa rentable que está aumentando su facturación en más de un 30% anual.
 
@@ -22,25 +22,35 @@ Para más información puedes ver [esta entrevista](https://www.youtube.com/watc
 
 **¿POR QUÉ NECESITAMOS UN INGENIERO DE DATOS?**
 
-Frogtek está acelerando su actividad comercial y por lo tanto necesitamos fortalecer el equipo que se encarga de automatizar la generación de data-sets para alimentar los productos de inteligencia de negocio que ofrecemos a nuestra creciente cartera de clientes. De forma relacionada también nos interesa reforzar las tareas de mantenimiento y evolución de los ETLs que alimentan nuestras bases de datos. Por último, buscamos a una persona que puntualmente pueda crear herramientas internas que faciliten y democraticen la gestión del modelo de datos para agilizar los procesos que nos llevan a satisfacer las necesidades de nuestros clientes internos y externos.
+Frogtek está acelerando su actividad comercial y por lo tanto necesitamos fortalecer el equipo que se encarga de automatizar la generación de datasets para alimentar los productos de inteligencia de negocio que ofrecemos a nuestra creciente cartera de clientes. De forma relacionada también nos interesa reforzar las tareas de mantenimiento y evolución de los ETLs que alimentan nuestras bases de datos. Por último, buscamos a una persona que puntualmente pueda crear herramientas internas que faciliten y democraticen la gestión del modelo de datos para agilizar los procesos que nos llevan a satisfacer las necesidades de nuestros clientes internos y externos.
 
-1) **Durante el primer mes** esperamos que seas capaz de interiorizar el modelo de datos la compañía, comprender el flujo de la información y conocer en detalle los tipos de productos que entregamos a nuestros clientes. Probablemente habrás tenido que trabajar en la generación de algún dataset para un cliente real con SQL.
+1) **Durante el primer mes** esperamos que seas capaz de interiorizar el modelo de datos de la compañía, comprender el flujo de la información y conocer en detalle los tipos de productos que entregamos a nuestros clientes. Probablemente habrás tenido que trabajar en la generación de algún dataset para un cliente real con SQL.
 
-2) **Al final del primer trimestre** estamos seguros de que ya te habrás incorporado a la rutina de trabajo del equipo, habrás trabajado en varios entregables y habrás automatizado la generación de varios data-sets con Python.  
+2) **Al final del primer trimestre** estamos seguros de que ya te habrás incorporado a la rutina de trabajo del equipo, habrás colaborado en varios entregables y habrás automatizado la generación de varios datasets con Python.  
 
 3) **Al cabo del primer año** no sólo serás un experto extrayendo información de nuestras bases de datos, sino que también conocerás los entresijos de los ETLs que los alimentan y participarás puntualmente en tareas de mantenimiento o evolución de éstos. También habrás ayudado a mejorar nuestras herramientas internas con paneles web de control y mantenimiento hechos en Django que tanto el equipo de tecnología como el comercial utilizarán para gestionar los ETLs, el modelo de datos o los datasets entregables a clientes.
+
+**NOTAS IMPORTANTES:** 
+- Si tu interés es principalmente el machine learning, la ciencia de datos, la inteligencia artificial, deep learning y demás este no es el puesto que buscas.
+- Para esta oferta en particular estamos buscando a alguien en un huso horario que se solape completamente con el de España.
 
 **¿QUÉ TIENES QUE SABER?**
 
 Éstas son algunas de las habilidades que consideramos claves para poder ser un **Ingeniero de datos (Django, Python/Pandas, SQL)** en Frogtek.
 
-*Bases de datos*
+*SQL*
 
-- Dominio de consultas complejas a bases de datos (múltiples JOIN de varios tipos, funciones de agregación, subconsultas, optimización del tiempo de ejecución, etc.)
+- Consultas complejas a tablas con cientos de millones de registros
+- Utilizar la salida del EXPLAIN para optimizar consultas
+- Implementar el mejor modelo de datos posible para los nuevos desarrollos que se vayan haciendo, esto puede implicar unas veces normalizar el esquema y otras desnormalizar algo ya existente
 
 *Programación Django*
 
-- ...
+- Dominio de la arquitectura MTV tan característica de Django, y de cómo desacoplar las capas lógicas y las apps de un proyecto.
+- Dominio de las arquitecturas web implicadas en la generación de apps web con código Javascript en el navegador y llamadas asíncronas a Django para maximizar el aprovechamientos de sus funcionalidades (motor de plantillas, modelos de datos gestionados, manejadores de peticiones HTTP, etc.).
+- Conocimientos de programación web adaptativa y buenas prácticas de UI y UX para el usuario final.
+- Conocimientos de las herramientas de migración de esquemas de datos gestionados por Django.
+- Conocimientos de la configuración de un proyecto Django y de los paneles de administración web de un proyecto.
 
 *Programación de scripts*
 
@@ -58,10 +68,6 @@ Frogtek está acelerando su actividad comercial y por lo tanto necesitamos forta
 - Con atención al detalle y que se imponga un standard de calidad alto, nuestro mayor valor es la alta calidad de los datos que generamos.
 - Buen nivel de inglés
 - Capacidad para trabajar de manera remota, autónoma y con horario flexible.
-
-NOTAS IMPORTANTES: 
-- si tu interés es principalmente el machine learning, la ciencia de datos, la inteligencia artificial, deep learning y demás este no es el puesto que buscas.
-- para esta oferta en particular estamos buscando a alguien en un huso horario que se solape completamente con el de España.
 
 **¿QUÉ OFRECEMOS?**
 - Manejamos para este puesto una horquilla de salida de **entre 24K€ y 30K€**, en función de la experiencia que tengas.
