@@ -52,15 +52,16 @@ Frogtek está acelerando su actividad comercial y por lo tanto necesitamos forta
 - Conocimientos de las herramientas de migración de esquemas de datos gestionados por Django.
 - Conocimientos de la configuración de un proyecto Django y de los paneles de administración web de un proyecto.
 
-*Programación de scripts*
+*Python*
 
-- Python (principalmente para scripts de consultas a bases de datos y transformación de resultados)
-- Paquetes Numpy, Pandas y SQLAlchemy
+- Hacer ETLs que mezclen el uso de Pandas y SQL de la manera más eficiente posible
+- Desarrollar ETLs pensando en la reutilización y modularidad
+- Elaborar pipelines con Jenkins que enlacen procesos ETLs
 
 *Programación y buenas prácticas*
 
-- Buenos conocimientos de programación avanzada: programación estructurada, programación orientada a objetos, programación orientada a eventos, programación reactiva, programación concurrente, etc.
-- Clean code (ser metódico con la sintaxis, darle importancia a la legilibilidad y los detalles; crear código que no necesite comentarios para ser perfectamente entendido)
+- Buenos conocimientos de programación orientada a objetos y estructurada
+- Clean code (ser metódico con la sintaxis, darle importancia a la legilibilidad y los detalles)
 - Revisión de código (tanto al proponer mejoras a otros como al aceptar críticas/propuestas de otros)
 
 *Y claro... también...*
