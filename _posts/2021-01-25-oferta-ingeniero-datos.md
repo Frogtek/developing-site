@@ -81,4 +81,4 @@ Frogtek está acelerando su actividad comercial y por lo tanto necesitamos forta
 - Buen ambiente.
 - Experiencia internacional y multicultural… y si te gusta viajar quizá puedas visitar México o algún otro país.
 
-**Si te interesa tener una primera entrevista con nuestro equipo, por favor envíame un mensaje y CV actualizado a empleo-tech arroba frogtek punto org, añadiendo en el título del correo la referencia: DATOS2101**
+**Si te interesa participar en el proceso de selección, por favor envía un mensaje y CV actualizado a procesoseleccion arroba frogtek punto org, añadiendo en el título del correo la referencia: DATOS2101**
