@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 'Oferta de trabajo: Ingeniero de visualización de datos - R/Shiny, Python/Pandas, SQL (ABIERTA)'
+title: 'Oferta de trabajo: Ingeniero de visualización de datos - R/Shiny, Python/Pandas, SQL (CERRADA)'
 date: 2020-12-18 
 author: guillermo
-show_in_jobs: true
+show_in_jobs: false
 ---
 
 **Rol**: Ingeniero de visualización de datos (R/Shiny, Python/Pandas, SQL)
