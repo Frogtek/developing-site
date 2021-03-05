@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Formación pagada: Beca Software (ABIERTA)'
+title: 'Formación pagada: Beca Software (EN PAUSA MIENTRAS EL IAF LAS ACTIVA DE NUEVO)'
 date: 2018-04-01 11:51:46.000000000 +01:00
 tags: []
 author: guillermo
