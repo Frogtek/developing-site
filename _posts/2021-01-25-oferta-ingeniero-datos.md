@@ -9,7 +9,7 @@ show_in_jobs: true
 **Rol**: Ingeniero de datos - Django, Python/Pandas, SQL (ABIERTA)
 **Industria**: Retail Technology  
 **Localización**: España (remoto)  
-**Salario**: Horquilla de salida entre 24K€ y 30K€, en función de experiencia
+**Salario**: Horquilla de salida entre 27K€ y 33K€, en función de experiencia
 
 **SOBRE NOSOTROS**
 
@@ -71,7 +71,7 @@ Frogtek está acelerando su actividad comercial y por lo tanto necesitamos forta
 - Capacidad para trabajar de manera remota, autónoma y con horario flexible.
 
 **¿QUÉ OFRECEMOS?**
-- Manejamos para este puesto una horquilla de salida de **entre 24K€ y 30K€**, en función de la experiencia que tengas.
+- Manejamos para este puesto una horquilla de salida de **entre 27K€ y 33K€**, en función de la experiencia que tengas.
 - Entre **95% y 100% de tele-trabajo**, nuestra oficina está en el Parque Tecnológico Walqa, en Huesca, al pie de los Pirineos. Si vives cerca nos vemos allí una vez a la semana (cuando no hay pandemia, claro), si no también podemos hacerte un hueco en nuestros standups virtuales y vernos las caras una semana cada 3 o 4 meses en nuestras reuniones trimestrales.
 - **Horario flexible**, aunque hay que reunirse habitualmente con el equipo comercial que está en México así que si trabajas desde España deberás reservar parte de tus tardes, así como coordinarte cuando hay que trabajar con compañeros y contar lo que haces en los standups y reuniones semanales.
 - **Festivos flexibles**, puedes mover los festivos nacionales, regionales y locales a las fechas que más te convengan.
