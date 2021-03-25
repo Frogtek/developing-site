@@ -44,19 +44,19 @@ Frogtek está acelerando su actividad comercial y por lo tanto necesitamos forta
 - Utilizar la salida del EXPLAIN para optimizar consultas
 - Implementar el mejor modelo de datos posible para los nuevos desarrollos que se vayan haciendo, esto puede implicar unas veces normalizar el esquema y otras desnormalizar algo ya existente
 
-*Programación Django*
+*Python*
+
+- Hacer ETLs que mezclen el uso de Pandas y SQL de la manera más eficiente posible
+- Desarrollar ETLs pensando en la reutilización y modularidad
+- Elaborar pipelines con Jenkins que enlacen procesos ETLs
+
+*Programación Django ("nice to have")*
 
 - Dominio de la arquitectura MTV tan característica de Django, y de cómo desacoplar las capas lógicas y las apps de un proyecto.
 - Dominio de las arquitecturas web implicadas en la generación de apps web con código Javascript en el navegador y llamadas asíncronas a Django para maximizar el aprovechamientos de sus funcionalidades (motor de plantillas, modelos de datos gestionados, manejadores de peticiones HTTP, etc.).
 - Conocimientos de programación web adaptativa y buenas prácticas de UI y UX para el usuario final.
 - Conocimientos de las herramientas de migración de esquemas de datos gestionados por Django.
 - Conocimientos de la configuración de un proyecto Django y de los paneles de administración web de un proyecto.
-
-*Python*
-
-- Hacer ETLs que mezclen el uso de Pandas y SQL de la manera más eficiente posible
-- Desarrollar ETLs pensando en la reutilización y modularidad
-- Elaborar pipelines con Jenkins que enlacen procesos ETLs
 
 *Programación y buenas prácticas*
 
