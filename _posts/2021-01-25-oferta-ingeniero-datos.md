@@ -1,12 +1,12 @@
 ---
 layout: post
-title: 'Oferta de trabajo: Ingeniero de datos - Django, Python/Pandas, SQL (ABIERTA)'
+title: 'Oferta de trabajo: Ingeniero de datos - Python/Pandas, SQL, Django (ABIERTA)'
 date: 2021-01-25 
 author: guillermo
 show_in_jobs: true
 ---
 
-**Rol**: Ingeniero de datos - Django, Python/Pandas, SQL (ABIERTA)
+**Rol**: Ingeniero de datos - Python/Pandas, SQL, Django (ABIERTA)
 **Industria**: Retail Technology  
 **Localización**: España (remoto)  
 **Salario**: Horquilla de salida entre 27K€ y 33K€, en función de experiencia
@@ -36,7 +36,7 @@ Frogtek está acelerando su actividad comercial y por lo tanto necesitamos forta
 
 **¿QUÉ TIENES QUE SABER?**
 
-Éstas son algunas de las habilidades que consideramos claves para poder ser un **Ingeniero de datos (Django, Python/Pandas, SQL)** en Frogtek.
+Éstas son algunas de las habilidades que consideramos claves para poder ser un **Ingeniero de datos (Python/Pandas, SQL, Django)** en Frogtek.
 
 *SQL*
 
