@@ -43,7 +43,7 @@ Ejemplos de tareas que podrías apoyar o incluso co-liderar:
 
 **Notas importantes:** 
 - Si tu interés es principal y exclusivamente el machine learning, la ciencia de datos, la inteligencia artificial, deep learning y demás este no es el puesto que buscas.
-- Para esta oferta en particular estamos buscando a alguien en un huso horario que se solape completamente con el de España.
+- Para esta oferta en particular estamos buscando a alguien en España para coincidir en el huso horario al 100% y poder vernos en persona en las reuniones trimestrales.
 
 **¿QUÉ TIENES QUE SABER?**
 
@@ -76,15 +76,15 @@ Ejemplos de tareas que podrías apoyar o incluso co-liderar:
 
 **¿QUÉ OFRECEMOS?**
 
-- Todo es negociable en función de la experiencia que tengas pero en un principio hemos reservado para este puesto **hasta un máximo de 40K€**.
+- Todo es negociable en función de la experiencia que tengas pero en un principio hemos reservado para este puesto **hasta un máximo de 40K€ brutos**.
 - **Una apuesta consolidada por el teletrabajo al 100%** que no depende de pandemias, ni coyunturas… lo practicamos desde 2015 al 100% y lo hacemos todo el equipo. Sí tenemos oficina, y está en el Parque Tecnológico Walqa, en Huesca, al pie de los Pirineos. Nos vemos allí una semana cada 3 ó 4 meses en nuestras reuniones trimestrales (cuando no hay pandemia claro).
 - **Horario flexible**, aunque hay que reunirse habitualmente con el equipo comercial que está en México así que si trabajas desde España deberás reservar parte de tus tardes, así como coordinarte cuando hay que trabajar con compañeros y contar lo que haces en los standups y reuniones semanales.
 - **Festivos flexibles**, puedes mover los festivos nacionales, regionales y locales a las fechas que más te convengan.
 - **Un proyecto disruptivo y de producto**, estamos creando desde hace 10 años un ecosistema propio de adquisición, procesado y explotación de datos inédito en el sector y que está listo para disrumpir el mercado de la inteligencia de negocio en el canal de tradicional de los países emergentes.
 - **Una empresa con propósito** con un impacto social en capas desfavorecidas de la sociedad, cuantificable y cuantificado. En 2020 el uso de Tiendatek aumentó los ingresos de nuestra red de 2,500 tiendas en un total aproximado de 2,5 millones de dólares.
 - **Un puesto con impacto** integrado dentro de un equipo de tecnología de unas 15 personas y contribuyendo a la automatización de la creación de productos y evolución de los ETLs de la empresa en equipos de entre 2 y 4 personas, podrás ver claramente cómo tu trabajo contribuye a elevar los resultados y el potencial de nuestro proyecto.
-- Formar parte de un proyecto puntero a nivel mundial que está recibiendo los más altos reconocimientos (menciones en el MIT, premios de Vodafone en el NewYork Times…) con altas posibilidades de iniciar un crecimiento internacional en los próximos meses.
-- Buen ambiente.
-- Experiencia internacional y multicultural… y si te gusta viajar quizá puedas visitar México o algún otro país.
+- Formar parte de **un proyecto puntero a nivel mundial** que está recibiendo los más altos reconocimientos (menciones en el MIT, premios de Vodafone en el NewYork Times…) con altas posibilidades de iniciar un crecimiento internacional en los próximos meses.
+- **Buen ambiente**.
+- **Experiencia internacional y multicultural**… y si te gusta viajar quizá puedas visitar México o algún otro país.
 
 **[Si te interesa participar en el proceso de selección rellena este formulario](https://form.jotform.com/211103477086350?codigo=DATOS2105)** (si tienes algún problema con el formulario también nos puedes escribir a procesoseleccion arroba frogtek punto org poniendo como referencia en el título DATOS2105)
