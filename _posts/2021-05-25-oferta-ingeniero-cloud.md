@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Oferta de trabajo: Ingeniero de Infraestructura Cloud - AWS, GCP, DevOps, Security (ABIERTA)'
-date: 2021-04-26 
+date: 2021-05-25 
 author: guillermo
 show_in_jobs: true
 ---
