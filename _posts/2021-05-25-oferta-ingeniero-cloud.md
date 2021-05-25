@@ -29,15 +29,15 @@ Este crecimiento se tiene que ver soportado por un backend de procesado de datos
 
 Sin embargo, aunque toda esta infraestructura funciona correctamente queremos dar un paso al frente y adelantarnos al crecimiento en el volumen de datos que vamos a procesar en los siguientes años, reducir nuestros riesgos, asegurar una disponibilidad máxima mientras contenemos los gastos que esta arquitectura cada vez más sofisticada supondrá. Por eso buscamos a alguien que tome la responsabilidad de liderar la evolución de la infraestructura en colaboración con los responsables de procesado de datos y producto. Las principales responsabilidades que esperamos que tomes son:
 
-Gestionar las políticas de seguridad en AWS y Google Cloud Platform.
-Mejorar la gestión de backups usando alguna de las herramientas de la plataforma como AWS Backup.
-Definir políticas para optimizar costes en AWS y GCP.
-Optimizar la generación de las AMIs e imágenes Docker. Buscando la automatización, reducción de tamaño y la sencillez en el mantenimiento.
-Relacionado con el punto anterior, actualmente nos apoyamos en chef para la configuración y personalización de nuestras imágenes pero nos gustaría cambiar a otra tecnología también de infraestructura como código con la que nos sintamos más cómodos, como por ejemplo AWS Cloudformation.
-Colaborar en el diseño de las arquitecturas más adecuadas para los nuevos ETLs y orquestadores de servicios.
-Ayudar a escalar las etapas de persistencia y ejecución de nuestros ETLs.
-Generar alertas automáticas de seguridad, disponibilidad, rendimiento...
-Mejorar la configuración de entornos de alta disponibilidad para las máquinas que así lo requieran. 
+- Gestionar las políticas de seguridad en AWS y Google Cloud Platform.
+- Mejorar la gestión de backups usando alguna de las herramientas de la plataforma como AWS Backup.
+- Definir políticas para optimizar costes en AWS y GCP.
+- Optimizar la generación de las AMIs e imágenes Docker. Buscando la automatización, reducción de tamaño y la sencillez en el mantenimiento.
+- Relacionado con el punto anterior, actualmente nos apoyamos en chef para la configuración y personalización de nuestras imágenes pero nos gustaría cambiar a otra tecnología también de infraestructura como código con la que nos sintamos más cómodos, como por ejemplo AWS Cloudformation.
+- Colaborar en el diseño de las arquitecturas más adecuadas para los nuevos ETLs y orquestadores de servicios.
+- Ayudar a escalar las etapas de persistencia y ejecución de nuestros ETLs.
+- Generar alertas automáticas de seguridad, disponibilidad, rendimiento...
+- Mejorar la configuración de entornos de alta disponibilidad para las máquinas que así lo requieran. 
 
 **Nota importante:** 
 - Para esta oferta en particular estamos buscando a alguien en un huso horario que se solape completamente con el de España.
