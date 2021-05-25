@@ -1,12 +1,12 @@
 ---
 layout: post
-title: 'Oferta de trabajo: Ingeniero de datos - Python/Pandas, SQL, ETL (ABIERTA)'
+title: 'Oferta de trabajo: Ingeniero de datos - Python/Pandas, SQL, ETL (CERRADA)'
 date: 2021-04-28 
 author: guillermo
-show_in_jobs: true
+show_in_jobs: false
 ---
 
-**Rol**: Ingeniero de datos - Python/Pandas, SQL, ETL (ABIERTA)
+**Rol**: Ingeniero de datos - Python/Pandas, SQL, ETL (CERRADA)
 **Industria**: Retail Technology  
 **Localización**: España (remoto)  
 **Salario**: Hasta 40K€, en función de experiencia
