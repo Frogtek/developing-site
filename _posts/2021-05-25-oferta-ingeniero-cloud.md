@@ -49,7 +49,7 @@ Sin embargo, aunque toda esta infraestructura funciona correctamente queremos da
 *Plataforma AWS*
 
 - Experiencia con la plataforma de gestión de accesos e identidades AWS IAM
-- Experiencia desplegando infraestructura como código en AWS en servicios como EC2, S3 o ECS (ya sea con AWS AWS CloudFormation o con otra solución similar).
+- Experiencia desplegando infraestructura como código en AWS en servicios como EC2, S3 o ECS (ya sea con AWS CloudFormation o con otra solución similar).
 - Experiencia desplegando aplicaciones con AWS Elastic Beanstalk
 - Conocimientos desplegando aplicaciones web en alta disponibilidad sobre EC2
 
