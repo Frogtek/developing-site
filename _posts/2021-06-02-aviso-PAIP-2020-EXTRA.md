@@ -4,7 +4,7 @@ title: "El Gobierno de Aragón y los fondos FEDER apoyan los proyectos de Frogte
 date: 2021-06-02
 author: guillermo
 ---
-<p><img class="aligncenter size-full wp-image-2233" src="{{ site.baseurl }}/assets/posts/BSC1.png" alt="bsc1" width="633" height="410" /></p>
+<p><img class="aligncenter size-full wp-image-2233" src="{{ site.baseurl }}/assets/posts/image001.png" alt="bsc1" /><img class="alignright size-full wp-image-2233" src="{{ site.baseurl }}/assets/posts/image002.png" alt="bsc1" /></p>
 
 ### Programa "PAIP": Ayudas a la Industria y la PYME en Aragón
 
