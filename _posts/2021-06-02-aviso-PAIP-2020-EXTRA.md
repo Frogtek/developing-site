@@ -13,18 +13,18 @@ author: guillermo
   <tr>
     <td colspan=3 style="text-align: center">
 
-### **Programa "PAIP": Ayudas a la Industria y la PYME en Aragón**
+      <b>Programa "PAIP": Ayudas a la Industria y la PYME en Aragón</b>
 
 Esta empresa participa en el Programa "PAIP", cuyo resultado es favorecer el crecimiento y consolidación de la PYME, mejorando su financiación, tecnología y el acceso a los servicios de apoyo avanzados.
 
-Objetivo de la operación: **Conseguir un tejido empresarial más competitivo**
+      Objetivo de la operación: <b>Conseguir un tejido empresarial más competitivo</b>
 
 
-### Operación cofinanciada por la Unión Europea
+Operación cofinanciada por la Unión Europea
 
-### Program Operativo Fondo Europeo de Desarrollo Regional Aragón 2014-2020
+Program Operativo Fondo Europeo de Desarrollo Regional Aragón 2014-2020
 
-### Construyendo Europa desde Aragón
+Construyendo Europa desde Aragón
    
      </td> 
   </tr>
