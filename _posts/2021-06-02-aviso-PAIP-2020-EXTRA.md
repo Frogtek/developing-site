@@ -25,7 +25,8 @@ Objetivo de la operación: **Conseguir un tejido empresarial más competitivo**
 ### Program Operativo Fondo Europeo de Desarrollo Regional Aragón 2014-2020
 
 ### Construyendo Europa desde Aragón
-      
+   
+     </td> 
   </tr>
   </table>
   
