@@ -6,9 +6,9 @@ author: guillermo
 ---
 <table>
   <tr>
-    <td width=15%><p><img class="aligncenter size-full wp-image-2233" src="{{ site.baseurl }}/assets/posts/image001.png" alt="Gobierno de Aragón" /></p></td>
-    <td width:70%></td>
-    <td width=15%><p><img class="alignright size-full wp-image-2233" src="{{ site.baseurl }}/assets/posts/image002.png" alt="Unión Europea" /></p></td>
+    <td width="15%"><p><img class="aligncenter size-full wp-image-2233" src="{{ site.baseurl }}/assets/posts/image001.png" alt="Gobierno de Aragón" /></p></td>
+    <td width="70%"></td>
+    <td width="15%"><p><img class="alignright size-full wp-image-2233" src="{{ site.baseurl }}/assets/posts/image002.png" alt="Unión Europea" /></p></td>
   </tr>
   <tr>
     <td colspan=3 style="text-align: center">
