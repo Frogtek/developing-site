@@ -28,5 +28,5 @@ Objetivo de la operación: **Conseguir un tejido empresarial más competitivo**
    
      </td> 
   </tr>
-  </table>
+</table>
   
