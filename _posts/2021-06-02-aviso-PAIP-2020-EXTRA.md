@@ -15,7 +15,9 @@ author: guillermo
 
       <b>Programa "PAIP": Ayudas a la Industria y la PYME en Aragón</b>
 <br>
+<br>
 Esta empresa participa en el Programa "PAIP", cuyo resultado es favorecer el crecimiento y consolidación de la PYME, mejorando su financiación, tecnología y el acceso a los servicios de apoyo avanzados.
+<br>
 <br>
       Objetivo de la operación: <b>Conseguir un tejido empresarial más competitivo</b>
 <br>
