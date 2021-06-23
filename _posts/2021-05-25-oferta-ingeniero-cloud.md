@@ -1,12 +1,12 @@
 ---
 layout: post
-title: 'Oferta de trabajo: Ingeniero de Infraestructura Cloud - AWS, GCP, DevOps, Security (ABIERTA)'
+title: 'Oferta de trabajo: Ingeniero Cloud (ABIERTA)'
 date: 2021-05-25 
 author: guillermo
 show_in_jobs: true
 ---
 
-**Rol**: Oferta de trabajo: Ingeniero de Infraestructura Cloud - AWS, GCP, DevOps, Security (ABIERTA)
+**Rol**: Oferta de trabajo: Ingeniero Cloud (ABIERTA)
 **Industria**: Retail Technology  
 **Localización**: España (remoto)  
 **Salario**: Hasta 40K€, en función de experiencia
@@ -21,7 +21,7 @@ Nuestra empresa es global y trabaja de forma distribuida. Las operaciones de ven
 
 Para más información puedes ver [esta entrevista](https://www.youtube.com/watch?v=BoDtuEUO328) que, aunque es ya un poco antigua, explica bastante bien el propósito y nuestro modelo de negocio.
 
-**¿POR QUÉ NECESITAMOS UN INGENIERO DE INFRAESTRUCTURA CLOUD?**
+**¿POR QUÉ NECESITAMOS UN INGENIERO CLOUD?**
 
 El objetivo a corto y medio plazo de Frogtek es crecer en el número y el nivel de innovación de los productos que ofrecemos, crecer en el número de clientes a los que damos servicio directamente (tanto tiendas de barrio como grandes corporaciones fabricantes de productos) e iniciar un despliegue a otras zonas de México y/o países de latinoamérica que nos permita internacionalizar el proyecto. 
 
@@ -44,7 +44,7 @@ Sin embargo, aunque toda esta infraestructura funciona correctamente queremos da
 
 **¿QUÉ TIENES QUE SABER?**
 
-Éstas son algunas de las habilidades que consideramos claves para poder ser un **Ingeniero de Infraestructura Cloud AWS, GCP, DevOps, Security** en Frogtek.
+Éstas son algunas de las habilidades que consideramos claves para poder ser un **Ingeniero Cloud** en Frogtek.
 
 *Plataforma AWS*
 
