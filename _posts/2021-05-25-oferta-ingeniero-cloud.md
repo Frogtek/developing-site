@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 'Oferta de trabajo: Ingeniero Cloud (ABIERTA)'
+title: 'Oferta de trabajo: Ingeniero Cloud (PAUSADA)'
 date: 2021-05-25 
 author: guillermo
-show_in_jobs: true
+show_in_jobs: false
 ---
 
 **Rol**: Oferta de trabajo: Ingeniero Cloud (ABIERTA)
