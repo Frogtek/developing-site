@@ -41,7 +41,7 @@ Para el Grupo Frogtek crear productos de valor para pequeñas tiendas siempre ha
 - La webapp tendrá que funcionar offline así que es probable que necesites tener conocimientos de **Node.js**
 - Metodológicamente nos gustaría que tuvieras conocimientos de agilismo, sepas cubrir tu código con diferentes tipos de **tests automatizados** y te guste  el **pair programming**.
 - Aunque trabajes en el producto para tenderos, Frogtek es una empresa que adquiere datos, procesa datos, respira datos... vive de los datos. Así que esperamos que te gusten los datos y tengas facilidad con ellos. :wink: 
-- También valoraríamos positivamente que tengas experiencia con otros lenguajes de nuestro stack tecnológico. En concreto tenemos productos hechos con **Java para Android** y también, aunque esto no es en absoluto necesario para el puesto, trabajamos mucho en **Pyhon**.
+- También valoraríamos positivamente que tengas experiencia con otros lenguajes de nuestro stack tecnológico. En concreto tenemos productos hechos con **Java para Android** y también, aunque esto no es en absoluto necesario para el puesto, trabajamos mucho en **Python**.
 - **Orientación a procesos**, el nuestro es un entorno complejo que requiere de personas ordenadas y metódicas.
 - Con **atención al detalle** y que se imponga un standard de calidad alto, nuestro mayor valor es la alta calidad de los datos que generamos.
 - Buen nivel de inglés
