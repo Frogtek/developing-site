@@ -3,7 +3,7 @@ layout: post
 title: 'Oferta de trabajo: Programador Web Front-end (VueJS)  (CERRADA)'
 date: 2022-01-27 
 author: guillermo
-show_in_jobs: false
+show_in_jobs: true
 ---
 
 **Rol**: Programador Web Front-end (VueJS)
