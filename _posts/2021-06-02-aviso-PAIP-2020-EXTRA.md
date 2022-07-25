@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "El Gobierno de Aragón y los fondos FEDER apoyan los proyectos de Frogtek"
+title: "El Gobierno de Aragón y los fondos FEDER apoyan los proyectos de Frogtek en 2020"
 date: 2021-06-02
 author: guillermo
 ---
