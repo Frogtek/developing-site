@@ -4,7 +4,7 @@ title: 'Formación pagada: Beca Software (EN PAUSA MIENTRAS EL IAF LAS ACTIVA DE
 date: 2018-04-01 11:51:46.000000000 +01:00
 tags: []
 author: guillermo
-show_in_jobs: true
+show_in_jobs: false
 ---
 **Rol**: Becario de programación (Python - SQL)   
 **Industria**: Retail Technology  
