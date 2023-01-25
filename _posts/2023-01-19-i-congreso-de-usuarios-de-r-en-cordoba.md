@@ -3,7 +3,6 @@ layout: post
 title: I Congreso de usuarios de R en Córdoba
 date: 2023-01-19
 author: durey
-show_in_jobs: false
 ---
 
 Después de una guagua, un avión, un tren y un taxi, llegué de Tenerife al vicerrectorado de Córdoba. Fue hace ya casi 2 meses, a finales de noviembre de 2022, pero me gusta analizar los eventos con la perspectiva del tiempo, así no están influenciados por el calor del momento (traducción: no había tenido tiempo). 
@@ -28,10 +27,10 @@ Quiero resaltar tres de las sesiones:
 
 ![]({{ site.baseurl }}/assets/posts/20221123-congresor-ponencia.jpg)
 
-Muchas gracias a [Blanca Cuadrado](https://twitter.com/blancacuadrado) por la foto, me llevo un precioso recuerdo.
+Muchas gracias a [Blanca](https://twitter.com/blancacuadrado) por la foto, me llevo un precioso recuerdo.
 
 ![]({{ site.baseurl }}/assets/posts/20221127-congresor-capitel.jpg)
 
-Y qué mejor forma de acabar un [congreso de R](http://r-es.org/12jr/) que visitando uno de los cuatro patrimonios de la humanidad de Córdoba, y encontrando, inesperadamente, una R tallada en uno de sus capiteles ('R' == 'restaurado'). Ya saben, visita obligada también para todos los amantes de R.
+Y qué mejor forma de acabar un [congreso de R](http://r-es.org/12jr/) que visitando uno de los cuatro patrimonios de la humanidad de Córdoba, y encontrando, inesperadamente, una R grabada en uno de sus capiteles ('R' == 'restaurado'). Ya saben, visita obligada también para todos los amantes de R.
 
 Nota final: [Xavi de Blas](https://twitter.com/xavi_blas), por tu culpa (o gracias a ti), ya nunca miraré el logo de R con los mismos ojos inocentes…
