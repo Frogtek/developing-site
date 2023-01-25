@@ -7,32 +7,33 @@
 {% include nav.html %}
 
 <section id="{{ page.title }}" class="container content-section job-offers">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-            <h2 class="text-center">{{page.title}}</h2>
-            {{ content | markdownify }}
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <h2 class="text-center">{{ page.title }}</h2>
+      {{ content | markdownify }}
 
-            {% assign offers = site.posts | where_exp:"item", "item.show_in_jobs == true" %}
-            {% if offers.size > 0 %}
-            <h2 class="text-center">Ofertas</h2>
-            <ul>
-                {% for post in offers %}
-                    {% include post_excerpt.html %}
-                {% endfor %}
-            </ul>
-            {%endif%}
-
-        </div>
+      {% assign offers = site.posts | where_exp:"item", "item.show_in_jobs == true" %}
+      <br>
+      <h2 class="text-center">Procesos de selección abiertos</h2>
+      {% if offers.size > 0 %}
+      <ul>
+          {% for post in offers %}
+              {% include post_excerpt.html %}
+          {% endfor %}
+      </ul>
+      {% else %}
+      <p>Actualmente no tenemos procesos de selección abiertos</p>
+      {% endif %}
     </div>
-
+  </div>
 </section>
 
 <aside class="bg-dark">
-    <div class="container text-center">
-        <div class="call-to-action">
-            <h2>Mándanos tu currículum a empleo-tech<i class="fa fa-at"></i>frogtek.org</h2>
-        </div>
+  <div class="container text-center">
+    <div class="call-to-action">
+      <h2>Mándanos tu currículum a empleo-tech<i class="fa fa-at"></i>frogtek.org</h2>
     </div>
+  </div>
 </aside>
 
 {% include contact.html %}

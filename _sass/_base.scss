@@ -481,3 +481,19 @@ img::-moz-selection {
     padding-bottom: 20px;
   }
 }
+
+.gdpr {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 1px 10px;
+
+  h3, p {
+    font-size: 0.8em;
+    margin-bottom: 0.7em;
+  }
+  h3 {
+    font-weight: bold;
+    margin-top: 0.7em;
+  }
+}
