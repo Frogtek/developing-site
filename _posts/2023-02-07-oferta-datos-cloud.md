@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Oferta de trabajo (España): Ingeniero de Datos Cloud (Python, SQL, AWS)  (ABIERTA)'
+title: 'Oferta de trabajo (España): Ingeniero de Datos Cloud (Python, SQL, AWS)  (BORRADOR)'
 date: 2023-02-07 
 author: guillermo
 show_in_jobs: false
