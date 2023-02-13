@@ -44,6 +44,7 @@ Ejemplos de tareas que podrías apoyar o incluso co-liderar:
 
 - Conocimiento avanzado de SQL standard para minimizar el tránsito de los datos
 - Práctica implementando el mejor modelo de datos posible para los nuevos desarrollos que se vayan haciendo, esto puede implicar unas veces normalizar el esquema y otras desnormalizar algo ya existente
+- Conocimiento del funcionamiento interno de bases de datos, optimización de consultas, desarrollo de consultas complejas
 
 *Python ETLs*
 
