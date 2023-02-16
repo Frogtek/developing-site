@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 'Oferta de trabajo (España): Ingeniero de Datos Cloud (Python, SQL, AWS)  (BORRADOR)'
+title: 'Oferta de trabajo (España): Ingeniero de Datos Cloud (Python, SQL, AWS)  (ABIERTA)'
 date: 2023-02-07 
 author: guillermo
-show_in_jobs: false
+show_in_jobs: true
 ---
 
 **Rol**: Ingeniero de Datos Cloud (Python, SQL, AWS)  
@@ -29,7 +29,7 @@ Este crecimiento se tiene que ver soportado por un backend de procesado de datos
 
 Adicionalmente, de forma paralela, trabajamos en otra plataforma que, tomando los datos que los ETLs han entregado, permita replicar de manera automática o semiautomática productos de inteligencia de negocio (dashboards de información, datasets de datos) personalizados para cada cliente, parametrizados por múltiples variables y desplegables casi en tiempo real.
 
-Es para avanzar más rápido estas dos líneas de trabajo para lo que buscamos un ingeniero de datos que venga a reforzar el equipo aportando nuevos conocimientos, experiencia y habilidades. Ambos campos son extremadamente importantes para Frogtek y en ambos campos el impacto de este puesto sería de gran relevancia. Nos gustaría incorporar a alguien que, con el tiempo, fuera capaz de aportar en ambos de manera indistinta y que pueda simultanear, si es necesario, una visión técnica estratégica de cómo tiene que ser nuestra arquitectura futura para adquirir, procesar y explotar datos de manera escalable con una ejecución más táctica de entregables puntuales que haya que implementar para nuestros clientes.
+Es para avanzar más rápido en estas dos líneas de trabajo para lo que buscamos un ingeniero de datos que venga a reforzar el equipo aportando nuevos conocimientos, experiencia y habilidades. Ambos campos son extremadamente importantes para Frogtek y en ambos campos el impacto de este puesto sería de gran relevancia. Nos gustaría incorporar a alguien que, con el tiempo, fuera capaz de aportar en ambos de manera indistinta y que pueda simultanear, si es necesario, una visión técnica estratégica de cómo tiene que ser nuestra arquitectura futura para adquirir, procesar y explotar datos de manera escalable con una ejecución más táctica de entregables puntuales que haya que implementar para nuestros clientes.
 
 Ejemplos de tareas que podrías apoyar o incluso co-liderar:
 
@@ -88,9 +88,9 @@ Ejemplos de tareas que podrías apoyar o incluso co-liderar:
 
 **¿CÓMO SERÁ EL PROCESO DE SELECCIÓN?**
 
-- Una entrevista personal de 1 hora o poco más con Guillermo, el CTO de Frogtek, y Javier y Candi, la personas a las que reportarás y con quienes trabajarás codo con codo.
+- Una entrevista personal de 1 hora o poco más con Guillermo, el CTO de Frogtek, y Javier y/o Candi, la personas a las que reportarás y con quienes trabajarás codo con codo.
 - Una sencilla prueba offline en python para hacer cuando te venga mejor.
-- Una sesión de pair programming con Durey para trabajar alguna consulta SQL y aprovechar para conocernos mejor.
+- Una sesión de pair programming con Javier y/o Candi para trabajar alguna consulta SQL y aprovechar para conocernos mejor.
 
 Eso sería todo, si eres la persona adecuada para el puesto a continuación te enviaremos una oferta en firme.
 
