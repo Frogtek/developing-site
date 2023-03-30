@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 'Oferta de trabajo (España): Programador Android (Java y Kotlin) (BORRADOR)'
-date: 2023-03-31 
+title: 'Oferta de trabajo (España): Programador Android (Java y Kotlin) (ABIERTA)'
+date: 2023-03-30 
 author: guillermo
 show_in_jobs: true
 ---
@@ -22,6 +22,7 @@ Nuestra empresa es global y trabaja de forma distribuida. Las operaciones de ven
 Para más información puedes ver [esta reciente entrevista de 2021 en Walqa](https://www.youtube.com/watch?v=iuE7GtV3dgs) o [esta otra que nos hizo en 2017 el ICEX cuando aún estábamos empezando a comercializar los datos](https://www.youtube.com/watch?v=BoDtuEUO328). En ambas se explica la esencia de nuestro proyecto: su motivación social, su modelo de negocio y también se puede ver cómo hemos ido progresando con el paso del tiempo.
 
 **¿POR QUÉ NECESITAMOS UN PROGRAMADOR/A ANDROID CON JAVA Y KOTLIN?**
+
 Tiendatek, nuestro punto de venta para tiendas de México y Colombia, cumple dos misiones imprescindibles en Frogtek. Primero, es la herramienta que genera impacto social, ayudando al tendero a gestionar mejor su negocio, a vender más y mejor, a ser más resiliente. Calculamos que cada buen usuario de Tiendatek aumenta en 1000$ sus ingresos al año respecto a las tiendas que no usan un sistema punto de venta. Segundo, es la fuente de datos de calidad y en tiempo real que nos permite disrumpir el sector de la inteligencia de negocio con nuestro ETL y nuestro producto Frogtek Analytics. Es decir, es la base de nuestro modelo de negocio. Casi nada.
 
 Buscamos a alguien que se una a nuestro equipo de innovación para tiendas liderando el desarrollo de Tiendatek Android. Tareas que esperamos que haga:
@@ -33,6 +34,7 @@ Buscamos a alguien que se una a nuestro equipo de innovación para tiendas lider
 - Entenderse con nuestro equipo de Tiendatek PC (Pablo y Luis) para **coordinar la evolución de las versiones de Tiendatek** para tableta con las que sacamos también para PC con VueJS y la plataforma Electrón.
 
 **¿QUÉ TIENES QUE SABER?**
+
 - Experiencia demostrable con **Android en Java y en Kotlin**.
 - Experiencia consumiendo **APIs REST** desde Android.
 - Experiencia con **Firebase** para monitorizar despliegues y bugs.
@@ -41,7 +43,7 @@ Buscamos a alguien que se una a nuestro equipo de innovación para tiendas lider
 - Experiencia en el uso de **Material Design**, se valorará positivamente tener además **nociones de UI/UX**
 - Conocimiento de **SQL/SQLite**
 - Uso de **patrones de diseño** (MVP, MVI, MVC…)
-- **Buenas prácticas*: testing automático (Roboelectric, Mockito, unit tests…), TDD, pair programming, clean code...
+- **Buenas prácticas**: testing automático (Roboelectric, Mockito, unit tests…), TDD, pair programming, clean code...
 - Saber **VueJS** no es necesario en absoluto, pero sí sería un buen punto a favor para poder colaborar puntualmente con el desarrollo de nuestra versión en PC.
 
 **¿QUÉ OFRECEMOS?**
