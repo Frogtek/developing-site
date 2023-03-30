@@ -3,7 +3,7 @@ layout: post
 title: 'Oferta de trabajo (España): Programador Android (Java y Kotlin) (BORRADOR)'
 date: 2023-03-31 
 author: guillermo
-show_in_jobs: false
+show_in_jobs: true
 ---
 
 **Rol**: Programador Android (Java y Kotlin)  
@@ -25,20 +25,24 @@ Para más información puedes ver [esta reciente entrevista de 2021 en Walqa](ht
 Tiendatek, nuestro punto de venta para tiendas de México y Colombia, cumple dos misiones imprescindibles en Frogtek. Primero, es la herramienta que genera impacto social, ayudando al tendero a gestionar mejor su negocio, a vender más y mejor, a ser más resiliente. Calculamos que cada buen usuario de Tiendatek aumenta en 1000$ sus ingresos al año respecto a las tiendas que no usan un sistema punto de venta. Segundo, es la fuente de datos de calidad y en tiempo real que nos permite disrumpir el sector de la inteligencia de negocio con nuestro ETL y nuestro producto Frogtek Analytics. Es decir, es la base de nuestro modelo de negocio. Casi nada.
 
 Buscamos a alguien que se una a nuestro equipo de innovación para tiendas liderando el desarrollo de Tiendatek Android. Tareas que esperamos que haga:
-- Trabajar estrechamente con Cati nuestra otra programadora Android (y puntualmente con Pablo, otro de nuestros programadores Android) en el mantenimiento y evolución de Tiendatek. Tiendatek es una app con más de 10 años de vida, con un Net Promoter Score de sus usuarios excelente de más 55 puntos, que tiene partes en Java y partes en Kotlin. Estamos trabajando en publicar Tiendatek en Google Play, esperamos que la persona que se incopore nos ayude a **mejorarla aún más y evolucionarla** para evitar problemas de escalabilidad en el futuro.
-- Colaborar con Coke, actualmente la persona más experta en la lógica de negocio de Tiendatek, responsable de su back-end, de las **integraciones con servicios externos** (pagos con tarjeta, recargas telefónicas) y nuestro QA.
+- Integrarse en el equipo, liderado por Guillermo, CTO de Frogtek (¡soy yo!), para definir, diseñar y planear el roadmap de todas nuestras aplicaciones para tenderos.
+- Trabajar estrechamente con Cati nuestra otra programadora Android (y puntualmente con Pablo, otro de nuestros programadores Android) en el mantenimiento y evolución de Tiendatek. Tiendatek es una app con más de 10 años de vida, con un Net Promoter Score de sus usuarios excelente de más 55 puntos, la mayor parte está escrita en Java pero todo lo nuevo se está añadiendo en Kotlin. Estamos trabajando en publicar Tiendatek en Google Play, esperamos que la persona que se incorpore nos ayude a **mejorarla aún más y evolucionarla** para evitar problemas de escalabilidad en el futuro.
+- Colaborar con Coke, actualmente la persona más experta en la lógica de negocio de Tiendatek, responsable de su back-end, de las **integraciones con servicios externos** (pagos con tarjeta, recargas telefónicas) y nuestro QA, entre otras cosas.
 - **Evolucionar Tiendatek Control**, aplicación auxiliar programada en Kotlin que permite ver a los tenderos sus informes cuando no están en la tienda y que en un futuro esperamos que pueda ofrecer muchas más cosas, gracias a tu trabajo.
-- **Desarrollar nuevos modulos para Tiendatek y nuevas aplicaciones para cliente final**, cosas como: pedidos a domicilio, programas de puntos, gestion de promociones... todo un mundo por explorar.
-- Entenderse con nuestro equipo de Tiendatek PC (Pablo y Luis) para **coordinar la evolución de las versiones de Tiendatek** para tableta con las que sacamos también para PC con VueJS y la plataforma Electron.
+- **Desarrollar nuevos módulos para Tiendatek y nuevas aplicaciones para cliente final**, cosas como: pedidos a domicilio, programas de puntos, gestión de promociones... todo un mundo por explorar.
+- Entenderse con nuestro equipo de Tiendatek PC (Pablo y Luis) para **coordinar la evolución de las versiones de Tiendatek** para tableta con las que sacamos también para PC con VueJS y la plataforma Electrón.
 
 **¿QUÉ TIENES QUE SABER?**
 - Experiencia demostrable con Android en Java y en Kotlin.
+- Experiencia consumiendo APIs REST desde Android.
 - Experiencia con Firebase para monitorizar despliegues y bugs.
-- Conocimiento de Material Design
-- Uso de SQLite con queries complejas
+- Experiencia con despliegues de apps Android en Google Play.
+- Recomendable experiencia tratando con código legacy (para rastrear y solucionar bugs, para evolucionarlo o sustituirlo…)
+- Experiencia en el uso de Material Design, se valorará positivamente tener además nociones de UI/UX
+- Conocimiento de SQL/SQLite
 - Uso de patrones de diseño (MVP, MVI, MVC…)
-- Testing, TDD...
-- Saber VueJS no es necesario pero sí sería un buen punto a favor.
+- Buenas prácticas: testing automático (Roboelectric, Mockito, unit tests…), TDD, pair programming, clean code...
+- Saber VueJS no es necesario en absoluto, pero sí sería un buen punto a favor para poder colaborar puntualmente con el desarrollo de nuestra versión en PC.
 
 **¿QUÉ OFRECEMOS?**
 
@@ -63,3 +67,4 @@ Buscamos a alguien que se una a nuestro equipo de innovación para tiendas lider
 Eso sería todo, si eres la persona adecuada para el puesto a continuación te enviaremos una oferta en firme.
 
 [**Si te interesa participar en el proceso de selección pulsa aquí**](https://form.jotform.com/211392234099355?codigo=ANDROID2023)... si tienes algún problema con el formulario también nos puedes escribir a **procesoseleccion (arroba) frogtek (punto) org** poniendo como referencia en el título **ANDROID2023**.
+
