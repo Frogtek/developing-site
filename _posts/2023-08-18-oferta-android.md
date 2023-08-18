@@ -41,7 +41,7 @@ Buscamos a alguien que se una a nuestro equipo de innovación para tiendas contr
 - Recomendable experiencia tratando con **código legacy** (para rastrear y solucionar bugs, para evolucionarlo o sustituirlo…)
 - Experiencia en el uso de **Material Design**, se valorará positivamente tener además **nociones de UI/UX**
 - Conocimiento de **SQL/SQLite**
-- Uso de **patrones de diseño** (MVP, MVI, MVC…)
+- Uso de **patrones de diseño** (MVP, MVI, MVC, MVVM…)
 - **Buenas prácticas**: testing automático (Roboelectric, Mockito, unit tests…), TDD, pair programming, clean code...
 - Saber **VueJS** no es necesario en absoluto, pero sí sería un buen punto a favor para poder colaborar puntualmente con el desarrollo de nuestra versión en PC.
 
