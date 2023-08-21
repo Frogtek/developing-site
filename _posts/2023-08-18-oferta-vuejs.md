@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Oferta de trabajo: Programador Web Front-end (VueJS)  (BORRADOR)'
+title: 'Oferta de trabajo: Programador Web Front-end (VueJS)  (ABIERTA)'
 date: 2023-08-21 
 author: guillermo
 show_in_jobs: true
