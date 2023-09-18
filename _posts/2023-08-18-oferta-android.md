@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 'Oferta de trabajo (España): Programador Android (Java y Kotlin) (ABIERTA)'
+title: 'Oferta de trabajo (España): Programador Android (Java y Kotlin) (CERRADA)'
 date: 2023-08-21 
 author: guillermo
-show_in_jobs: true
+show_in_jobs: false
 ---
 
 **Rol**: Programador Android (Java y Kotlin)  
