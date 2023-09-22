@@ -88,7 +88,7 @@ Para que sepas a qué tipo de retos nos enfrentamos en el día a día (hay much�
 - **Festivos flexibles**, puedes mover los festivos nacionales, regionales y locales a las fechas que más te convengan.
 - **Un proyecto disruptivo y de producto**, estamos creando desde hace 10 años un ecosistema propio de adquisición, procesado y explotación de datos inédito en el sector y que está listo para disrumpir el mercado de la inteligencia de negocio en el canal tradicional de los países emergentes.
 - **Una empresa con propósito** con un impacto social en capas desfavorecidas de la sociedad, cuantificable y cuantificado. En 2022 el uso de Tiendatek aumentó los ingresos de nuestra red de 4,000 tiendas en un total aproximado de 4 millones de dólares.
-- **Un puesto con impacto** integrado dentro de un equipo de tecnología de unas 18 personas y colaborando dentro de un pequeño equipo de inteligencia de negocio, 3-4 personas, tu trabajo e ideas se verán totalmente reflejadas en la suite de productos que ofrecemos a nuestros clientes.
+- **Un puesto con impacto** integrado dentro de un equipo de tecnología de unas 18 personas y colaborando dentro de un pequeño pero creciente equipo de inteligencia de negocio, 5-6 personas, tu trabajo e ideas se verán totalmente reflejadas en la suite de productos que ofrecemos a nuestros clientes.
 - Formar parte de un proyecto puntero a nivel mundial que está recibiendo los más altos reconocimientos (menciones en el MIT, premios de Vodafone en el NewYork Times…) con altas posibilidades de iniciar un crecimiento internacional en los próximos meses.
 - Buen ambiente.
 - Experiencia internacional y multicultural… y si te gusta viajar quizá puedas visitar México o algún otro país.
