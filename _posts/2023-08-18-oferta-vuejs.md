@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 'Oferta de trabajo (España): Programador Web Front-end (VueJS)  (ABIERTA)'
+title: 'Oferta de trabajo (España): Programador Web Front-end (VueJS)  (CERRADA)'
 date: 2023-08-21 
 author: guillermo
-show_in_jobs: true
+show_in_jobs: false
 ---
 
 **Rol**: Programador Web Front-end (VueJS)
