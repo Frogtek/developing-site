@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Oferta de trabajo (España): Programador producto BI (Python, SQL)  (BORRADOR)'
+title: 'Oferta de trabajo (España): Programador producto BI (Python, SQL)  (ABIERTA)'
 date: 2023-09-22 
 author: guillermo
 show_in_jobs: true
