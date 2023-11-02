@@ -2,6 +2,6 @@
 username: rivera
 long_name: Santiago Rivera
 avatar: /assets/authors/santiago.jpg
-active: true
+active: false
 linkedin: https://www.linkedin.com/in//
 ---
