@@ -6,11 +6,6 @@ author: guillermo
 show_in_jobs: false
 ---
 
-**Rol**: Ingeniero Back-end (Python y Django) - 100% Remoto
-**Industria**: Retail Technology  
-**Localización**: España (100% teletrabajo)  
-**Salario**: Horquilla de salida entre 30K y 40K, según experiencia
-
 **SOBRE NOSOTROS**
 
 El Grupo Frogtek es una empresa social con ánimo de lucro cuyo propósito es ayudar a los tenderos de países emergentes a escapar de la pobreza y competir en mejores condiciones. Lo hacemos, principal aunque no únicamente, ofreciendo una aplicación gratuita, [Tiendatek](https://tiendatek.info/mexico/), que el tendero puede usar para gestionar y optimizar su negocio ¡y conseguimos que aumenten sus ventas un 15% de media tras el primer año de uso! Rentabilizamos el proyecto a través de la venta de estudios de mercado basados en los datos de ventas y compras de los tenderos que almacenamos y procesamos en nuestros servidores en Google y en Amazon y que vendemos directamente a empresas fabricantes y distribuidoras a través de nuestro producto [Frogtek Analytics](https://analytics.frogtek.org/). Esto supone una total disrupción del sector de la inteligencia de negocio para el canal tradicional en mercados emergentes donde, tradicionalmente, las grandes empresas han basado sus decisiones en información incompleta adquirida manualmente, de forma mensual y agregada a nivel de producto y que, gracias a Frogtek, ahora dispone de información completa, en tiempo real y con granularidad a nivel de ticket.
