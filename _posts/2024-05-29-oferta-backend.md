@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Oferta de trabajo: Ingeniero back-end con Python y Django - 100% Remoto (BORRADOR)'
-date: 2024-03-04 
+date: 2024-05-29 
 author: guillermo
 show_in_jobs: false
 ---
