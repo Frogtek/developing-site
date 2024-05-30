@@ -1,12 +1,12 @@
 ---
 layout: post
-title: 'Oferta de trabajo: Ingeniero back-end con Python y Django - 100% Remoto (BORRADOR)'
+title: 'Oferta de trabajo: Ingeniero backend con Python y Django - 100% Remoto (BORRADOR)'
 date: 2024-05-29 
 author: guillermo
 show_in_jobs: false
 ---
 
-**Rol**: Ingeniero Back-end
+**Rol**: Ingeniero Backend
 **Industria**: Retail Technology  
 **Localización**: España (100% teletrabajo)  
 **Salario**: Horquilla de salida entre 30K y 40K, según experiencia
@@ -23,20 +23,22 @@ Para más información puedes ver esta ["reciente" entrevista de 2021 en Walqa](
  
 **¿POR QUÉ NECESITAMOS UN INGENIERO BACKEND CON PYTHON Y DJANGO?**
 
-Tiendatek es la base sobre la que levanta nuestro proyecto. Las distintas apps que conforman nuestra suite de productos para tenderos generan el impacto social que es el primer objetivo de nuestra compañía, ayudando a miles de pequeños comerciantes a escapar de la pobreza... pero no sólo eso, a su vez proporcionan la materia prima, los datos, sobre la que se construye todo el modelo de negocio de Frogtek. Por eso es importante que sigan ofreciendo una cada vez mejor propuesta de valor manteniendo una altísima calidad en la información que registran. En 2023 y 2024 estamos reforzando los equipos de Tiendatek Android y Tiendatek PC para acelerar la evolución de nuestra solución para tiendas y necesitamos una persona que se integre en la parte de back-end (con Pablo y Coke) para complementar las funcionalidades que programan nuestros equipo en Tiendatek (Luis y Gemma en la versión de PC y Pablo, Sergio, Cati y Paula en la versión Android).
+Tiendatek es la base sobre la que levanta nuestro proyecto. Las distintas apps que conforman nuestra suite de productos para tenderos generan el impacto social que es el primer objetivo de nuestra compañía, ayudando a miles de pequeños comerciantes a escapar de la pobreza... pero no sólo eso, a su vez proporcionan la materia prima, los datos, sobre la que se construye todo el modelo de negocio de Frogtek. Por eso es importante que sigan ofreciendo una cada vez mejor propuesta de valor manteniendo una altísima calidad en la información que registran. En 2023 y 2024 estamos reforzando los equipos de Tiendatek Android y Tiendatek PC para acelerar la evolución de nuestra solución para tiendas y necesitamos una persona que se integre en la parte de backend (con Pablo y Coke) para complementar las funcionalidades que programan nuestros equipos en Tiendatek (Luis y Gemma en la versión de PC y Pablo, Sergio, Cati y Paula en la versión Android).
  
 1) Durante el primer mes esperamos que seas capaz de integrarte en el equipo, conocer a tus compañeros e integrarte en nuestras rutinas y métodos de trabajo. Esperamos también que el primer mes sirva para entender muy bien cómo funcionan nuestros productos a nivel de usuario y técnicamente y realices alguna primera tarea sencilla.
  
-2) Al final del primer trimestre ya habrás ayudado a implementar la parte de back-end de varios nuevos servicios que estamos implementando en Tiendatek. El registro de pagos digitales, la devolución de productos, cosas así.
+2) Al final del primer trimestre ya habrás ayudado a implementar la parte de backend de varios nuevos servicios que estamos implementando en Tiendatek. El registro de pagos digitales, la devolución de productos, cosas así.
  
-3) Al cabo del primer año ya estarás listo para ayudar en retos más complejos: integrarás nuevos servicios digitales de terceros, crearás nuevos informes mejorados para las tiendas o, incluso, colaborarás en el desarrollo de un nuevo back-end de sincronización de datos que sustituya al que tenemos actualmente.
+3) Al cabo del primer año ya estarás listo para ayudar en retos más complejos: integrarás nuevos servicios digitales de terceros, crearás nuevos informes mejorados para las tiendas o, incluso, colaborarás en el desarrollo de un nuevo backend de sincronización de datos que sustituya al que tenemos actualmente.
  
 **¿QUÉ TIENES QUE SABER?**
 
-Éstas son algunas de las habilidades que consideramos claves para poder ser un Ingeniero Back-end (Python y Django) en Frogtek.
-- Nuestro back-end está escrito en Python, asi que esperamos que éste sea tu lenguaje de referencia.
+Éstas son algunas de las habilidades que consideramos claves para poder ser un Ingeniero Backend (Python y Django) en Frogtek.
+- Nuestro backend está escrito en Python, asi que esperamos que éste sea tu lenguaje de referencia.
 - Valoraremos que tengas experiencia en desarrollo web con Django, HTML, CSS y JavaScript, ya que es la plataforma en la que corren nuestros informes para tenderos.
-- Suma mucho tengas experiencia integrando APIs con Python (APIs de Google o APIs web en general). Sería perfecto si además ya tienes experiencia creando tus propios servicios web.
+- Suma mucho tengas experiencia integrando y administrando APIs propias o de terceros con Python.
+- También valoraremos que tengas experiencia creando APIs para servicios de autenticación, sincronización de datos, gestión de multidispositivos...
+- Trabajamos también mucho con SQL, así que necesitarás tener soltura manejando datos, consultando bases de datos y generando queries con SQL avanzado.
 - Metodológicamente nos gustaría que sepas cubrir tu código con diferentes tipos de tests automatizados y te guste el pair programming. Tener experiencia con el testing y estar acostumbrado a trabajar con él es un gran punto a favor desde nuestra perspectiva ya que todo nuestro modelo se basa en la calidad de los datos que ofrecemos.
 - Residencia en España.
  
