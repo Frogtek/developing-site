@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 'Oferta de trabajo: Ingeniero backend con Python y Django - 100% Remoto (BORRADOR)'
+title: 'Oferta de trabajo: Ingeniero backend con Python y Django - 100% Remoto (ABIERTA)'
 date: 2024-05-29 
 author: guillermo
-show_in_jobs: false
+show_in_jobs: true
 ---
 
 **Rol**: Ingeniero Backend
