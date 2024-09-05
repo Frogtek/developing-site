@@ -27,24 +27,24 @@ Tiendatek es la base sobre la que levanta nuestro proyecto. Las distintas apps q
  
 1) Durante el primer mes esperamos que seas capaz de integrarte en el equipo, conocer a tus compañeros e integrarte en nuestras rutinas y métodos de trabajo. Esperamos también que el primer mes sirva para entender muy bien cómo funcionan nuestros productos a nivel de usuario y técnicamente y realices alguna primera tarea sencilla.
  
-2) Al final del primer trimestre ya habrás ayudado a implementar la parte de backend de varios nuevos servicios que estamos implementando en Tiendatek. El registro de pagos digitales, la devolución de productos, cosas así.
+2) Al final del primer trimestre ya habrás ayudado a implementar la parte de backend de varios nuevos servicios que estamos implementando en Tiendatek: el registro de pagos digitales, la devolución de productos, cosas así. También habrás desarrollado scripts para ayudar a la parte operativa.
  
-3) Al cabo del primer año ya estarás listo para ayudar en retos más complejos: integrarás nuevos servicios digitales de terceros, crearás nuevos informes mejorados para las tiendas o, incluso, colaborarás en el desarrollo de un nuevo backend de sincronización de datos que sustituya al que tenemos actualmente.
+3) Al cabo del primer año ya estarás listo para ayudar en retos más complejos: integrarás nuevos servicios digitales de terceros, crearás nuevos informes mejorados para las tiendas y, colaborarás en el desarrollo de un nuevo backend de sincronización de datos que sustituya al que tenemos actualmente.
  
 **¿QUÉ TIENES QUE SABER?**
 
 Éstas son algunas de las habilidades que consideramos claves para poder ser un Ingeniero Backend (Python y Django) en Frogtek.
 - Nuestro backend está escrito en Python, asi que esperamos que éste sea tu lenguaje de referencia.
-- Valoraremos que tengas experiencia en desarrollo web con Django, HTML, CSS y JavaScript, ya que es la plataforma en la que corren nuestros informes para tenderos.
-- Suma mucho tengas experiencia integrando y administrando APIs propias o de terceros con Python.
-- También valoraremos que tengas experiencia creando APIs para servicios de autenticación, sincronización de datos, gestión de multidispositivos...
+- Valoraremos que tengas experiencia manteniendo y desarrollando APIs usando Django, pero no importa si ha sido con otros frameworks (FastAPI, Flask, CherryPy...)
+- También valoraremos que tengas experiencia integrando APIs de terceros en Python y que te hayas peleado con servicios de autenticación, sincronización de datos, gestión de multidispositivos…
+- Igualmente, sería positivo que hayas tenido algo de experiencia en desarrollo web con Django, ya que es la plataforma en la que corren nuestros informes para tenderos.
 - Trabajamos también mucho con SQL, así que necesitarás tener soltura manejando datos, consultando bases de datos y generando queries con SQL avanzado.
 - Metodológicamente nos gustaría que sepas cubrir tu código con diferentes tipos de tests automatizados y te guste el pair programming. Tener experiencia con el testing y estar acostumbrado a trabajar con él es un gran punto a favor desde nuestra perspectiva ya que todo nuestro modelo se basa en la calidad de los datos que ofrecemos.
 - Residencia en España.
  
 **¿QUÉ OFRECEMOS?**
 
-- Todo es negociable en función de la experiencia que tengas, pero en un principio hemos reservado para este puesto una horquilla de entre 30K€ y 40K€.
+- Todo es negociable en función de la experiencia que tengas, pero en un principio hemos reservado para este puesto una horquilla de entre 35K€ y 45K€.
 - Presupuesto para formación de 500€ anuales, para hacer cursos o acudir a eventos.
 - Elige el tipo de equipo con el que trabajarás: MacOs, Windows, Linux... todos son bienvendos.
 - Una apuesta consolidada por el teletrabajo al 100%, que no depende de pandemias, ni coyunturas… lo practicamos desde 2015 al 100% y lo hacemos todo el equipo. Sí tenemos oficina, y está en el Parque Tecnológico Walqa, en Huesca, al pie de los Pirineos. Nos vemos allí una semana al semestre.
