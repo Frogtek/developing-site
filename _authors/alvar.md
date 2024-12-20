@@ -2,6 +2,6 @@
 username: alvar
 long_name: Álvar Viana
 avatar: /assets/authors/alvar.jpg
-active: true
+active: false
 linkedin: https://www.linkedin.com/in/alvarviana/
 ---
