@@ -9,13 +9,13 @@ show_in_jobs: true
 **Rol**: Ingeniero de Seguridad / Cloud (AWS, GCP)  
 **Industria**: Retail Technology  
 **Localización**: España (remoto)  
-**Salario**: Horquilla de salida entre 35K€ y 45K€, en función de experiencia
+**Salario**: Horquilla de salida entre 33K€ y 45K€, en función de experiencia
 
 **SOBRE NOSOTROS**
 
 El Grupo Frogtek es una empresa social con ánimo de lucro cuyo propósito es ayudar a los tenderos de países emergentes a escapar de la pobreza y competir en mejores condiciones. Lo hacemos, principal aunque no únicamente, ofreciendo una aplicación gratuita, Tiendatek, que el tendero puede usar para gestionar y optimizar su negocio ¡y conseguimos que aumenten sus ventas un 15% de media tras el primer año de uso! Rentabilizamos el proyecto a través de la venta de estudios de mercado basados en los datos de ventas y compras de los tenderos que almacenamos y procesamos en nuestros servidores en Google y en Amazon y que vendemos directamente a empresas fabricantes y distribuidoras a través de nuestro producto [Frogtek Analytics](https://frogtek.org/analytics/). Esto supone una total disrupción del sector de la inteligencia de negocio para el canal tradicional en mercados emergentes donde, tradicionalmente, las grandes empresas han basado sus decisiones en información incompleta adquirida manualmente, de forma mensual y agregada a nivel de producto y que, gracias a Frogtek, ahora dispone de información completa, en tiempo real y con granularidad a nivel de ticket.
 
-Más de 6000 tiendas en México y Colombia ya se benefician del uso de Tiendatek y en 2025 25 empresas líderes globales fabricantes y distribuidores han confiado en los datos que proporcionan para mejorar su operación y su estrategia. El Grupo Frogtek es una empresa rentable que está aumentando su facturación en más de un 50% anual en los últimos años.
+Más de 6000 tiendas en México y Colombia ya se benefician del uso de Tiendatek y en 2025 25 empresas líderes globales fabricantes y distribuidores han confiado en los datos que proporcionan para mejorar su operación y su estrategia. El Grupo Frogtek es una empresa rentable que está aumentando su facturación en más de un 30% anual en los últimos años.
 
 Nuestra empresa es global y trabaja de forma distribuida. Las operaciones de venta, formación y soporte a tenderos están en México y Colombia pero la creación de tecnología se lidera desde España.
 
@@ -42,7 +42,7 @@ Además de estos desarrollos hay otras tareas que ya hemos empezado pero en las 
 
 Imprescindible:
 - Gestión de cuentas en AWS y GCP.
-- Apliación de buenas prácticas en entornos Cloud.
+- Aplicación de buenas prácticas en entornos Cloud.
 - Experiencia en implantación y operación de soluciones de seguridad (SysDig, Lacework o similares).
 - Python debe ser tu lenguaje de referencia.
 - Infraestructura como código (con Terraform o algún otro lenguaje de IaC).
@@ -54,7 +54,7 @@ También valoraremos:
 
 **¿QUÉ OFRECEMOS?**
 
-- Todo es negociable en función de la experiencia que tengas, pero en un principio hemos reservado para este puesto **una horquilla de entre 35K€ y 45€**.
+- Todo es negociable en función de la experiencia que tengas, pero en un principio hemos reservado para este puesto **una horquilla de entre 33K€ y 45€**.
 - **Presupuesto para formación** de 500€ anuales, para hacer cursos o acudir a eventos.
 - **Elige el tipo de equipo con el que trabajarás**: MacOs, Windows, Linux... todos son bienvendos.
 - **Una apuesta consolidada por el teletrabajo al 100%**, que no depende de pandemias, ni coyunturas… lo practicamos desde 2015 al 100% y lo hacemos todo el equipo. Sí tenemos oficina, y está en el Parque Tecnológico Walqa, en Huesca, al pie de los Pirineos. Nos vemos allí una semana al semestre.
@@ -69,7 +69,7 @@ También valoraremos:
 
 **¿CÓMO SERÁ EL PROCESO DE SELECCIÓN?**
 
-- Una entrevista personal de 1 hora o poco más con Guillermo, el CTO de Frogtek, y Ricardo, la personas a las que reportarás y con quienes trabajarás codo con codo.
+- Una entrevista personal de 1 hora o poco más con Guillermo, el CTO de Frogtek, y Ricardo, la persons a las que reportarás y con quien trabajarás codo con codo.
 - Una sencilla prueba offline para hacer cuando te venga mejor.
 - Una sesión de pair programming con Ricardo para revisar la prueba técnica, obtener feedback y conocer mejor a tus potenciales compañeros.
 
