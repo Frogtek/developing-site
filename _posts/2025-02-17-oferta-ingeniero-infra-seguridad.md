@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Oferta de trabajo (España): Ingeniero de Seguridad / Cloud (AWS, GCP)  (BORRADOR)'
+title: 'Oferta de trabajo (España): Ingeniero de Seguridad / Cloud (AWS, GCP)  (ABIERTA)'
 date: 2025-02-17 
 author: guillermo
 show_in_jobs: true
