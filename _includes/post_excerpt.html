@@ -11,15 +11,11 @@
     <span class="excerpt-date">{{ post.date | date_to_string }}</span>
 </div>
 <div class="excerpt-content">
-    {% if forloop.first == true or post.show_in_jobs == true %}
-        {{ post.excerpt }}
-    {% else %}
-        {% assign processed_excerpt = post.excerpt | replace: 'Rol:', '<strong>Rol:</strong>' %}
-        {% assign processed_excerpt = processed_excerpt | replace: 'Industria:', '<strong>Industria:</strong>' %}
-        {% assign processed_excerpt = processed_excerpt | replace: 'Localización:', '<strong>Localización:</strong>' %}
-        {% assign processed_excerpt = processed_excerpt | replace: 'Salario:', '<strong>Salario:</strong>' %}
-        <p>{{ processed_excerpt }}</p>
-    {% endif %}
-
+    {{ post.excerpt }}
     <div class="text-right"><a class="btn btn-primary" href="{{ post.url | relative_url }}">Leer más</a></div>
 </div>
+<style>
+    .excerpt-content img{
+        display: none
+    }
+</style>
