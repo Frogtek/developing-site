@@ -52,8 +52,3 @@ $baseurl: "{{ site.baseurl }}";
         "mixins",
         "base"
 ;
-
-.blog-post img {
-  max-width: 100%;
-  height: auto;
-}
