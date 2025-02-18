@@ -6,7 +6,7 @@ author: guillermo
 show_in_jobs: false
 ---
 
-**Rol**: Programador Android (Java y Kotlin)  
+**Rol**: Programador Android (Java y Kotlin)   
 **Industria**: Retail Technology  
 **Localización**: España (remoto)  
 **Salario**: Horquilla de salida entre 30K€ y 40K€, en función de experiencia

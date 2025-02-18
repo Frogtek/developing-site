@@ -14,7 +14,11 @@
     {% if forloop.first == true or post.show_in_jobs == true %}
         {{ post.excerpt }}
     {% else %}
-        <p>{{ post.excerpt | strip_html }}</p>
+        {% assign processed_excerpt = post.excerpt | replace: 'Rol:', '<strong>Rol:</strong>' %}
+        {% assign processed_excerpt = processed_excerpt | replace: 'Industria:', '<strong>Industria:</strong>' %}
+        {% assign processed_excerpt = processed_excerpt | replace: 'Localización:', '<strong>Localización:</strong>' %}
+        {% assign processed_excerpt = processed_excerpt | replace: 'Salario:', '<strong>Salario:</strong>' %}
+        <p>{{ processed_excerpt }}</p>
     {% endif %}
 
     <div class="text-right"><a class="btn btn-primary" href="{{ post.url | relative_url }}">Leer más</a></div>

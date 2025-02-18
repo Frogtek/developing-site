@@ -6,7 +6,7 @@ author: guillermo
 show_in_jobs: false
 ---
 
-**Rol**: Ingeniero de visualización de datos (R/Shiny, Python/Pandas, SQL)
+**Rol**: Ingeniero de visualización de datos (R/Shiny, Python/Pandas, SQL)  
 **Industria**: Retail Technology  
 **Localización**: España (remoto)  
 **Salario**: Horquilla de salida entre 24K€ y 33K€, en función de experiencia

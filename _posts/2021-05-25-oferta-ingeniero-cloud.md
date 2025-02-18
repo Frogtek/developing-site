@@ -6,7 +6,7 @@ author: guillermo
 show_in_jobs: false
 ---
 
-**Rol**: Oferta de trabajo: Ingeniero Cloud (ABIERTA)
+**Rol**: Oferta de trabajo: Ingeniero Cloud (ABIERTA)  
 **Industria**: Retail Technology  
 **Localización**: España (remoto)  
 **Salario**: Hasta 40K€, en función de experiencia
