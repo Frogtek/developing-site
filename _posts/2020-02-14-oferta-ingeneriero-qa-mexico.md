@@ -6,7 +6,7 @@ author: guillermo
 show_in_jobs: false
 ---
 
-**Rol**: Ingeniero QA
+**Rol**: Ingeniero QA  
 **Industria**: Retail Technology  
 **Localización**: México DF (40% teletrabajo)  
 **Salario**: Horquilla de salida entre 25KMXN y 30KMXN, según experiencia

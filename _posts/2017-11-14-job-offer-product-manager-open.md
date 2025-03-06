@@ -6,7 +6,7 @@ tags: []
 author: guillermo
 show_in_jobs: false
 ---
-**Role**: Product Manager  
+**Role**: Product Manager   
 **Industry**: Retail Technology  
 **Location**: México City or Spain (remote)  
 **Gross salary**: Competitive with market  
