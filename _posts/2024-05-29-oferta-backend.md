@@ -6,7 +6,7 @@ author: guillermo
 show_in_jobs: false
 ---
 
-**Rol**: Ingeniero Backend
+**Rol**: Ingeniero Backend  
 **Industria**: Retail Technology  
 **Localización**: España (100% teletrabajo)  
 **Salario**: Horquilla de salida entre 30K y 40K, según experiencia
