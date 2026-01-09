@@ -1,7 +1,7 @@
 ---
 username: sorribas
 long_name: Esteban Sorribas
-avatar: /assets/authors/sorribas.jpeg
+avatar: /assets/authors/sorribas.jpg
 active: true
 linkedin: https://www.linkedin.com/in/esorribas/
 ---
