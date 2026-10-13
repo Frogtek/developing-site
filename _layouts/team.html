@@ -15,14 +15,29 @@
             {% assign team_members = site.authors | where_exp:"item", "item.active == true" %}
             <div class="row">
                 {% for team_member in team_members %}
-                <div class="text-center col-lg-4 col-sm-6"
-                ">
+                <div class="text-center col-lg-4 col-sm-6">
                 <img class="avatar text-center" src="{{site.baseurl}}{{team_member.avatar}}"
                      alt="{{team_member.long_name}}"/>
-                <p><a target="_blank" href="{{team_member.linkedin}}">{{team_member.long_name}}</a></p>
+                <p>{% if team_member.linkedin %}<a target="_blank" href="{{team_member.linkedin}}">{{team_member.long_name}}</a>{% else %}{{team_member.long_name}}{% endif %}</p>
             </div>
             {% endfor %}
         </div>
+
+            {% assign former_members = site.authors | where_exp:"item", "item.active == false" %}
+            {% if former_members.size > 0 %}
+            <details class="hall-of-fame">
+                <summary>Hall of Fame <i class="fa fa-angle-down"></i></summary>
+                <div class="row">
+                    {% for team_member in former_members %}
+                    <div class="text-center col-lg-4 col-sm-6">
+                        <img class="avatar text-center" src="{{site.baseurl}}{{team_member.avatar}}"
+                             alt="{{team_member.long_name}}"/>
+                        <p>{% if team_member.linkedin %}<a target="_blank" href="{{team_member.linkedin}}">{{team_member.long_name}}</a>{% else %}{{team_member.long_name}}{% endif %}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </details>
+            {% endif %}
 
 
     </div>
