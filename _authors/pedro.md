@@ -1,6 +1,7 @@
 ---
 username: pedro
-long_name: Fedro Fraca
+long_name: Pedro Fraca
+avatar: /assets/authors/pedro.jpg
 active: false
 ---
 
