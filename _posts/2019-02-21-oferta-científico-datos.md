@@ -6,7 +6,7 @@ author: guillermo
 show_in_jobs: false
 ---
 
-**Rol**: Científico de datos
+**Rol**: Científico de datos  
 **Industria**: Retail Technology  
 **Localización**: Ciudad de México (parcialmente remoto)  
 **Salario**: En función de experiencia

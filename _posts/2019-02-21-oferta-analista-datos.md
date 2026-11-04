@@ -5,9 +5,9 @@ date: 2019-02-21
 author: guillermo
 show_in_jobs: false
 ---
-**Rol**: Analista de datos
-**Industria**: Retail Technology
-**Localización**: Ciudad de México (parcialmente remoto)
+**Rol**: Analista de datos  
+**Industria**: Retail Technology  
+**Localización**: Ciudad de México (parcialmente remoto)  
 **Salario**: En función de experiencia
 
 **SOBRE NOSOTROS**

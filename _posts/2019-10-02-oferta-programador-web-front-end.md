@@ -6,7 +6,7 @@ author: guillermo
 show_in_jobs: false
 ---
 
-**Rol**: Programador Web Front-end (VueJS)
+**Rol**: Programador Web Front-end (VueJS)  
 **Industria**: Retail Technology  
 **Localización**: España (remoto)  
 **Salario**: Horquilla de salida entre 27K€ y 33K€, en función de experiencia
