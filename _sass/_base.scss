@@ -297,6 +297,11 @@ img::-moz-selection {
   line-height: 1.58;
 }
 
+.blog-post img {
+  height: auto;
+  max-width: 100%;
+}
+
 .blog-index,
 .blog-tag-index {
   ul {
